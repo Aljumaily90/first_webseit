@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease; /* Smooth transition for navbar styles */
+        }
+
+        .navbar.scrolled {
+            background-color: #007bff; /* Change background when scrolled */
+            padding: 10px; /* Reduce padding when scrolled */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-hidden {
+            top: 0;
+            transition: top 0.4s ease; /* Smooth transition for navbar position */
+        }
+
+        .navbar.transparent {
+            background-color: transparent; /* Make navbar transparent */
+        }
+
+        #logo {
+            height: 60px;
+            transition: height 0.4s ease; /* Smooth transition for logo size */
+        }
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            font-size: 18px;
+            color: #000 !important; /* Set link color to black */
+            padding: 10px;
+            transition: all 0.3s ease; /* Smooth transition for link styles */
+            margin-right: 20px;
+        }
+        .navbar-nav .nav-link:hover {
+            font-size: 20px; /* Increase font size on hover */
+            color: #383535 !important; /* Change link color on hover */
+        }
+        /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
+        .et_pb_section_0 {
+            background-color: #BFEFFF; /* Dunklere Hintergrundfarbe */
+            padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
+            color: #020000; /* Textfarbe */
+            margin: 0;
+            
+        }
+
+        .et_pb_section_0 h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        .rounded-3 {
+            border-radius: 1rem; /* More rounded corners for sections */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow to make sections pop */
+        }
+        /****** kontakten**** */
+        .contact-map {
+            border: 0;
+            width: 100%;
+            height: 400px;
+            margin-bottom: 50px;
+            border-radius: 15px;
+            margin-top: -60px;
+        }
+
+        #contactForm {
+            min-height: 500px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            max-width: 80%;
+            margin: auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+        }
+
+        #contactForm::after {
+            clear: both;
+            display: block;
+            content: "";
+        }
+
+        #contactForm #contactIcon{
+            float: left;
+            width: 50%;
+        }
+
+        #contactForm .contactIcons{
+            float: right;
+            width: 70%;
+            padding: 10px;
+            margin: 0px 10px 10px 10px;
+            background-color: #8db6c2;
+            height: 136px;
+            border-radius: 5px;  
+        }
+
+        #contactForm #notice{
+            float: right;
+            width: 50%;
+            
+        }
+
+        #contactForm #notice .form-control {
+            background-color: #f1f2f3;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        #contactForm #notice .form-control:focus {
+            box-shadow: 0px 8px 16px rgba(0, 123, 255, 0.2);
+        }
+
+        #contactForm button {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contactForm button:hover {
+            background: linear-gradient(135deg, #0056b3, #004080);
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        #contactForm label {
+            font-weight: 600;
+            color: #444;
+        }
+
+        #contactForm select.form-control {
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contactIcons {
+
+            align-items: center;
+            background-color: #007bff;
+            padding: 15px;
+            border-radius: 10px;
+            color: #080000;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .contactIcons span {
+            font-size: 36px;
+            margin-right: 15px;
+        }
+        .contactIcons h4, .contactIcons h5, .contactIcons p {
+            margin: 0;
+        }         
+
+
+
+
+        /******************** Fuss *******************/
+
+        .footer a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Info Styling */
+        .footer-contact {
+            padding: 30px;
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0; /* Remove bottom margin to eliminate space */
+        }
+
+        .footer-contact p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .footer-contact img {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Footer Links Styling */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Bottom Text */
+        .footer-bottom {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+                /* Subheader Styles */
+                /* Subheader Styles */
+        #subheader {
+            background-color: #007bff; /* Ersetze durch eine beliebige Hintergrundfarbe */
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #subheader span {
+            margin: 0 10px;
+            font-weight: 600;
+           
+            padding-left: 50px;
+        }
+
+        #subheader button {
+            margin: 0 10px 0 30px;
+            font-weight: 600;
+            
+        }
+
+        #subheader button:hover {
+            font-size: 18px;
+        }
+
+        #subheader a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #subheader a:hover {
+            font-size: 18px;
+        }
+
+        #subheader button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body class="animate__animated animate__fadeIn">
+    <!-- Subheader -->
+    <div id="subheader">
+        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
+        <button>DE</button>
+    </div>
+    <!----- Navbar ---->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
+        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/about.html">Über uns</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/services.html">Dienstleistungen</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/contract.html">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+     <!-- Kontakten Section Header -->
+     <div class="et_pb_section et_pb_section_0 et_pb_with_background et_section_regular">
+        <div class="et_pb_row et_pb_row_0">
+            <div class="et_pb_column et_pb_column_4_4 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough et-last-child">
+                <div class="et_pb_module et_pb_text et_pb_text_0 et_pb_text_align_left et_pb_bg_layout_light">
+                    <div class="et_pb_text_inner ">
+                        <h1 class="display-4 fw-bold">Kontaktieren Sie uns</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div id="contact" class="p-5 bg-body-tertiary bg-light rounded-3 animate__animated animate__fadeIn">
+        <div class="container-fluid py-5 text-center">
+            <iframe class="contact-map animate__animated animate__fadeInUp" src="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU&output=embed"></iframe>
+            <form id="contactForm" class="contact-form  animate__animated animate__fadeInUp">
+                <section id="contactIcon">
+                    <div class="contactIcons">
+                        <span class="material-symbols-outlined">source_environment</span>
+                        <h4>EMAN GmbH</h4>
+
+                        <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank" style="color: #020000; text-decoration: none;">
+                            Bestattungsinstitut<br>
+                            Oberfeld 2 I 6037 Root LU</a>
+                        </p>
+                    </div>
+
+                    <div class="contactIcons">
+                        <span class="material-symbols-outlined">add_call</span>
+                        <h5><a href="tel:+41417778855" style="color: #0a0000; text-decoration: none;">+41 41 777 88 55</a></h5>
+                        <h5><a href="tel:+41797778855" style="color: #0e0000; text-decoration: none;">+41 79 777 88 55</a></h5>
+                       
+                    </div>
+                    
+                    <div class="contactIcons">
+                        <span class="material-symbols-outlined">mail</span>
+                        <h5><a href="mailto:info@eman-bestattungen.ch" style="color: #050505; text-decoration: none;">info@eman-bestattungen.ch</a></h5>
+                    </div>
+
+                </section>
+                <section id="notice">
+                        <div class="form-row mb-1">
+                            <div class="col-md-4 mb-1">
+                                <select class="form-control" id="anrede" >
+                                    <option>Herr</option>
+                                    <option>Frau</option>
+                                    <option>Andere</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group mb-1">
+                                <label for="name"></label>
+                                <input type="text" class="form-control" id="name" placeholder="Name und Vorname" required>
+                        </div>
+        
+                        <div class="form-group mb-1">
+                            <label for="email"></label>
+                            <input type="email" class="form-control" id="email" placeholder="E-Mail" required>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label for="telefon"></label>
+                            <input type="tel" class="form-control" id="telefon" rows="4" placeholder="Telefon" required>
+                        </div>
+                        <div class="form-group mb-1">
+                            <label for="nachricht"></label>
+                            <textarea class="form-control" id="nachricht" rows="4" placeholder="Nachricht" required></textarea>
+                        </div>
+                        <button class="btn btn-primary btn-lg  w-100" type="submit">Senden</button>
+                </section>
+            </form>
+
+        </div>
+    </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-contact">
+                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
+                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
+                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
+                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #00bcd4;">info@eman-bestattungen.ch</a></p>
+            </div>
+            <div class="container-fluid bg-dark text-light text-center py-3">
+                <a href="#">Impressum</a>
+                <a href="#">Datenschutzerklärung</a>
+                <a href="#">AGB</a>
+                <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+            </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS to handle scroll event -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+</body>
+</html>

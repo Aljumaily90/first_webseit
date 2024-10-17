@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar with Scroll Effect</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease; /* Smooth transition for navbar styles */
+        }
+
+        .navbar.scrolled {
+            background-color: #007bff; /* Change background when scrolled */
+            padding: 10px; /* Reduce padding when scrolled */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-hidden {
+            top: 0;
+            transition: top 0.4s ease; /* Smooth transition for navbar position */
+        }
+
+        .navbar.transparent {
+            background-color: transparent; /* Make navbar transparent */
+        }
+
+        #logo {
+            height: 60px;
+            transition: height 0.4s ease; /* Smooth transition for logo size */
+        }
+
+
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            font-size: 18px;
+            color: #000 !important; /* Set link color to black */
+            padding: 10px;
+            transition: all 0.3s ease; /* Smooth transition for link styles */
+            margin-right: 20px;
+        }
+
+
+        .navbar-nav .nav-link:hover {
+            font-size: 20px; /* Increase font size on hover */
+            color: #383535 !important; /* Change link color on hover */
+        }
+
+
+        /***** Home *******/
+        .section {
+            padding: 60px 0; /* Add padding to sections */
+        }
+
+        .section-1 {
+            background-image: url("/image/H_Bild.jpg"); /* Test image to check if the background works */
+            background-size: cover; /* Ensure the image covers the entire area */
+            background-position: center; /* Center the image */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            min-height: 700px; /* Ensure the section has enough height to display the background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
+            animation: fadeIn 2s; /* Add fade-in animation */
+        }
+        .section-2{
+            background: linear-gradient(135deg, #f8f9fa, #e0e0e0);
+
+        }
+        
+
+        .bg-light {
+            background-color: #f8f9fa !important; /* Light background color */
+        }
+
+                
+        .rounded-3 {
+            border-radius: 1rem; /* More rounded corners for sections */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow to make sections pop */
+        }
+
+        p.fs-4 {
+            font-size: 1.4rem;
+            line-height: 1.8; /* Increase line height for better readability */
+            color: #333; /* Darker text color */
+            margin-bottom: 20px; /* Add margin to paragraphs */}
+
+        /* Call-To-Action Button Stile */
+        .btn-cta {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: #ffffff;
+            font-weight: 700;
+            padding: 15px 40px;
+            border-radius: 10px;
+            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-cta:hover {
+            background: linear-gradient(135deg, #f19328, #003d80);
+            box-shadow: 0px 12px 20px rgba(5, 5, 5, 0.25);
+            color: white;
+        }
+        /******************** Fuss *******************/
+
+        .footer a {
+            color: #ffffff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Info Styling */
+        .footer-contact {
+            padding: 30px;
+            background-color: #343a40;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0; /* Remove bottom margin to eliminate space */
+        }
+
+        .footer-contact p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .footer-contact img {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        /* Footer Links Styling */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Bottom Text */
+        .footer-bottom {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        #subheader {
+            background-color: #007bff; /* Ersetze durch eine beliebige Hintergrundfarbe */
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #subheader span {
+            margin: 0 10px;
+            font-weight: 600;
+           
+            padding-left: 50px;
+        }
+
+        #subheader button {
+            margin: 0 10px 0 30px;
+            font-weight: 600;
+            
+        }
+
+        #subheader button:hover {
+            font-size: 18px;
+        }
+
+        #subheader a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #subheader a:hover {
+            font-size: 18px;
+        }
+
+        #subheader button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body class="animate__animated animate__fadeIn">
+    <!-- Subheader -->
+    <div id="subheader">
+        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
+        <button>DE</button>
+    </div>
+    <!----- Navbar ---->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
+        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/about.html">Über uns</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/services.html">Dienstleistungen</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/contract.html">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <div class="p-5 bg-body-tertiary section-1 rounded-3">
+            <div class="container-fluid py-5 ">
+              <h1 class="display-5 fw-bold saying animate__animated animate__fadeInDown">Gemeinsam meistern wir  <br> auch die schweren Zeiten</h1>
+            </div>
+        </div>
+        <div class="p-5 bg-body-tertiary section-2 rounded-3">
+            <div class="container-fluid py-5 text-center">
+              <h1 class="display-5 fw-bold animate__animated animate__fadeInUp">إِنَّا لِلَِّهِ وَإِنَّا إِلَِيْهِ رَاجِعون</h1>
+              <p class="fs-4 animate__animated animate__fadeIn">Verily we belong to Allah, and verily to Him do we return.</p>
+            </div>
+            <div class="text-center mt-5">
+                <a href="/html/contract.html" class="btn btn-cta">Kontaktieren Sie uns</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+    <footer>
+            <div class="footer-contact">
+                <h2>EMAN Bestattungen</h2>
+                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
+                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
+                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
+                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #537c9e;">info@eman-bestattungen.ch</a></p>
+            </div>
+            <div class="container-fluid bg-dark text-light text-center py-3">
+                <a href="#">Impressum |</a>
+                <a href="#">Datenschutzerklärung |</a>
+                <a href="#">AGB</a>
+                <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+            </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS to handle scroll event -->
+    <script src="/main.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+</body>
+</html>
