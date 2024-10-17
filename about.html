@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        /* Consistent Color Theme */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #595d61;
+            --light-color: #ffffff;
+            --dark-color: #020000;
+            --accent-color: #39b9e0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: var(--light-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--primary-color);
+            padding: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-hidden {
+            top: 0;
+            transition: top 0.4s ease;
+        }
+
+        .navbar.transparent {
+            background-color: transparent;
+        }
+
+        #logo {
+            height: 60px;
+            transition: height 0.4s ease;
+        }
+
+        /* Navigation Link Styles */
+        .navbar-nav .nav-link {
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--dark-color) !important;
+            padding: 10px;
+            transition: all 0.3s ease;
+            margin-right: 20px;
+        }
+
+        .navbar-nav .nav-link:hover {
+            font-size: 20px;
+            color: #383535 !important;
+        }
+
+        /* Section Header Styles */
+        .et_pb_section_0 {
+            background-color: #d2d3d4;
+            padding: 140px 0 20px 10px;
+            color: var(--dark-color);
+            margin: 0;
+        }
+
+        .et_pb_section_0 h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        #about {
+            background: linear-gradient(135deg, var(--light-color), #e9ecef);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+            margin: 20px auto;
+        }
+
+        #about:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
+        .about-content {
+            background: linear-gradient(135deg, #ffffff, #e9ecef);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+        .about-content:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+        }
+
+        /* Footer Styles */
+        .footer a {
+            color: var(--light-color);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-contact {
+            padding: 30px;
+            background-color: var(--secondary-color);
+            color: var(--light-color);
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .footer-contact p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .footer-contact img {
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .footer-bottom {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Subheader Styles */
+        #subheader {
+            background-color: var(--accent-color);
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1050;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #subheader span {
+            margin: 0 10px;
+            font-weight: 600;
+            color: var(--dark-color);
+            padding-left: 50px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--light-color);
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        #subheader a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #subheader a:hover {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body class="animate__animated animate__fadeIn">
+    <!-- Subheader -->
+    <div id="subheader">
+        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
+        <div class="dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
+            <div class="dropdown-content">
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TÜ</a>
+            </div>
+        </div>
+    </div>
+    <!----- Navbar ---->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
+        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html" data-key="home">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Über uns Section Header -->
+    <div class="et_pb_section et_pb_section_0 et_pb_with_background et_section_regular">
+        <div class="et_pb_row et_pb_row_0">
+            <div class="et_pb_column et_pb_column_4_4 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough et-last-child">
+                <div class="et_pb_module et_pb_text et_pb_text_0 et_pb_text_align_left et_pb_bg_layout_light">
+                    <div class="et_pb_text_inner ">
+                        <h1 class="display-4 fw-bold" data-key="about_title">Über uns</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="about" class="card animate__animated animate__fadeInUp" style="max-width: 900px;">
+        <div class="row g-0">
+          <div class="col-md-4" style="padding-top: 40px;">
+            <img src="/image/About.jpg" class="img-fluid rounded-start" alt="About Ivati Bestattungen">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title" data-key="about_title">Über uns</h5>
+              <p class="card-text about-content" data-key="about_content_1">Wir sind ein muslimisches Bestattungsinstitut, das es sich zur Aufgabe gemacht hat, Ihnen in schwierigen Zeiten beizustehen und einen würdevollen Abschied nach islamischen Traditionen zu ermöglichen. Gegründet von erfahrenen muslimischen Bestattern, die auf viele Jahre Praxis zurückblicken, vereinen wir tiefes Verständnis für religiöse und kulturelle Bedürfnisse mit professioneller Betreuung.</p>
+              <p class="card-text about-content" data-key="about_content_2">Unser Team steht Ihnen nicht nur bei allen Fragen und Anliegen rund um die islamische Bestattung zur Seite, sondern wir arbeiten auch eng mit Schweizer Behörden zusammen, um einen reibungslosen Ablauf der notwendigen Formalitäten zu gewährleisten. Darüber hinaus pflegen wir internationale Zusammenarbeit mit ausländischen Behörden wie Konsulaten, Botschaften sowie Unternehmen im Ausland, um auch über die Grenzen hinaus einen respektvollen und rechtskonformen Bestattungsprozess sicherzustellen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!----- Footer ----->
+    <footer>
+            <div class="footer-contact">
+                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
+                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
+                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
+                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: var(--accent-color);">info@eman-bestattungen.ch</a></p>
+            </div>
+            <div class="container-fluid text-light text-center py-3" style="background-color: var(--dark-color);">
+                <a href="#" data-key="impressum">Impressum</a>
+                <a href="#" data-key="privacy">Datenschutzerklärung</a>
+                <a href="#" data-key="terms">AGB</a>
+                <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+            </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom JS to handle language switching -->
+    <script>
+        const translations = {
+            de: {
+                home: "Home",
+                about: "Über uns",
+                services: "Dienstleistungen",
+                contact: "Kontakt",
+                about_title: "Über uns",
+                about_content_1: "Wir sind ein muslimisches Bestattungsinstitut, das es sich zur Aufgabe gemacht hat, Ihnen in schwierigen Zeiten beizustehen und einen würdevollen Abschied nach islamischen Traditionen zu ermöglichen. Gegründet von erfahrenen muslimischen Bestattern, die auf viele Jahre Praxis zurückblicken, vereinen wir tiefes Verständnis für religiöse und kulturelle Bedürfnisse mit professioneller Betreuung.",
+                about_content_2: "Unser Team steht Ihnen nicht nur bei allen Fragen und Anliegen rund um die islamische Bestattung zur Seite, sondern wir arbeiten auch eng mit Schweizer Behörden zusammen, um einen reibungslosen Ablauf der notwendigen Formalitäten zu gewährleisten. Darüber hinaus pflegen wir internationale Zusammenarbeit mit ausländischen Behörden wie Konsulaten, Botschaften sowie Unternehmen im Ausland, um auch über die Grenzen hinaus einen respektvollen und rechtskonformen Bestattungsprozess sicherzustellen.",
+                impressum: "Impressum",
+                privacy: "Datenschutzerklärung",
+                terms: "AGB"
+            },
+            en: {
+                home: "Home",
+                about: "About Us",
+                services: "Services",
+                contact: "Contact",
+                about_title: "About Us",
+                about_content_1: "We are a Muslim funeral home dedicated to supporting you in difficult times and ensuring a dignified farewell according to Islamic traditions. Founded by experienced Muslim funeral directors with many years of practice, we combine a deep understanding of religious and cultural needs with professional care.",
+                about_content_2: "Our team is here to assist you not only with all questions and concerns regarding Islamic funerals but also works closely with Swiss authorities to ensure a smooth process for necessary formalities. Furthermore, we maintain international cooperation with foreign authorities such as consulates, embassies, and companies abroad to ensure a respectful and lawful funeral process beyond borders.",
+                impressum: "Imprint",
+                privacy: "Privacy Policy",
+                terms: "Terms and Conditions"
+            },
+            tr: {
+                home: "Ana Sayfa",
+                about: "Hakkımızda",
+                services: "Hizmetler",
+                contact: "İletişim",
+                about_title: "Hakkımızda",
+                about_content_1: "Biz, zor zamanlarda yanınızda olmak ve İslami geleneklere uygun onurlu bir veda sağlamayı kendine görev edinmiş bir Müslüman cenaze eviyiz. Uzun yıllara dayanan deneyime sahip Müslüman cenaze görevlileri tarafından kurulan kurumumuz, dini ve kültürel ihtiyaçlara derin bir anlayışla profesyonel hizmet sunmaktadır.",
+                about_content_2: "Ekibimiz, İslami cenaze işlemleriyle ilgili tüm soru ve taleplerinizde yanınızda olmanın yanı sıra, gerekli resmi işlemlerin sorunsuz bir şekilde gerçekleştirilmesi için İsviçre makamlarıyla da yakın işbirliği içinde çalışmaktadır. Ayrıca, sınırların ötesinde de saygılı ve yasal bir cenaze sürecini sağlamak için konsolosluklar, büyükelçilikler ve yurtdışındaki şirketler gibi yabancı makamlarla uluslararası işbirliğimizi sürdürmekteyiz.",
+                impressum: "Künye",
+                privacy: "Gizlilik Politikası",
+                terms: "Şartlar ve Koşullar"
+            }
+        };
+
+        function setLanguage(language) {
+            document.getElementById('selected-language').textContent = language.toUpperCase();
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+        }
+    </script>
+</body>
+</html>
