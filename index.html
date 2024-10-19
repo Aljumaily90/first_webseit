@@ -11,10 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon"> <!-- Favicon Placeholder -->
+
     <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #595d61;
+            --light-color: #ffffff;
+            --dark-color: #020000;
+            --accent-color: #39b9e0;
+        }
         /* Navbar Styles */
         .navbar {
-            background-color: #ffffff;
+            background-color: var(--light-color);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease; /* Smooth transition for navbar styles */
         }
@@ -161,8 +170,9 @@
             font-size: 14px;
             margin-top: 10px;
         }
+                /* Subheader Styles */
         #subheader {
-            background-color: #007bff; /* Ersetze durch eine beliebige Hintergrundfarbe */
+            background-color: #405d64;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -176,22 +186,41 @@
         #subheader span {
             margin: 0 10px;
             font-weight: 600;
-           
+            color: #afc0c5;
             padding-left: 50px;
         }
 
-        #subheader button {
-            margin: 0 10px 0 30px;
-            font-weight: 600;
-            
+        .dropdown {
+            position: relative;
         }
 
-        #subheader button:hover {
-            font-size: 18px;
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--light-color);
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
         }
 
         #subheader a {
-            color: black;
+            color: #afc0c5;
             text-decoration: none;
             font-weight: 600;
         }
@@ -199,11 +228,10 @@
         #subheader a:hover {
             font-size: 18px;
         }
-
-        #subheader button {
-            border: none;
-            background: none;
-            cursor: pointer;
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
         }
 
     </style>
@@ -211,9 +239,16 @@
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
     <div id="subheader">
-        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
-        <button>DE</button>
+        <div class="dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selectedLanguage">DE</span>
+            <div class="dropdown-content">
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
+            </div>
+        </div>
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
@@ -224,48 +259,48 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home</a>
+                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/about.html">Über uns</a>
+                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/services.html">Dienstleistungen</a>
+                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/contract.html">Kontakt</a>
+                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
                 </li>
             </ul>
         </div>
     </nav>
         <div class="p-5 bg-body-tertiary section-1 rounded-3">
             <div class="container-fluid py-5 ">
-              <h1 class="display-5 fw-bold saying animate__animated animate__fadeInDown">Gemeinsam meistern wir  <br> auch die schweren Zeiten</h1>
+              <h1 class="display-5 fw-bold saying animate__animated animate__fadeInDown" data-key="saying">Gemeinsam meistern wir  <br> auch die schweren Zeiten</h1>
             </div>
         </div>
         <div class="p-5 bg-body-tertiary section-2 rounded-3">
             <div class="container-fluid py-5 text-center">
-              <h1 class="display-5 fw-bold animate__animated animate__fadeInUp">إِنَّا لِلَِّهِ وَإِنَّا إِلَِيْهِ رَاجِعون</h1>
-              <p class="fs-4 animate__animated animate__fadeIn">Verily we belong to Allah, and verily to Him do we return.</p>
+                <h1 class="display-5 fw-bold animate__animated animate__fadeInUp">إِنَّا لِلَِّهِ وَإِنَّا إِلَِيْهِ رَاجِعون</h1>
+                <p class="fs-4 animate__animated animate__fadeIn" data-key="verse">Verily we belong to Allah, and verily to Him do we return.</p>
             </div>
             <div class="text-center mt-5">
-                <a href="/html/contract.html" class="btn btn-cta">Kontaktieren Sie uns</a>
+                <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
             </div>
         </div>
 
         <!-- Footer -->
     <footer>
             <div class="footer-contact">
-                <h2>EMAN Bestattungen</h2>
+                <h2>Eman Bestattungen GmbH</h2>
                 <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
                 <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
                 <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
                 <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #537c9e;">info@eman-bestattungen.ch</a></p>
             </div>
             <div class="container-fluid bg-dark text-light text-center py-3">
-                <a href="#">Impressum |</a>
-                <a href="#">Datenschutzerklärung |</a>
-                <a href="#">AGB</a>
+                <a href="#" data-key="impressum">Impressum |</a>
+                <a href="#" data-key="privacy">Datenschutzerklärung |</a>
+                <a href="#" data-key="terms">AGB</a>
                 <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
             </div>
     </footer>
@@ -278,6 +313,58 @@
     <!-- Custom JS to handle scroll event -->
     <script src="/main.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        const translations = {
+            de: {
+                home: "Home",
+                about: "Über uns",
+                services: "Dienstleistungen",
+                contact: "Kontakt",
+                impressum: "Impressum",
+                privacy: "Datenschutzerklärung",
+                terms: "AGB",
+                saying: "Gemeinsam meistern wir  <br> auch die schweren Zeiten",
+                verse: "Verily we belong to Allah, and verily to Him do we return.",
+                contactUs: "Kontaktieren Sie uns"
+            },
+            en: {
+                home: "Home",
+                about: "About Us",
+                services: "Services",
+                contact: "Contact",
+                impressum: "Imprint",
+                privacy: "Privacy Policy",
+                terms: "Terms and Conditions",
+                saying: "Together we will get through even the tough times",
+                verse: "Verily we belong to Allah, and verily to Him do we return.",
+                contactUs: "Contact Us"
+            },
+            tr: {
+                home: "Ana Sayfa",
+                about: "Hakkımızda",
+                services: "Hizmetler",
+                contact: "İletişim",
+                impressum: "Künye",
+                privacy: "Gizlilik Politikası",
+                terms: "Şartlar ve Koşullar",
+                saying: "Birlikte zor zamanların üstesinden geleceğiz",
+                verse: "Muhakkak ki biz Allah'a aidiz ve muhakkak ki ona döneceğiz.",
+                contactUs: "Bizimle İletişime Geçin"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll("[data-key]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            document.getElementById("selectedLanguage").textContent = lang.toUpperCase();
+        }
+  </script>
+
 
 
 </body>
