@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <style>
         /******** Navbar Styles ********/
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #595d61;
+            --light-color: #ffffff;
+            --dark-color: #020000;
+            --accent-color: #39b9e0;
+        }
     
         .navbar {
             background-color: #ffffff;
@@ -57,9 +64,9 @@
         }
         /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
         .et_pb_section_0 {
-            background-color: #d2d3d4; /* Dunklere Hintergrundfarbe */
+            background-color: #F5ECCE; /* Dunklere Hintergrundfarbe */
             padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
-            color: #020000; /* Textfarbe */
+            color: #afc0c5; /* Textfarbe */
             margin: 0;
             
         }
@@ -202,8 +209,9 @@
             margin-top: 10px;
         }
 
+        /* Subheader Styles */
         #subheader {
-            background-color: #007bff; /* Ersetze durch eine beliebige Hintergrundfarbe */
+            background-color: #405d64;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -217,22 +225,41 @@
         #subheader span {
             margin: 0 10px;
             font-weight: 600;
-           
+            color: #afc0c5;
             padding-left: 50px;
         }
 
-        #subheader button {
-            margin: 0 10px 0 30px;
-            font-weight: 600;
-            
+        .dropdown {
+            position: relative;
         }
 
-        #subheader button:hover {
-            font-size: 18px;
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--light-color);
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
         }
 
         #subheader a {
-            color: black;
+            color: #afc0c5;
             text-decoration: none;
             font-weight: 600;
         }
@@ -240,11 +267,10 @@
         #subheader a:hover {
             font-size: 18px;
         }
-
-        #subheader button {
-            border: none;
-            background: none;
-            cursor: pointer;
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
         }
 
     </style>
@@ -252,29 +278,36 @@
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
     <div id="subheader">
-        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
-        <button>DE</button>
+        <div class="dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
+            <div class="dropdown-content">
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
+            </div>
+        </div>
     </div>
-    <!----- Navbar ---->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 50px;">
+        <img id="logo" src="/image/logo.jpg" alt="logo">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home</a>
+                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/about.html">Über uns</a>
+                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/services.html">Dienstleistungen</a>
+                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/contract.html">Kontakt</a>
+                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
                 </li>
             </ul>
         </div>
@@ -285,84 +318,85 @@
             <div class="et_pb_column et_pb_column_4_4 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough et-last-child">
                 <div class="et_pb_module et_pb_text et_pb_text_0 et_pb_text_align_left et_pb_bg_layout_light">
                     <div class="et_pb_text_inner ">
-                        <h1 class="display-4 fw-bold">Unsere Dienstleistungen</h1>
+                        <h1 class="display-4 fw-bold" data-key="services-title">Unsere Dienstleistungen</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Dienstleistungen Section -->
-    <section id="services" class="container-fluid">
+        <!-- Dienstleistungen Section -->
+        <section id="services" class="container-fluid">
             <div class="intro-section text-center mb-5">
-                <p class="fs-4">Wir bieten Ihnen eine umfassende Betreuung und stehen Ihnen in allen Phasen des Abschieds zur Seite. Dabei legen wir besonderen Wert darauf, alle islamischen Vorgaben zu respektieren und Ihre individuellen Wünsche zu berücksichtigen.</p>
+                <p class="fs-4" data-key="services-intro">Wir bieten Ihnen eine umfassende Betreuung und stehen Ihnen in allen Phasen des Abschieds zur Seite. Dabei legen wir besonderen Wert darauf, alle islamischen Vorgaben zu respektieren und Ihre individuellen Wünsche zu berücksichtigen.</p>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">support_agent</span>
-                            <h5>1. Beratung und Unterstützung</h5>
-                            <p>Wir stehen Ihnen von Anfang an mit Rat und Tat zur Seite und helfen Ihnen bei allen Fragen, die rund um die Bestattung aufkommen. Dazu gehören auch behördliche Abläufe und die Vorbereitung der nötigen Dokumente. Gemeinsam finden wir den besten Weg, um den Abschied nach den islamischen Vorschriften zu gestalten.</p>
+                            <h5 data-key="service1-title">1. Beratung und Unterstützung</h5>
+                            <p data-key="service1-desc">Wir stehen Ihnen von Anfang an mit Rat und Tat zur Seite und helfen Ihnen bei allen Fragen, die rund um die Bestattung aufkommen. Dazu gehören auch behördliche Abläufe und die Vorbereitung der nötigen Dokumente. Gemeinsam finden wir den besten Weg, um den Abschied nach den islamischen Vorschriften zu gestalten.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">local_shipping</span>
-                            <h5>2. Überführung des Verstorbenen</h5>
-                            <p>Wir kümmern uns um die Überführung des Verstorbenen, sei es innerhalb der Schweiz oder ins Ausland. Dank unserer Zusammenarbeit mit Schweizer Behörden und internationalen Institutionen wie Konsulaten und Botschaften stellen wir sicher, dass alle rechtlichen und religiösen Anforderungen erfüllt werden.</p>
+                            <h5 data-key="service2-title">2. Überführung des Verstorbenen</h5>
+                            <p data-key="service2-desc">Wir kümmern uns um die Überführung des Verstorbenen, sei es innerhalb der Schweiz oder ins Ausland. Dank unserer Zusammenarbeit mit Schweizer Behörden und internationalen Institutionen wie Konsulaten und Botschaften stellen wir sicher, dass alle rechtlichen und religiösen Anforderungen erfüllt werden.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">clean_hands</span>
-                            <h5>3. Rituelle Waschung (Ghusl)</h5>
-                            <p>Die rituelle Waschung des Verstorbenen ist ein zentraler Bestandteil der islamischen Bestattung. Unser erfahrenes Team führt diese in Übereinstimmung mit den islamischen Regeln durch, immer mit größter Sorgfalt und Respekt.</p>
+                            <h5 data-key="service3-title">3. Rituelle Waschung (Ghusl)</h5>
+                            <p data-key="service3-desc">Die rituelle Waschung des Verstorbenen ist ein zentraler Bestandteil der islamischen Bestattung. Unser erfahrenes Team führt diese in Übereinstimmung mit den islamischen Regeln durch, immer mit größter Sorgfalt und Respekt.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">emoji_people</span>
-                            <h5>4. Totengebet (Salat al-Janazah)</h5>
-                            <p>Wir organisieren das Totengebet in der Moschee oder am Ort der Beisetzung und sorgen dafür, dass alle wichtigen Schritte beachtet werden. Auf Wunsch helfen wir auch bei der Planung und Koordination mit religiösen Führungspersönlichkeiten.</p>
+                            <h5 data-key="service4-title">4. Totengebet (Salat al-Janazah)</h5>
+                            <p data-key="service4-desc">Wir organisieren das Totengebet in der Moschee oder am Ort der Beisetzung und sorgen dafür, dass alle wichtigen Schritte beachtet werden. Auf Wunsch helfen wir auch bei der Planung und Koordination mit religiösen Führungspersönlichkeiten.</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 mb-4 " style="padding-top: 10px;">
+                    <div class="col-lg-4 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">account_balance</span>
-                            <h5>5. Beisetzung</h5>
-                            <p>Ob in der Schweiz oder im Ausland – wir kümmern uns um die gesamte Organisation der Beisetzung. Dabei achten wir darauf, dass alle rechtlichen und religiösen Vorgaben eingehalten werden. Bei Beisetzungen im Ausland unterstützen wir Sie bei der Kommunikation mit ausländischen Behörden und Unternehmen.</p>
+                            <h5 data-key="service5-title">5. Beisetzung</h5>
+                            <p data-key="service5-desc">Ob in der Schweiz oder im Ausland – wir kümmern uns um die gesamte Organisation der Beisetzung. Dabei achten wir darauf, dass alle rechtlichen und religiösen Vorgaben eingehalten werden. Bei Beisetzungen im Ausland unterstützen wir Sie bei der Kommunikation mit ausländischen Behörden und Unternehmen.</p>
                         </div>
                     </div>
                     <div class="col-lg-4 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">description</span>
-                            <h5>6. Sterbeurkunden / Dokumentenmanagement</h5>
-                            <p>Wir unterstützen Sie bei der Beantragung aller notwendigen Dokumente, einschließlich der Sterbeurkunde. Unsere enge Zusammenarbeit mit den Schweizer Behörden sowie internationalen Konsulaten und Botschaften ermöglicht es uns, diesen Prozess schnell und effizient abzuwickeln.</p>
+                            <h5 data-key="service6-title">6. Sterbeurkunden und Dokumentenmanagement</h5>
+                            <p data-key="service6-desc">Wir unterstützen Sie bei der Beantragung aller notwendigen Dokumente, einschließlich der Sterbeurkunde. Unsere enge Zusammenarbeit mit den Schweizer Behörden sowie internationalen Konsulaten und Botschaften ermöglicht es uns, diesen Prozess schnell und effizient abzuwickeln.</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a href="/html/contract.html" class="btn btn-cta">Kontaktieren Sie uns</a>
+                <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
             </div>
-    </section>
+        </section>
 
     <!-- Footer -->
-        <!-- Footer -->
-        <footer>
-            <div class="footer-contact">
-                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
-                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
-                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
-                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #00bcd4;">info@eman-bestattungen.ch</a></p>
-            </div>
-            <div class="container-fluid bg-dark text-light text-center py-3">
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutzerklärung</a>
-                <a href="#">AGB</a>
-                <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
-            </div>
+    <footer>
+        <div class="footer-contact">
+            <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
+            <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
+            <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
+            <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #00bcd4;">info@eman-bestattungen.ch</a></p>
+        </div>
+        <div class="footer-links">
+            <a href="#" data-key="impressum">Impressum</a>
+            <a href="#" data-key="privacy">Datenschutzerklärung</a>
+            <a href="#" data-key="terms">AGB</a>
+        </div>
+        <div class="container-fluid text-center footer-bottom">
+            <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
@@ -380,6 +414,91 @@
                 });
             });
         });
+        const translations = {
+            de: {
+                home: "Home",
+                about: "Über uns",
+                services: "Dienstleistungen",
+                contact: "Kontakt",
+                impressum: "Impressum",
+                privacy: "Datenschutzerklärung",
+                terms: "AGB",
+                "services-title": "Unsere Dienstleistungen",
+                "services-intro": "Wir bieten Ihnen eine umfassende Betreuung und stehen Ihnen in allen Phasen des Abschieds zur Seite. Dabei legen wir besonderen Wert darauf, alle islamischen Vorgaben zu respektieren und Ihre individuellen Wünsche zu berücksichtigen.",
+                "service1-title": "1. Beratung und Unterstützung",
+                "service1-desc": "Wir stehen Ihnen von Anfang an mit Rat und Tat zur Seite und helfen Ihnen bei allen Fragen, die rund um die Bestattung aufkommen. Dazu gehören auch behördliche Abläufe und die Vorbereitung der nötigen Dokumente. Gemeinsam finden wir den besten Weg, um den Abschied nach den islamischen Vorschriften zu gestalten.",
+                "service2-title": "2. Überführung des Verstorbenen",
+                "service2-desc": "Wir kümmern uns um die Überführung des Verstorbenen, sei es innerhalb der Schweiz oder ins Ausland. Dank unserer Zusammenarbeit mit Schweizer Behörden und internationalen Institutionen wie Konsulaten und Botschaften stellen wir sicher, dass alle rechtlichen und religiösen Anforderungen erfüllt werden.",
+                "service3-title": "3. Rituelle Waschung (Ghusl)",
+                "service3-desc": "Die rituelle Waschung des Verstorbenen ist ein zentraler Bestandteil der islamischen Bestattung. Unser erfahrenes Team führt diese in Übereinstimmung mit den islamischen Regeln durch, immer mit größter Sorgfalt und Respekt.",
+                "service4-title": "4. Totengebet (Salat al-Janazah)",
+                "service4-desc": "Wir organisieren das Totengebet in der Moschee oder am Ort der Beisetzung und sorgen dafür, dass alle wichtigen Schritte beachtet werden. Auf Wunsch helfen wir auch bei der Planung und Koordination mit religiösen Führungspersönlichkeiten.",
+                "service5-title": "5. Beisetzung",
+                "service5-desc": "Ob in der Schweiz oder im Ausland – wir kümmern uns um die gesamte Organisation der Beisetzung. Dabei achten wir darauf, dass alle rechtlichen und religiösen Vorgaben eingehalten werden. Bei Beisetzungen im Ausland unterstützen wir Sie bei der Kommunikation mit ausländischen Behörden und Unternehmen.",
+                "service6-title": "6. Sterbeurkunden und Dokumentenmanagement",
+                "service6-desc": "Wir unterstützen Sie bei der Beantragung aller notwendigen Dokumente, einschließlich der Sterbeurkunde. Unsere enge Zusammenarbeit mit den Schweizer Behörden sowie internationalen Konsulaten und Botschaften ermöglicht es uns, diesen Prozess schnell und effizient abzuwickeln.",
+                "contact-us": "Kontaktieren Sie uns"
+            },
+            en: {
+                home: "Home",
+                about: "About Us",
+                services: "Services",
+                contact: "Contact",
+                impressum: "Imprint",
+                privacy: "Privacy Policy",
+                terms: "Terms and Conditions",
+                "services-title": "Our Services",
+                "services-intro": "We offer you comprehensive support and stand by your side during all phases of saying goodbye. We place special emphasis on respecting all Islamic guidelines and considering your individual wishes.",
+                "service1-title": "1. Consultation and Support",
+                "service1-desc": "We assist you from the beginning with advice and support and help you with all questions related to the funeral. This also includes administrative procedures and the preparation of necessary documents. Together we find the best way to organize the farewell according to Islamic guidelines.",
+                "service2-title": "2. Transportation of the Deceased",
+                "service2-desc": "We take care of the transportation of the deceased, whether within Switzerland or abroad. Thanks to our cooperation with Swiss authorities and international institutions such as consulates and embassies, we ensure that all legal and religious requirements are met.",
+                "service3-title": "3. Ritual Washing (Ghusl)",
+                "service3-desc": "The ritual washing of the deceased is a central part of the Islamic funeral. Our experienced team performs this in accordance with Islamic rules, always with the utmost care and respect.",
+                "service4-title": "4. Funeral Prayer (Salat al-Janazah)",
+                "service4-desc": "We organize the funeral prayer in the mosque or at the burial site and ensure that all important steps are followed. Upon request, we also help with planning and coordination with religious leaders.",
+                "service5-title": "5. Burial",
+                "service5-desc": "Whether in Switzerland or abroad - we take care of the entire organization of the burial. We ensure that all legal and religious requirements are met. For burials abroad, we support you in communicating with foreign authorities and companies.",
+                "service6-title": "6. Death Certificates and Document Management",
+                "service6-desc": "We assist you in obtaining all necessary documents, including the death certificate. Our close cooperation with Swiss authorities as well as international consulates and embassies enables us to handle this process quickly and efficiently.",
+                "contact-us": "Contact Us"
+            },
+            tr: {
+                home: "Ana Sayfa",
+                about: "Hakkımızda",
+                services: "Hizmetler",
+                contact: "İletişim",
+                impressum: "Künye",
+                privacy: "Gizlilik Politikası",
+                terms: "Şartlar ve Koşullar",
+                "services-title": "Hizmetlerimiz",
+                "services-intro": "Size kapsamlı bir destek sunuyor ve vedanın her aşamasında yanınızda duruyoruz. İslami kurallara saygı göstermeye ve bireysel isteklerinizi dikkate almaya özellikle önem veriyoruz.",
+                "service1-title": "1. Danışmanlık ve Destek",
+                "service1-desc": "Başlangıçtan itibaren size danışmanlık ve destek sağlıyor ve cenaze ile ilgili tüm sorularda size yardımcı oluyoruz. Buna idari işlemler ve gerekli belgelerin hazırlanması da dahildir. Veda sürecini İslami kurallara uygun bir şekilde düzenlemenin en iyi yolunu birlikte buluyoruz.",
+                "service2-title": "2. Cenaze Nakliyesi",
+                "service2-desc": "Cenazenin nakliyesini, İsviçre içinde veya yurtdışına, biz üstleniyoruz. İsviçre makamları ve konsolosluklar gibi uluslararası kurumlarla işbirliğimiz sayesinde, tüm yasal ve dini gereksinimlerin karşılandığından emin oluyoruz.",
+                "service3-title": "3. Ritüel Yıkama (Gusül)",
+                "service3-desc": "Cenazenin ritüel olarak yıkanması, İslami cenazenin merkezinde yer alır. Deneyimli ekibimiz, bunu İslami kurallara uygun olarak, her zaman en büyük özen ve saygı ile gerçekleştirir.",
+                "service4-title": "4. Cenaze Namazı (Salat al-Janazah)",
+                "service4-desc": "Camiide veya defin yerinde cenaze namazı organize ediyoruz ve tüm önemli adımların atıldığından emin oluyoruz. Talep üzerine, dini liderlerle planlama ve koordinasyon konusunda da yardımcı oluyoruz.",
+                "service5-title": "5. Defin",
+                "service5-desc": "İsviçre'de veya yurtdışında olsun - defin organizasyonunun tamamını biz üstleniyoruz. Tüm yasal ve dini gereksinimlerin karşılandığından emin oluyoruz. Yurtdışında defin durumunda, yabancı makamlar ve şirketlerle iletişim kurma konusunda size destek veriyoruz.",
+                "service6-title": "6. Ölüm Belgeleri ve Doküman Yönetimi",
+                "service6-desc": "Gerekli tüm belgelerin, ölüm belgesi dahil, alınması konusunda size yardımcı oluyoruz. İsviçre makamları ve uluslararası konsolosluklarla olan yakın işbirliğimiz sayesinde bu süreci hızlı ve verimli bir şekilde yönetiyoruz.",
+                "contact-us": "Bize Ulaşın"
+            }
+        };
+
+        function setLanguage(language) {
+            document.getElementById('selected-language').textContent = language.toUpperCase();
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+        }
     </script>
 
 

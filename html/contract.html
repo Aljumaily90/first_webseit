@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         /* Navbar Styles */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #595d61;
+            --light-color: #ffffff;
+            --dark-color: #020000;
+            --accent-color: #39b9e0;
+        }
         .navbar {
             background-color: #ffffff;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -52,9 +59,9 @@
         }
         /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
         .et_pb_section_0 {
-            background-color: #BFEFFF; /* Dunklere Hintergrundfarbe */
+            background-color: #F5ECCE;  /* Dunklere Hintergrundfarbe */
             padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
-            color: #020000; /* Textfarbe */
+            color: #afc0c5; /* Textfarbe */
             margin: 0;
             
         }
@@ -169,9 +176,6 @@
             margin: 0;
         }         
 
-
-
-
         /******************** Fuss *******************/
 
         .footer a {
@@ -223,7 +227,7 @@
                 /* Subheader Styles */
                 /* Subheader Styles */
         #subheader {
-            background-color: #007bff; /* Ersetze durch eine beliebige Hintergrundfarbe */
+            background-color: #405d64;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -237,22 +241,41 @@
         #subheader span {
             margin: 0 10px;
             font-weight: 600;
-           
+            color: #afc0c5;
             padding-left: 50px;
         }
 
-        #subheader button {
-            margin: 0 10px 0 30px;
-            font-weight: 600;
-            
+        .dropdown {
+            position: relative;
         }
 
-        #subheader button:hover {
-            font-size: 18px;
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--light-color);
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
         }
 
         #subheader a {
-            color: black;
+            color: #afc0c5;
             text-decoration: none;
             font-weight: 600;
         }
@@ -260,21 +283,26 @@
         #subheader a:hover {
             font-size: 18px;
         }
-
-        #subheader button {
-            border: none;
-            background: none;
-            cursor: pointer;
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
         }
-
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
     <div id="subheader">
-        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
-        <button>DE</button>
+        <div class="dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
+            <div class="dropdown-content">
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
+            </div>
+        </div>
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
@@ -285,16 +313,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/index.html">Home</a>
+                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/about.html">Über uns</a>
+                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/services.html">Dienstleistungen</a>
+                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/html/contract.html">Kontakt</a>
+                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
                 </li>
             </ul>
         </div>
@@ -305,7 +333,7 @@
             <div class="et_pb_column et_pb_column_4_4 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough et-last-child">
                 <div class="et_pb_module et_pb_text et_pb_text_0 et_pb_text_align_left et_pb_bg_layout_light">
                     <div class="et_pb_text_inner ">
-                        <h1 class="display-4 fw-bold">Kontaktieren Sie uns</h1>
+                        <h1 class="display-4 fw-bold" data-key="about_title">Kontaktieren Sie uns</h1>
                     </div>
                 </div>
             </div>
@@ -384,9 +412,9 @@
                 <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #00bcd4;">info@eman-bestattungen.ch</a></p>
             </div>
             <div class="container-fluid bg-dark text-light text-center py-3">
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutzerklärung</a>
-                <a href="#">AGB</a>
+                <a href="#" data-key="impressum">Impressum</a>
+                <a href="#" data-key="privacy">Datenschutzerklärung</a>
+                <a href="#" data-key="terms">AGB</a>
                 <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
             </div>
     </footer>
@@ -398,7 +426,50 @@
 
     <!-- Custom JS to handle scroll event -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script>
+        const translations = {
+            de: {
+                home: "Home",
+                about: "Über uns",
+                services: "Dienstleistungen",
+                contact: "Kontakt",
+                about_title: "Kontaktieren Sie uns",
+                impressum: "Impressum",
+                privacy: "Datenschutzerklärung",
+                terms: "AGB"
+            },
+            en: {
+                home: "Home",
+                about: "About Us",
+                services: "Services",
+                contact: "Contact",
+                about_title: "Contact Us",
+                impressum: "Imprint",
+                privacy: "Privacy Policy",
+                terms: "Terms and Conditions"
+            },
+            tr: {
+                home: "Ana Sayfa",
+                about: "Hakkımızda",
+                services: "Hizmetler",
+                contact: "İletişim",
+                about_title: "Bizimle İletişime Geçin",
+                impressum: "Künye",
+                privacy: "Gizlilik Politikası",
+                terms: "Şartlar ve Koşullar"
+            }
+        };
 
-
+        function setLanguage(language) {
+            document.getElementById('selected-language').textContent = language.toUpperCase();
+            const elements = document.querySelectorAll('[data-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[language][key]) {
+                    element.textContent = translations[language][key];
+                }
+            });
+        }
+    </script>
 </body>
 </html>

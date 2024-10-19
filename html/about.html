@@ -64,9 +64,9 @@
 
         /* Section Header Styles */
         .et_pb_section_0 {
-            background-color: #d2d3d4;
+            background-color: #F5ECCE; 
             padding: 140px 0 20px 10px;
-            color: var(--dark-color);
+            color: #afc0c5;
             margin: 0;
         }
 
@@ -150,7 +150,7 @@
 
         /* Subheader Styles */
         #subheader {
-            background-color: var(--accent-color);
+            background-color: #405d64;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -164,7 +164,7 @@
         #subheader span {
             margin: 0 10px;
             font-weight: 600;
-            color: var(--dark-color);
+            color: #afc0c5;
             padding-left: 50px;
         }
 
@@ -198,7 +198,7 @@
         }
 
         #subheader a {
-            color: var(--dark-color);
+            color: #afc0c5;
             text-decoration: none;
             font-weight: 600;
         }
@@ -206,19 +206,24 @@
         #subheader a:hover {
             font-size: 18px;
         }
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
+        }
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
     <div id="subheader">
-        <span><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1); height: 20px;">info@eman-bestattungen.ch</a></span>
+        <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
-                <a href="#" onclick="setLanguage('tr')">TÜ</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
             </div>
         </div>
     </div>
