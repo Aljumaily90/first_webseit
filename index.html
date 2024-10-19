@@ -75,7 +75,7 @@
             background-size: cover; /* Ensure the image covers the entire area */
             background-position: center; /* Center the image */
             background-repeat: no-repeat; /* Prevent the image from repeating */
-            min-height: 700px; /* Ensure the section has enough height to display the background */
+            min-height: 950px; /* Ensure the section has enough height to display the background */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -107,54 +107,53 @@
 
         /* Call-To-Action Button Stile */
         .btn-cta {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: #405d64;
             color: #ffffff;
-            font-weight: 700;
+            font-weight: 600;
             padding: 15px 40px;
             border-radius: 10px;
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
             transition: background 0.3s ease, box-shadow 0.3s ease;
-            margin-top: 10px;
+            font-size: 20px;
+            
         }
 
         .btn-cta:hover {
-            background: linear-gradient(135deg, #f19328, #003d80);
+            background: #396975;
             box-shadow: 0px 12px 20px rgba(5, 5, 5, 0.25);
             color: white;
         }
-        /******************** Fuss *******************/
+ /******************** Fuss *******************/
 
-        .footer a {
-            color: #ffffff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Info Styling */
         .footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
             margin-bottom: 0; /* Remove bottom margin to eliminate space */
         }
 
-        .footer-contact p {
-            margin: 10px 0;
-            font-size: 18px;
+        .footer-contact-left,
+        .footer-contact-center,
+        .footer-contact-right {
+            flex: 1;
+            padding: 20px;
         }
 
-        .footer-contact img {
-            width: 25px;
-            height: 25px;
-            vertical-align: middle;
-            margin-right: 10px;
+        .footer-contact p a {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: white;
         }
+
+
+        .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
+        #footer-logo { width: 300px; height: auto; }
+          
 
         /* Footer Links Styling */
         .footer-links {
@@ -170,7 +169,7 @@
             font-size: 14px;
             margin-top: 10px;
         }
-                /* Subheader Styles */
+        /* Subheader Styles */
         #subheader {
             background-color: #405d64;
             padding: 10px;
@@ -240,7 +239,7 @@
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
+        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 20px;"> +41 79 777 88 55</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selectedLanguage">DE</span>
             <div class="dropdown-content">
@@ -276,6 +275,9 @@
         <div class="p-5 bg-body-tertiary section-1 rounded-3">
             <div class="container-fluid py-5 ">
               <h1 class="display-5 fw-bold saying animate__animated animate__fadeInDown" data-key="saying">Gemeinsam meistern wir  <br> auch die schweren Zeiten</h1>
+              <div class=" mt-5">
+                <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
+            </div>
             </div>
         </div>
         <div class="p-5 bg-body-tertiary section-2 rounded-3">
@@ -283,27 +285,36 @@
                 <h1 class="display-5 fw-bold animate__animated animate__fadeInUp">إِنَّا لِلَِّهِ وَإِنَّا إِلَِيْهِ رَاجِعون</h1>
                 <p class="fs-4 animate__animated animate__fadeIn" data-key="verse">Verily we belong to Allah, and verily to Him do we return.</p>
             </div>
-            <div class="text-center mt-5">
-                <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
-            </div>
+            
         </div>
 
-        <!-- Footer -->
-    <footer>
+        <footer>
             <div class="footer-contact">
-                <h2>Eman Bestattungen GmbH</h2>
-                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
-                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
-                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
-                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #537c9e;">info@eman-bestattungen.ch</a></p>
+                <div class="footer-contact-left">
+                    <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen</a></p>
+                    <p style="margin-left: 50px;">Oberfeld 2<br>6037 Root LU</p> <br>
+                    <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 41 777 88 55</a></p>
+                    <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
+                </div>
+                <div class="footer-contact-center">
+                    <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+                </div>
+                <div class="footer-contact-right">
+                    <p><strong>Büro Öffnungszeiten:</strong></p>
+                    <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
+                    <p>Sa: 10:00 - 14:00 Uhr</p>
+                    <p>So: Geschlossen</p>
+                </div>
             </div>
-            <div class="container-fluid bg-dark text-light text-center py-3">
-                <a href="#" data-key="impressum">Impressum |</a>
-                <a href="#" data-key="privacy">Datenschutzerklärung |</a>
-                <a href="#" data-key="terms">AGB</a>
+            <div class="container-fluid bg-dark text-light text-center py-3 footer-bottom">
+                <div class="footer-links">
+                    <a href="#" data-key="impressum">Impressum</a>
+                    <a href="#" data-key="privacy">Datenschutzerklärung</a>
+                    <a href="#" data-key="terms">AGB</a>
+                </div>
                 <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
             </div>
-    </footer>
+        </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
