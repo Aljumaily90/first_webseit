@@ -12,6 +12,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
         /* Consistent Color Theme */
+        *{
+            font-family: serif;
+        }
         :root {
             --primary-color: #007bff;
             --secondary-color: #595d61;
@@ -97,6 +100,8 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
+            font-size: 18px;
+            
         }
         .about-content:hover {
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
@@ -217,7 +222,7 @@
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
+        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 777 88 55</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
@@ -264,14 +269,13 @@
     </div>
     <div id="about" class="card animate__animated animate__fadeInUp" style="max-width: 900px;">
         <div class="row g-0">
-          <div class="col-md-4" style="padding-top: 40px;">
-            <img src="/image/About.jpg" class="img-fluid rounded-start" alt="About Ivati Bestattungen">
+          <div class="col-md-4" style="padding-top: 70px;">
+            <img src="/image/About.jpg" class="img-fluid rounded-start" alt="About Bestattungen">
           </div>
           <div class="col-md-8">
             <div class="card-body">
               <h5 class="card-title" data-key="about_title">Über uns</h5>
-              <p class="card-text about-content" data-key="about_content_1">Wir sind ein muslimisches Bestattungsinstitut, das es sich zur Aufgabe gemacht hat, Ihnen in schwierigen Zeiten beizustehen und einen würdevollen Abschied nach islamischen Traditionen zu ermöglichen. Gegründet von erfahrenen muslimischen Bestattern, die auf viele Jahre Praxis zurückblicken, vereinen wir tiefes Verständnis für religiöse und kulturelle Bedürfnisse mit professioneller Betreuung.</p>
-              <p class="card-text about-content" data-key="about_content_2">Unser Team steht Ihnen nicht nur bei allen Fragen und Anliegen rund um die islamische Bestattung zur Seite, sondern wir arbeiten auch eng mit Schweizer Behörden zusammen, um einen reibungslosen Ablauf der notwendigen Formalitäten zu gewährleisten. Darüber hinaus pflegen wir internationale Zusammenarbeit mit ausländischen Behörden wie Konsulaten, Botschaften sowie Unternehmen im Ausland, um auch über die Grenzen hinaus einen respektvollen und rechtskonformen Bestattungsprozess sicherzustellen.</p>
+              <p class="card-text about-content" data-key="about_content_1">Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.</p>
             </div>
           </div>
         </div>
@@ -306,8 +310,7 @@
                 services: "Dienstleistungen",
                 contact: "Kontakt",
                 about_title: "Über uns",
-                about_content_1: "Wir sind ein muslimisches Bestattungsinstitut, das es sich zur Aufgabe gemacht hat, Ihnen in schwierigen Zeiten beizustehen und einen würdevollen Abschied nach islamischen Traditionen zu ermöglichen. Gegründet von erfahrenen muslimischen Bestattern, die auf viele Jahre Praxis zurückblicken, vereinen wir tiefes Verständnis für religiöse und kulturelle Bedürfnisse mit professioneller Betreuung.",
-                about_content_2: "Unser Team steht Ihnen nicht nur bei allen Fragen und Anliegen rund um die islamische Bestattung zur Seite, sondern wir arbeiten auch eng mit Schweizer Behörden zusammen, um einen reibungslosen Ablauf der notwendigen Formalitäten zu gewährleisten. Darüber hinaus pflegen wir internationale Zusammenarbeit mit ausländischen Behörden wie Konsulaten, Botschaften sowie Unternehmen im Ausland, um auch über die Grenzen hinaus einen respektvollen und rechtskonformen Bestattungsprozess sicherzustellen.",
+                about_content_1: "Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.",
                 impressum: "Impressum",
                 privacy: "Datenschutzerklärung",
                 terms: "AGB"
@@ -318,8 +321,7 @@
                 services: "Services",
                 contact: "Contact",
                 about_title: "About Us",
-                about_content_1: "We are a Muslim funeral home dedicated to supporting you in difficult times and ensuring a dignified farewell according to Islamic traditions. Founded by experienced Muslim funeral directors with many years of practice, we combine a deep understanding of religious and cultural needs with professional care.",
-                about_content_2: "Our team is here to assist you not only with all questions and concerns regarding Islamic funerals but also works closely with Swiss authorities to ensure a smooth process for necessary formalities. Furthermore, we maintain international cooperation with foreign authorities such as consulates, embassies, and companies abroad to ensure a respectful and lawful funeral process beyond borders.",
+                about_content_1: "With our many years of experience and knowledge in funeral culture, we understand the religious and cultural needs and offer professional care. As Eman Funeral Services, we specialize in Islamic funerals and provide comprehensive support to relatives in difficult times with the highest level of professionalism. We treat funerals of all religions and cultures with the same respect and care. In doing so, we conduct funerals both in Switzerland and international repatriations, which we efficiently manage in close cooperation with Swiss and international authorities. Our services are available to you and your relatives around the clock to provide you with the best possible relief and to ensure a dignified process for all procedures.",
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
                 terms: "Terms and Conditions"
@@ -330,8 +332,7 @@
                 services: "Hizmetler",
                 contact: "İletişim",
                 about_title: "Hakkımızda",
-                about_content_1: "Biz, zor zamanlarda yanınızda olmak ve İslami geleneklere uygun onurlu bir veda sağlamayı kendine görev edinmiş bir Müslüman cenaze eviyiz. Uzun yıllara dayanan deneyime sahip Müslüman cenaze görevlileri tarafından kurulan kurumumuz, dini ve kültürel ihtiyaçlara derin bir anlayışla profesyonel hizmet sunmaktadır.",
-                about_content_2: "Ekibimiz, İslami cenaze işlemleriyle ilgili tüm soru ve taleplerinizde yanınızda olmanın yanı sıra, gerekli resmi işlemlerin sorunsuz bir şekilde gerçekleştirilmesi için İsviçre makamlarıyla da yakın işbirliği içinde çalışmaktadır. Ayrıca, sınırların ötesinde de saygılı ve yasal bir cenaze sürecini sağlamak için konsolosluklar, büyükelçilikler ve yurtdışındaki şirketler gibi yabancı makamlarla uluslararası işbirliğimizi sürdürmekteyiz.",
+                about_content_1: "Cenaze kültüründeki uzun yıllara dayanan deneyimimiz ve bilgimizle, dini ve kültürel ihtiyaçları anlıyor ve profesyonel bakım sunuyoruz. Eman Cenaze Hizmetleri olarak İslami cenazelerde uzmanız ve zorlu zamanlarda en yüksek profesyonellik ile ailelere kapsamlı destek sağlıyoruz. Tüm dinlere ve kültürlere ait cenazeleri aynı saygı ve özenle ele alıyoruz. Bu bağlamda hem İsviçre'de hem de uluslararası nakillerde cenaze işlemlerini, İsviçre ve uluslararası yetkililerle yakın işbirliği içinde verimli bir şekilde yürütüyoruz. Hizmetlerimiz, siz ve yakınlarınıza her zaman en iyi şekilde destek sunmak ve tüm süreçlerin saygın bir şekilde yürütülmesini sağlamak için 7/24 hizmetinizdedir.",
                 impressum: "Künye",
                 privacy: "Gizlilik Politikası",
                 terms: "Şartlar ve Koşullar"
