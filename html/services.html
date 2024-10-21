@@ -69,7 +69,7 @@
         .et_pb_section_0 {
             background-color: #F5ECCE; /* Dunklere Hintergrundfarbe */
             padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
-            color: #afc0c5; /* Textfarbe */
+            color: #405d64; /* Textfarbe */
             margin: 0;
             
         }
@@ -83,6 +83,7 @@
         #services {
             padding: 30px 0;
             background-color: #f8f9fa;
+            
         }
 
         .service-item {
@@ -102,14 +103,15 @@
 
         .service-item h5 {
             font-weight: 700;/* Fettschrift */
-            color: var(--primary-color);/* Elegante Farbe für die Überschrift */
+            color: #405d64;/* Elegante Farbe für die Überschrift */
             margin-top: 20px;
             cursor: pointer;
+            font-size: 22px;
         }
 
         .service-item p {
             font-size: 17px;
-            color: #444;
+            color: #405d64;
             line-height: 1.6; /* Zeilenhöhe von 1.6 für bessere Lesbarkeit */
             display: none;
         }
@@ -118,8 +120,8 @@
         }
 
         .service-icon {
-            font-size: 40px;
-            color: var(--primary-color); /* Elegante Farbe für das Icon */
+            font-size: 80px;
+            color: #405d64; /* Elegante Farbe für das Icon */
             text-align: center;
             margin: 0 auto;
             display: block;
@@ -127,20 +129,21 @@
         }
         /* Call-To-Action Button Stile */
         .btn-cta {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background: #405d64;
             color: #ffffff;
-            font-weight: 700;
+            font-weight: 600;
             padding: 15px 40px;
             border-radius: 10px;
             box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
             transition: background 0.3s ease, box-shadow 0.3s ease;
-            margin-top: 10px;
+            font-size: 20px;
+            
         }
 
         .btn-cta:hover {
-            background: linear-gradient(135deg, #f19328, #003d80);
+            background: #afc0c5;
             box-shadow: 0px 12px 20px rgba(5, 5, 5, 0.25);
-            color: white;
+            color: #000000;
         }
 
         /* Intro Abschnitt modernisieren */
@@ -151,12 +154,54 @@
             padding: 10px;
             margin-bottom: 20px;
             font-size: 20px;
+           
         }
 
         .intro-section p {
             font-size: 1.25rem;
-            color: #333;
+            color: #405d64;
             line-height: 1.8;
+        }
+
+        /******** Updated Styles ********/
+        .section-3 {
+            padding: 40px; /* Adjusted padding for layout */
+        }
+
+        .section-3 .info-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            text-align: left;
+        }
+
+        .info-box {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .info-box h4 {
+            font-weight: 700;
+            color: #405d64;
+            border-bottom: 3px solid #afc0c5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .info-box ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .info-box ul li {
+            margin-bottom: 10px;
+            color: #595d61;
+            font-size: 1.3rem;
         }
         /* Footer Links Stile */
         .footer a {
@@ -325,12 +370,15 @@
         <!-- Dienstleistungen Section -->
         <section id="services" class="container-fluid">
             <div class="intro-section text-center mb-5">
-                <p class="fs-4" data-key="services-intro">Ihr Partner in schweren Zeiten. <br><br>
-                    Eman Bestattungen, spezialisiert auf muslimische Bestattungen und internationale Rückführungen, bietet rund um die Uhr professionelle Unterstützung an.
-                    </p>
+                <p class="fs-4 text-muted" data-key="services-intro">
+                    <em>Ihr vertrauensvoller Partner in schweren Zeiten.</em> <br><br>
+                    Eman Bestattungen bietet Ihnen umfassende und professionelle Unterstützung rund um die Uhr. Wir sind spezialisiert auf muslimische Bestattungen und internationale Rückführungen und stehen Ihnen in jeder Phase des Abschieds zur Seite.
+                </p>
             </div>
-            <div class="container">
-                <h2 style="margin-bottom: 30px;">Zu unseren Dienstleistungen gehören:</h2>
+            <div class="container-fluid" style="width: 100%;">
+                <h2 class=" mb-5" style="font-weight: 600; color: #405d64;">
+                    Unsere erstklassigen Dienstleistungen im Überblick :
+                </h2>
                 <div class="row">
                     <div class="col-lg-3 mb-4">
                             <div class="service-item animate__animated animate__fadeInUp">
@@ -349,7 +397,7 @@
                     <div class="col-lg-3 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">clean_hands</span>
-                            <h5 data-key="service3-title">Rituelle Waschung/  Abschiedszeremonie</h5>
+                            <h5 data-key="service3-title">Rituelle Waschung & Abschiedszeremonie</h5>
                             <p data-key="service3-desc">Durchführung der rituellen Waschung und Organisation der Abschiedszeremonie in Übereinstimmung mit den religiösen Traditionen.</p>
                         </div>
                     </div>
@@ -366,8 +414,34 @@
                 <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
             </div>
         </section>
+        <div class="p-5 bg-body-tertiary section-3 rounded-3">
+            <div class="container-fluid py-5 info-container">
+                <div class="info-box">
+                    <h4 data-key="home-death-title">Bei Tod zu Hause</h4>
+                    <ul>
+                        <li data-key="home-death-step1">Arzt benachrichtigen (am besten Hausarzt)</li>
+                        <li data-key="home-death-step2">Ansonsten ärztlicher Notfalldienst (0900 11 14 14)</li>
+                        <li data-key="home-death-step3">oder Rettungsdienst (144)</li>
+                        <li data-key="home-death-step4">Der Arzt stellt die Todesbescheinigung aus (Totenschein)</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4 data-key="accident-death-title">Bei Tod infolge Unfall</h4>
+                    <ul>
+                        <li data-key="accident-death-step1">Polizei benachrichtigen</li>
+                        <li data-key="accident-death-step2">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
+                    </ul>
+                </div>
+                <div class="info-box">
+                    <h4 data-key="hospital-death-title">Bei Tod im Spital oder Heim</h4>
+                    <ul>
+                        <li data-key="hospital-death-step1">Spital- oder Heimbehörden stellen Totenschein aus</li>
+                        <li data-key="hospital-death-step2">Original wird ans zuständige Zivilstandsamt weitergeleitet</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-contact">
             <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
@@ -419,7 +493,18 @@
                 "service3-desc": "Durchführung der rituellen Waschung und Organisation der Abschiedszeremonie in Übereinstimmung mit den religiösen Traditionen.",
                 "service4-title": "Transport & Rückführung",
                 "service4-desc": "Sicherer Transport und Rückführung des Verstorbenen, sowohl national als auch international, unter Einhaltung aller Vorschriften.",
-                "contact-us": "Kontaktieren Sie uns"
+                "contact-us": "Kontaktieren Sie uns",
+                "home-death-title": "Bei Tod zu Hause",
+                "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
+                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14)",
+                "home-death-step3": "oder Rettungsdienst (144)",
+                "home-death-step4": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
+                "hospital-death-title": "Bei Tod im Spital oder Heim",
+                "hospital-death-step1": "Spital- oder Heimbehörden stellen Totenschein aus",
+                "hospital-death-step2": "Original wird ans zuständige Zivilstandsamt weitergeleitet",
+                "accident-death-title": "Bei Tod infolge Unfall",
+                "accident-death-step1": "Polizei benachrichtigen",
+                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid"
             },
             en: {
                 home: "Home",
@@ -439,7 +524,18 @@
                 "service3-desc": "The ritual washing of the deceased is a central part of the Islamic funeral. Our experienced team performs this in accordance with Islamic rules, always with the utmost care and respect.",
                 "service4-title": "4. Funeral Prayer (Salat al-Janazah)",
                 "service4-desc": "We organize the funeral prayer in the mosque or at the burial site and ensure that all important steps are followed. Upon request, we also help with planning and coordination with religious leaders.",
-                "contact-us": "Contact Us"
+                "contact-us": "Contact Us",
+                "home-death-title": "Death at Home",
+                "home-death-step1": "Notify your family doctor (preferably)",
+                "home-death-step2": "Alternatively, emergency medical service (0900 11 14 14)",
+                "home-death-step3": "or emergency service (144)",
+                "home-death-step4": "The doctor will issue the death certificate",
+                "hospital-death-title": "Death in Hospital or Nursing Home",
+                "hospital-death-step1": "Hospital or nursing home authorities will issue the death certificate",
+                "hospital-death-step2": "The original will be forwarded to the competent civil registry office",
+                "accident-death-title": "Death Due to Accident",
+                "accident-death-step1": "Notify the police",
+                "accident-death-step2": "including traffic, work, household, and other accidents, as well as suicide"
             },
             tr: {
                 home: "Ana Sayfa",
@@ -459,7 +555,18 @@
                 "service3-desc": "Cenazenin ritüel olarak yıkanması, İslami cenazenin merkezinde yer alır. Deneyimli ekibimiz, bunu İslami kurallara uygun olarak, her zaman en büyük özen ve saygı ile gerçekleştirir.",
                 "service4-title": "4. Cenaze Namazı (Salat al-Janazah)",
                 "service4-desc": "Camiide veya defin yerinde cenaze namazı organize ediyoruz ve tüm önemli adımların atıldığından emin oluyoruz. Talep üzerine, dini liderlerle planlama ve koordinasyon konusunda da yardımcı oluyoruz.",
-                "contact-us": "Bize Ulaşın"
+                "contact-us": "Bize Ulaşın",
+                "home-death-title": "Evde Ölüm Halinde",
+                "home-death-step1": "Doktoru bilgilendirin (tercihen aile doktoru)",
+                "home-death-step2": "Alternatif olarak acil tıbbi hizmet (0900 11 14 14)",
+                "home-death-step3": "veya acil durum hizmeti (144)",
+                "home-death-step4": "Doktor ölüm belgesini düzenleyecektir",
+                "hospital-death-title": "Hastane veya Huzurevinde Ölüm Halinde",
+                "hospital-death-step1": "Hastane veya huzurevi yetkilileri ölüm belgesini düzenler",
+                "hospital-death-step2": "Orijinal, ilgili nüfus dairesine iletilecektir",
+                "accident-death-title": "Kaza Sonucu Ölüm Halinde",
+                "accident-death-step1": "Polisi bilgilendirin",
+                "accident-death-step2": "trafik, iş, ev ve diğer kazalar ile intihar dahil"
             }
         };
 
