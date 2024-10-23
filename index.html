@@ -21,9 +21,21 @@
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
+                /* Background Image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/image/H_Bild.jpg') no-repeat center center/cover;
+            filter: blur(2px);
+            z-index: -1;
+        }
         /* Navbar Styles */
         .navbar {
-            background-color: var(--light-color);
+            background-color: #627d86;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease; /* Smooth transition for navbar styles */
         }
@@ -45,13 +57,23 @@
 
         #logo {
             height: 60px;
-            transition: height 0.4s ease; /* Smooth transition for logo size */
+            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1000;
+            
+        }
+
+        #logo.large {
+            transform: translate(-50%, -50%) scale(2); /* Increase logo size when scrolled */
         }
 
 
         .navbar-nav .nav-link {
-            font-weight: 600;
-            font-size: 18px;
+            font-weight: 700;
+            font-size: 20px;
             color: #000 !important; /* Set link color to black */
             padding: 10px;
             transition: all 0.3s ease; /* Smooth transition for link styles */
@@ -60,7 +82,7 @@
 
 
         .navbar-nav .nav-link:hover {
-            font-size: 20px; /* Increase font size on hover */
+            font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
 
@@ -70,11 +92,7 @@
             padding: 60px 0; /* Add padding to sections */
         }
 
-        .section-1 {
-            background-image: url("/image/H_Bild.jpg"); /* Test image to check if the background works */
-            background-size: cover; /* Ensure the image covers the entire area */
-            background-position: center; /* Center the image */
-            background-repeat: no-repeat; /* Prevent the image from repeating */
+        .section-1 {  
             min-height: 950px; /* Ensure the section has enough height to display the background */
             display: flex;
             align-items: center;
@@ -149,6 +167,7 @@
             line-height: 1.6;
             color: white;
         }
+        
 
 
         .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
@@ -162,7 +181,15 @@
             gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
+            border-top: #90969c solid 1px;
+            
+            
         }
+        .footer-links a {
+            color: white;
+            padding-top: 20px;
+        }
+     
 
         /* Footer Bottom Text */
         .footer-bottom {
@@ -244,9 +271,9 @@
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 20px;"> +41 79 777 88 55</a></span>
+        <span><a href="tel:+4179 618 44 44"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selectedLanguage">DE</span>
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
@@ -256,7 +283,9 @@
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+        <a  href="/index.html">
+            <img id="logo" src="/image/logo.jpg" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -290,35 +319,34 @@
                 <h1 id="Allah" class="display-5 fw-bold animate__animated animate__fadeInUp" >إِنَّا لِلَِّهِ وَإِنَّا إِلَِيْهِ رَاجِعون</h1>
                 <p class="fs-4 animate__animated animate__fadeIn" data-key="verse">Verily we belong to Allah, and verily to Him do we return.</p>
             </div>
-            
         </div>
 
         <footer>
             <div class="footer-contact">
-                <div class="footer-contact-center">
-                    <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
-                </div>
                 <div class="footer-contact-left">
-                    <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen</a></p>
-                    <p style="margin-left: 50px;">Oberfeld 2<br>6037 Root LU</p> <br>
-                    <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 41 777 88 55</a></p>
+                    <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
+                    <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
+                    <p><a href="tel:+4179 618 44 44"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44
+                    </a></p>
+                    <p style="margin-left: 50px;"><a href="tel:+41414403333">+41 41 440 33 33</a></p>
+
                     <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
                 </div>
                 <div class="footer-contact-right">
-                    <p><strong>Öffnungszeiten:</strong></p>
+                    <h4>Öffnungszeiten</h4>
+                    <p><strong>Unser Telefonzeiten</strong></p>
+                    <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche: <a href="tel:+41 79 618 44 44"><img src="/image/phone-icon.png" alt="Phone Icon"> 079 618 44 44</a></p>
+
+                    <p><strong>Unser Bürozeiten</strong></p>
                     <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
-                    <p>Sa: 10:00 - 14:00 Uhr</p>
-                    <p>So: Geschlossen</p>
+                    <p>Sa, So, Feiertag: nach Vereinbarung</p>
                 </div>
-                <div >
-                    <img src="#" alt="24h">
+                <div class="footer-contact-center">
+                    <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
                 </div>
-                
-                
-                
-                
+
             </div>
-            <div class="container-fluid bg-dark text-light text-center py-3 ">
+            <div id="ida" class="container-fluid bg-dark text-light text-center py-3 ">
                 <div class="footer-links">
                     <a href="#" data-key="impressum">Impressum</a>
                     <a href="#" data-key="privacy">Datenschutzerklärung</a>

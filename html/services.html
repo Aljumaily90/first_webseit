@@ -13,57 +13,64 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <style>
         /******** Navbar Styles ********/
-        *{
-            font-family: serif;
-        }
         :root {
-            --primary-color: #4a90e2; /* Elegante Farbe für die Überschrift und Icons angepasst */
+            --primary-color: #007bff;
             --secondary-color: #595d61;
             --light-color: #ffffff;
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
-    
+        /* Navbar Styles */
         .navbar {
-            background-color: #ffffff;
+            background-color: #405d64;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease; /* Sanfter Übergang für Navbar-Stile */
+            transition: all 0.4s ease; /* Smooth transition for navbar styles */
         }
 
         .navbar.scrolled {
-            background-color: #007bff; /* Hintergrundfarbe ändern beim Scrollen */
-            padding: 10px; /* Reduzierte Polsterung beim Scrollen */
+            background-color: #007bff; /* Change background when scrolled */
+            padding: 10px; /* Reduce padding when scrolled */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-hidden {
             top: 0;
-            transition: top 0.4s ease; /* Sanfter Übergang für Navbar-Position */
+            transition: top 0.4s ease; /* Smooth transition for navbar position */
         }
 
         .navbar.transparent {
-            background-color: transparent; /* Navbar transparent machen */
+            background-color: transparent; /* Make navbar transparent */
         }
 
         #logo {
             height: 60px;
-            transition: height 0.4s ease; /* Sanfter Übergang für Logo-Größe */
+            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1000;
+            
         }
 
-        /* ************Navigations-Link Stile*********** */
+        #logo.large {
+            transform: translate(-50%, -50%) scale(2); /* Increase logo size when scrolled */
+        }
+
+
         .navbar-nav .nav-link {
-            font-weight: 600;
-            font-size: 18px;
-            color: #000 !important; /* Link-Farbe auf Schwarz setzen */
+            font-weight: 700;
+            font-size: 20px;
+            color: #000 !important; /* Set link color to black */
             padding: 10px;
-            transition: all 0.3s ease; /* Sanfter Übergang für Link-Stile */
+            transition: all 0.3s ease; /* Smooth transition for link styles */
             margin-right: 20px;
         }
 
-        /* Nav-Link Hover Effect */
+
         .navbar-nav .nav-link:hover {
-            font-size: 20px; /* Schriftgröße beim Hover vergrößern */
-            color: #383535 !important; /* Link-Farbe beim Hover ändern */
+            font-size: 22px; /* Increase font size on hover */
+            color: #383535 !important; /* Change link color on hover */
         }
         /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
         .et_pb_section_0 {
@@ -158,9 +165,10 @@
         }
 
         .intro-section p {
-            font-size: 1.25rem;
+            font-size: 1.40rem;
             color: #405d64;
             line-height: 1.8;
+            font-weight: 700;
         }
 
         /******** Updated Styles ********/
@@ -203,54 +211,62 @@
             color: #595d61;
             font-size: 1.3rem;
         }
-        /* Footer Links Stile */
-        .footer a {
-            color: #ffffff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+ /******************** Fuss *******************/
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Kontaktinformationen Stile im Footer */
         .footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
-            text-align: center;
-            margin-bottom: 0; /* Unteren Rand entfernen, um Platz zu eliminieren */
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 0; /* Remove bottom margin to eliminate space */
+
         }
 
-        .footer-contact p {
-            margin: 10px 0;
+        .footer-contact-left,
+        .footer-contact-center,
+        .footer-contact-right {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .footer-contact p a {
+            margin: 0;
             font-size: 18px;
+            line-height: 1.6;
+            color: white;
         }
+        
 
-        .footer-contact img {
-            width: 25px;
-            height: 25px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
 
-        /* Footer Links Stile */
+        .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
+        #footer-logo { width: 300px; height: auto; margin-top: 15px; }
+          
+
+        /* Footer Links Styling */
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
+            border-top: #90969c solid 1px;
+            
+            
         }
+        .footer-links a {
+            color: white;
+            padding-top: 20px;
+        }
+     
 
-        /* Footer unterer Text */
+        /* Footer Bottom Text */
         .footer-bottom {
             font-size: 14px;
             margin-top: 10px;
         }
-
         /* Subheader Styles */
         #subheader {
             background-color: #405d64;
@@ -314,14 +330,13 @@
             color: #afc0c5;
             font-size: 18px;   
         }
-
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 22px;" > +41 79 777 88 55</a></span>
+        <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
@@ -331,9 +346,11 @@
             </div>
         </div>
     </div>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 50px;">
-        <img id="logo" src="/image/logo.jpg" alt="logo">
+    <!----- Navbar ---->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
+        <a  href="/index.html">
+            <img id="logo" src="/image/logo.jpg" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -371,7 +388,7 @@
         <section id="services" class="container-fluid">
             <div class="intro-section text-center mb-5">
                 <p class="fs-4 text-muted" data-key="services-intro">
-                    <em>Ihr vertrauensvoller Partner in schweren Zeiten.</em> <br><br>
+                    Ihr vertrauensvoller Partner in schweren Zeiten. <br><br>
                     Eman Bestattungen bietet Ihnen umfassende und professionelle Unterstützung rund um die Uhr. Wir sind spezialisiert auf muslimische Bestattungen und internationale Rückführungen und stehen Ihnen in jeder Phase des Abschieds zur Seite.
                 </p>
             </div>
@@ -417,44 +434,65 @@
         <div class="p-5 bg-body-tertiary section-3 rounded-3">
             <div class="container-fluid py-5 info-container">
                 <div class="info-box">
-                    <h4 data-key="home-death-title">Bei Tod zu Hause</h4>
+                    <h4 data-key="home-death-title">Zu Hause:</h4>
                     <ul>
                         <li data-key="home-death-step1">Arzt benachrichtigen (am besten Hausarzt)</li>
-                        <li data-key="home-death-step2">Ansonsten ärztlicher Notfalldienst (0900 11 14 14)</li>
-                        <li data-key="home-death-step3">oder Rettungsdienst (144)</li>
-                        <li data-key="home-death-step4">Der Arzt stellt die Todesbescheinigung aus (Totenschein)</li>
+                        <li data-key="home-death-step2">Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)</li>
+                        <li data-key="home-death-step3">Der Arzt stellt die Todesbescheinigung aus (Totenschein)</li>
                     </ul>
                 </div>
                 <div class="info-box">
-                    <h4 data-key="accident-death-title">Bei Tod infolge Unfall</h4>
+                    <h4 data-key="accident-death-title">Im Krankenhaus oder in Pflege- & Altersheim</h4>
                     <ul>
                         <li data-key="accident-death-step1">Polizei benachrichtigen</li>
                         <li data-key="accident-death-step2">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
+                        <li data-key="accident-death-step3">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
+
                     </ul>
                 </div>
                 <div class="info-box">
-                    <h4 data-key="hospital-death-title">Bei Tod im Spital oder Heim</h4>
+                    <h4 data-key="hospital-death-title">Bei einem Unfall:</h4>
                     <ul>
-                        <li data-key="hospital-death-step1">Spital- oder Heimbehörden stellen Totenschein aus</li>
-                        <li data-key="hospital-death-step2">Original wird ans zuständige Zivilstandsamt weitergeleitet</li>
+                        <li data-key="hospital-death-step1">Polizei benachrichtigen</li>
+                        <li data-key="hospital-death-step2">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
+                        <li data-key="hospital-death-step3">Der Arzt stellt die Todesbescheinigung aus (Totenschein)</li>
                     </ul>
                 </div>
             </div>
         </div>
 
+    <!----- Footer ----->
     <footer>
         <div class="footer-contact">
-            <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
-            <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
-            <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
-            <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #00bcd4;">info@eman-bestattungen.ch</a></p>
+
+            <div class="footer-contact-left">
+                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen</a></p>
+                <p style="margin-left: 50px;">Oberfeld 2<br>6037 Root LU</p> <br>
+                <p><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+                <p style="margin-left: 50px;"><a href="tel:+41414403333">+41 41 440 33 33</a></p>
+
+                <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
+            </div>
+            <div class="footer-contact-right">
+                <h4>Öffnungszeiten</h4>
+                <p><strong>Unser Telefonzeiten:</strong></p>
+                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche: <a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+
+                <p><strong>Unser Bürozeiten:</strong></p>
+                <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
+                <p>Sa, So, Feiertag: nach Vereinbarung</p>
+            </div>
+            <div class="footer-contact-center">
+                <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+            </div>
+
         </div>
-        <div class="footer-links">
-            <a href="#" data-key="impressum">Impressum</a>
-            <a href="#" data-key="privacy">Datenschutzerklärung</a>
-            <a href="#" data-key="terms">AGB</a>
-        </div>
-        <div class="container-fluid text-center footer-bottom">
+        <div id="ida" class="container-fluid bg-dark text-light text-center py-3 ">
+            <div class="footer-links">
+                <a href="#" data-key="impressum">Impressum</a>
+                <a href="#" data-key="privacy">Datenschutzerklärung</a>
+                <a href="#" data-key="terms">AGB</a>
+            </div>
             <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
@@ -464,6 +502,8 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="/main.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const serviceItems = document.querySelectorAll('.service-item h5');
@@ -494,17 +534,19 @@
                 "service4-title": "Transport & Rückführung",
                 "service4-desc": "Sicherer Transport und Rückführung des Verstorbenen, sowohl national als auch international, unter Einhaltung aller Vorschriften.",
                 "contact-us": "Kontaktieren Sie uns",
-                "home-death-title": "Bei Tod zu Hause",
+                "home-death-title": "Zu Hause:",
                 "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
-                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14)",
-                "home-death-step3": "oder Rettungsdienst (144)",
-                "home-death-step4": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
-                "hospital-death-title": "Bei Tod im Spital oder Heim",
-                "hospital-death-step1": "Spital- oder Heimbehörden stellen Totenschein aus",
-                "hospital-death-step2": "Original wird ans zuständige Zivilstandsamt weitergeleitet",
-                "accident-death-title": "Bei Tod infolge Unfall",
+                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)",
+                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein ",
+                "hospital-death-title": "Im Krankenhaus oder in Pflege- & Altersheim: ",
+                "hospital-death-step1": "Polizei benachrichtigen",
+                "hospital-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
+                "hospital-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
+                "accident-death-title": "Bei einem Unfall:",
                 "accident-death-step1": "Polizei benachrichtigen",
-                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid"
+                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
+                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)"
+
             },
             en: {
                 home: "Home",
@@ -525,17 +567,18 @@
                 "service4-title": "4. Funeral Prayer (Salat al-Janazah)",
                 "service4-desc": "We organize the funeral prayer in the mosque or at the burial site and ensure that all important steps are followed. Upon request, we also help with planning and coordination with religious leaders.",
                 "contact-us": "Contact Us",
-                "home-death-title": "Death at Home",
-                "home-death-step1": "Notify your family doctor (preferably)",
-                "home-death-step2": "Alternatively, emergency medical service (0900 11 14 14)",
-                "home-death-step3": "or emergency service (144)",
-                "home-death-step4": "The doctor will issue the death certificate",
-                "hospital-death-title": "Death in Hospital or Nursing Home",
-                "hospital-death-step1": "Hospital or nursing home authorities will issue the death certificate",
-                "hospital-death-step2": "The original will be forwarded to the competent civil registry office",
-                "accident-death-title": "Death Due to Accident",
-                "accident-death-step1": "Notify the police",
-                "accident-death-step2": "including traffic, work, household, and other accidents, as well as suicide"
+                "home-death-title": "Zu Hause:",
+                "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
+                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)",
+                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein ",
+                "hospital-death-title": "Im Krankenhaus oder in Pflege- & Altersheim: ",
+                "hospital-death-step1": "Polizei benachrichtigen",
+                "hospital-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
+                "hospital-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
+                "accident-death-title": "Bei einem Unfall:",
+                "accident-death-step1": "Polizei benachrichtigen",
+                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
+                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)"
             },
             tr: {
                 home: "Ana Sayfa",
@@ -556,17 +599,18 @@
                 "service4-title": "4. Cenaze Namazı (Salat al-Janazah)",
                 "service4-desc": "Camiide veya defin yerinde cenaze namazı organize ediyoruz ve tüm önemli adımların atıldığından emin oluyoruz. Talep üzerine, dini liderlerle planlama ve koordinasyon konusunda da yardımcı oluyoruz.",
                 "contact-us": "Bize Ulaşın",
-                "home-death-title": "Evde Ölüm Halinde",
-                "home-death-step1": "Doktoru bilgilendirin (tercihen aile doktoru)",
-                "home-death-step2": "Alternatif olarak acil tıbbi hizmet (0900 11 14 14)",
-                "home-death-step3": "veya acil durum hizmeti (144)",
-                "home-death-step4": "Doktor ölüm belgesini düzenleyecektir",
-                "hospital-death-title": "Hastane veya Huzurevinde Ölüm Halinde",
-                "hospital-death-step1": "Hastane veya huzurevi yetkilileri ölüm belgesini düzenler",
-                "hospital-death-step2": "Orijinal, ilgili nüfus dairesine iletilecektir",
-                "accident-death-title": "Kaza Sonucu Ölüm Halinde",
-                "accident-death-step1": "Polisi bilgilendirin",
-                "accident-death-step2": "trafik, iş, ev ve diğer kazalar ile intihar dahil"
+                "home-death-title": "Zu Hause:",
+                "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
+                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)",
+                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein ",
+                "hospital-death-title": "Im Krankenhaus oder in Pflege- & Altersheim: ",
+                "hospital-death-step1": "Polizei benachrichtigen",
+                "hospital-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
+                "hospital-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
+                "accident-death-title": "Bei einem Unfall:",
+                "accident-death-step1": "Polizei benachrichtigen",
+                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
+                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)"
             }
         };
 

@@ -11,10 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
-        /* Consistent Color Theme */
-        *{
-            font-family: serif;
-        }
         :root {
             --primary-color: #007bff;
             --secondary-color: #595d61;
@@ -22,56 +18,81 @@
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
+        /* Background Image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('/image/About.jpg') no-repeat center center/cover;
+            filter: blur(8px);
+            z-index: -1;
+        }
 
         /* Navbar Styles */
         .navbar {
-            background-color: var(--light-color);
+            background-color: #405d64;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
+            transition: all 0.4s ease; /* Smooth transition for navbar styles */
         }
 
         .navbar.scrolled {
-            background-color: var(--primary-color);
-            padding: 10px;
+            background-color: #007bff; /* Change background when scrolled */
+            padding: 10px; /* Reduce padding when scrolled */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .navbar-hidden {
             top: 0;
-            transition: top 0.4s ease;
+            transition: top 0.4s ease; /* Smooth transition for navbar position */
         }
 
         .navbar.transparent {
-            background-color: transparent;
+            background-color: transparent; /* Make navbar transparent */
         }
 
         #logo {
             height: 60px;
-            transition: height 0.4s ease;
+            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1000;
+            
         }
 
-        /* Navigation Link Styles */
+        #logo.large {
+            transform: translate(-50%, -50%) scale(2); /* Increase logo size when scrolled */
+        }
+
+
         .navbar-nav .nav-link {
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--dark-color) !important;
+            font-weight: 700;
+            font-size: 20px;
+            color: #000 !important; /* Set link color to black */
             padding: 10px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; /* Smooth transition for link styles */
             margin-right: 20px;
         }
 
+
         .navbar-nav .nav-link:hover {
-            font-size: 20px;
-            color: #383535 !important;
+            font-size: 22px; /* Increase font size on hover */
+            color: #383535 !important; /* Change link color on hover */
         }
 
-        /* Section Header Styles */
         .et_pb_section_0 {
             background-color: #F5ECCE; 
             padding: 140px 0 20px 10px;
-            color: #afc0c5;
+            color: #405d64; /* Textfarbe */
             margin: 0;
+            position: relative;
         }
+
+        
 
         .et_pb_section_0 h1 {
             font-size: 3rem;
@@ -100,7 +121,7 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
-            font-size: 18px;
+            font-size: 25px;
             
         }
         .about-content:hover {
@@ -108,51 +129,61 @@
             transform: translateY(-10px);
         }
 
-        /* Footer Styles */
-        .footer a {
-            color: var(--light-color);
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-        }
+ /******************** Fuss *******************/
 
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-contact {
+ .footer-contact {
             padding: 30px;
-            background-color: var(--secondary-color);
-            color: var(--light-color);
-            text-align: center;
-            margin-bottom: 0;
+            background-color: #343a40;
+            color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
+            margin-bottom: 0; /* Remove bottom margin to eliminate space */
         }
 
-        .footer-contact p {
-            margin: 10px 0;
+        .footer-contact-left,
+        .footer-contact-center,
+        .footer-contact-right {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .footer-contact p a {
+            margin: 0;
             font-size: 18px;
+            line-height: 1.6;
+            color: white;
         }
+        
 
-        .footer-contact img {
-            width: 25px;
-            height: 25px;
-            vertical-align: middle;
-            margin-right: 10px;
-        }
 
+        .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
+        #footer-logo { width: 300px; height: auto; margin-top: 15px; }
+          
+
+        /* Footer Links Styling */
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
+            border-top: #90969c solid 1px;
+            
+            
         }
+        .footer-links a {
+            color: white;
+            padding-top: 20px;
+        }
+     
 
+        /* Footer Bottom Text */
         .footer-bottom {
             font-size: 14px;
             margin-top: 10px;
         }
-
         /* Subheader Styles */
         #subheader {
             background-color: #405d64;
@@ -222,7 +253,7 @@
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 777 88 55</a></span>
+        <span><a href="tel:+41 79 618 44 44"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
@@ -234,7 +265,9 @@
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+        <a  href="/index.html">
+            <img id="logo" src="/image/logo.jpg" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -269,37 +302,53 @@
     </div>
     <div id="about" class="card animate__animated animate__fadeInUp" style="max-width: 900px;">
         <div class="row g-0">
-          <div class="col-md-4" style="padding-top: 70px;">
-            <img src="/image/About.jpg" class="img-fluid rounded-start" alt="About Bestattungen">
-          </div>
-          <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title" data-key="about_title">Über uns</h5>
+              <h3 class="card-title" data-key="about_title">Über uns:</h3>
               <p class="card-text about-content" data-key="about_content_1">Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.</p>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+    
     <!----- Footer ----->
     <footer>
-            <div class="footer-contact">
-                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
-                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
-                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
-                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: var(--accent-color);">info@eman-bestattungen.ch</a></p>
+        <div class="footer-contact">
+
+            <div class="footer-contact-left">
+                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon">Eman Bestattungen GmbH</a></p>
+                <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
+                <p><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+                <p style="margin-left: 50px;"><a href="tel:+41414403333">+41 41 440 33 33</a></p>
+                <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
             </div>
-            <div class="container-fluid text-light text-center py-3" style="background-color: var(--dark-color);">
+            <div class="footer-contact-right">
+                <h4>Öffnungszeiten</h4>
+                <p><strong>Unser Telefonzeiten:</strong></p>
+                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche: <a href="tel:+41 79 618 44 44"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+
+                <p><strong>Unser Bürozeiten:</strong></p>
+                <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
+                <p>Sa, So, Feiertag: nach Vereinbarung</p>
+            </div>
+            <div class="footer-contact-center">
+                <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+            </div>
+
+        </div>
+        <div id="ida" class="container-fluid bg-dark text-light text-center py-3 ">
+            <div class="footer-links">
                 <a href="#" data-key="impressum">Impressum</a>
                 <a href="#" data-key="privacy">Datenschutzerklärung</a>
                 <a href="#" data-key="terms">AGB</a>
-                <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
             </div>
+            <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/main.js"></script>
 
     <!-- Custom JS to handle language switching -->
     <script>
@@ -348,7 +397,8 @@
                     element.textContent = translations[language][key];
                 }
             });
-        }
+        };
+
     </script>
 </body>
 </html>

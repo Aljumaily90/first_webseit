@@ -12,7 +12,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
-        /* Navbar Styles */
         :root {
             --primary-color: #007bff;
             --secondary-color: #595d61;
@@ -20,8 +19,10 @@
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
+
+        /* Navbar Styles */
         .navbar {
-            background-color: #ffffff;
+            background-color: #405d64;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease; /* Smooth transition for navbar styles */
         }
@@ -43,25 +44,39 @@
 
         #logo {
             height: 60px;
-            transition: height 0.4s ease; /* Smooth transition for logo size */
+            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+            position: absolute;
+            top: 50%;
+            left: 30%;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1000;
+            
         }
+
+        #logo.large {
+            transform: translate(-50%, -50%) scale(2); /* Increase logo size when scrolled */
+        }
+
+
         .navbar-nav .nav-link {
-            font-weight: 600;
-            font-size: 18px;
+            font-weight: 700;
+            font-size: 20px;
             color: #000 !important; /* Set link color to black */
             padding: 10px;
             transition: all 0.3s ease; /* Smooth transition for link styles */
             margin-right: 20px;
         }
+
+
         .navbar-nav .nav-link:hover {
-            font-size: 20px; /* Increase font size on hover */
+            font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
         /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
         .et_pb_section_0 {
-            background-color: #F5ECCE;  /* Dunklere Hintergrundfarbe */
+            background-color: #F5ECCE; /* Dunklere Hintergrundfarbe */
             padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
-            color: #afc0c5; /* Textfarbe */
+            color: #405d64; /* Textfarbe */
             margin: 0;
             
         }
@@ -176,39 +191,38 @@
             margin: 0;
         }         
 
-        /******************** Fuss *******************/
+ /******************** Fuss *******************/
 
-        .footer a {
-            color: #ffffff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Contact Info Styling */
-        .footer-contact {
+ .footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            text-align: left;
             margin-bottom: 0; /* Remove bottom margin to eliminate space */
         }
 
-        .footer-contact p {
-            margin: 10px 0;
-            font-size: 18px;
+        .footer-contact-left,
+        .footer-contact-center,
+        .footer-contact-right {
+            flex: 1;
+            padding: 20px;
         }
 
-        .footer-contact img {
-            width: 25px;
-            height: 25px;
-            vertical-align: middle;
-            margin-right: 10px;
+        .footer-contact p a {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.6;
+            color: white;
         }
+        
+
+
+        .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
+        #footer-logo { width: 300px; height: auto; margin-top: 15px; }
+          
 
         /* Footer Links Styling */
         .footer-links {
@@ -217,15 +231,22 @@
             gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
+            border-top: #90969c solid 1px;
+            
+            
         }
+        .footer-links a {
+            color: white;
+            padding-top: 20px;
+        }
+     
 
         /* Footer Bottom Text */
         .footer-bottom {
             font-size: 14px;
             margin-top: 10px;
         }
-                /* Subheader Styles */
-                /* Subheader Styles */
+        /* Subheader Styles */
         #subheader {
             background-color: #405d64;
             padding: 10px;
@@ -294,7 +315,7 @@
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1); height: 20px;"> +41 79 777 88 55</a></span>
+        <span><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 777 88 55</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
@@ -306,7 +327,9 @@
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <img id="logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+        <a  href="/index.html">
+            <img id="logo" src="/image/logo.jpg" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -358,8 +381,8 @@
 
                     <div class="contactIcons">
                         <span class="material-symbols-outlined">add_call</span>
-                        <h5><a href="tel:+41417778855" style="color: #0a0000; text-decoration: none;">+41 41 777 88 55</a></h5>
-                        <h5><a href="tel:+41797778855" style="color: #0e0000; text-decoration: none;">+41 79 777 88 55</a></h5>
+                        <h5><a href="tel:+41796184444" style="color: #0a0000; text-decoration: none;">+41 79 618 44 44</a></h5>
+                        <h5><a href="tel:+41414403333" style="color: #0e0000; text-decoration: none;">+41 41 440 33 33</a></h5>
                        
                     </div>
                     
@@ -403,26 +426,47 @@
         </div>
     </div>
 
-        <!-- Footer -->
-        <footer>
-            <div class="footer-contact">
-                <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon" style="filter: invert(1);"> Oberfeld 2, 6037 Root LU</a></p>
-                <p><a href="tel:+41417778855"><img src="/image/phone-icon.png" alt="Phone Icon" style="filter: invert(1);"> +41 41 777 88 55</a></p>
-                <p><a href="tel:+41797778855"><img src="/image/phone-icon.png" alt="Mobile Icon" style="filter: invert(1);"> +41 79 777 88 55</a></p>
-                <p><img src="/image/email-icon.png" alt="Email Icon" style="filter: invert(1);"> <a href="mailto:info@eman-bestattungen.ch" style="color: #00bcd4;">info@eman-bestattungen.ch</a></p>
+    <!----- Footer ----->
+    <footer>
+        <div class="footer-contact">
+
+            <div class="footer-contact-left">
+                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen</a></p>
+                <p style="margin-left: 50px;">Oberfeld 2<br>6037 Root LU</p> <br>
+                <p><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+                <p style="margin-left: 50px;"><a href="tel:+41414403333">+41 41 440 33 33</a></p>
+
+                <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
             </div>
-            <div class="container-fluid bg-dark text-light text-center py-3">
+            <div class="footer-contact-right">
+                <h4>Öffnungszeiten</h4>
+                <p><strong>Unser Telefonzeiten:</strong></p>
+                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche: <a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+
+                <p><strong>Unser Bürozeiten:</strong></p>
+                <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
+                <p>Sa, So, Feiertag: nach Vereinbarung</p>
+            </div>
+            <div class="footer-contact-center">
+                <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+            </div>
+
+        </div>
+        <div id="ida" class="container-fluid bg-dark text-light text-center py-3 ">
+            <div class="footer-links">
                 <a href="#" data-key="impressum">Impressum</a>
                 <a href="#" data-key="privacy">Datenschutzerklärung</a>
                 <a href="#" data-key="terms">AGB</a>
-                <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
             </div>
+            <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+        </div>
     </footer>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/main.js"></script>
 
     <!-- Custom JS to handle scroll event -->
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
