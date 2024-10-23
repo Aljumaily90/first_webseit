@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>About Us</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -128,6 +128,148 @@
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
             transform: translateY(-10px);
         }
+         /******************** Media Queries *******************/
+
+        /* Mobile Styles */
+        @media (max-width: 576px) {
+            body {
+                font-size: 14px;
+            }
+
+            #logo {
+                height: 40px;
+                left: 50%;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            .et_pb_section_0 {
+                padding: 80px 10px 10px;
+            }
+
+            .et_pb_section_0 h1 {
+                font-size: 2rem;
+            }
+
+            #about {
+                padding: 20px;
+                margin: 10px auto;
+            }
+
+            .about-content {
+                font-size: 18px;
+                padding: 20px;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-contact-left,
+            .footer-contact-center,
+            .footer-contact-right {
+                padding: 10px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 577px) and (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+
+            #logo {
+                height: 50px;
+                left: 50%;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 18px;
+                margin-right: 15px;
+            }
+
+            .et_pb_section_0 {
+                padding: 100px 20px 20px;
+            }
+
+            .et_pb_section_0 h1 {
+                font-size: 2.5rem;
+            }
+
+            #about {
+                padding: 30px;
+                margin: 15px auto;
+            }
+
+            .about-content {
+                font-size: 20px;
+                padding: 30px;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                gap: 20px;
+            }
+        }
+
+        /* Desktop Styles */
+        @media (min-width: 769px) {
+            body {
+                font-size: 18px;
+            }
+
+            #logo {
+                height: 60px;
+            }
+
+            .navbar-nav .nav-link {
+                font-size: 20px;
+                margin-right: 20px;
+            }
+
+            .et_pb_section_0 {
+                padding: 140px 20px 20px;
+            }
+
+            .et_pb_section_0 h1 {
+                font-size: 3rem;
+            }
+
+            #about {
+                padding: 40px;
+                margin: 20px auto;
+            }
+
+            .about-content {
+                font-size: 25px;
+                padding: 40px;
+            }
+
+            .footer-contact {
+                flex-direction: row;
+            }
+
+            .footer-links {
+                flex-direction: row;
+                gap: 30px;
+            }
+        }
 
  /******************** Fuss *******************/
 
@@ -136,11 +278,14 @@
             background-color: #343a40;
             color: #ffffff;
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: flex-start;
             text-align: left;
             margin-bottom: 0; /* Remove bottom margin to eliminate space */
         }
+     
+   
 
         .footer-contact-left,
         .footer-contact-center,
@@ -165,6 +310,7 @@
         /* Footer Links Styling */
         .footer-links {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             gap: 30px;
             margin-top: 20px;
@@ -173,6 +319,7 @@
             
             
         }
+  
         .footer-links a {
             color: white;
             padding-top: 20px;
