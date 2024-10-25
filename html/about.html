@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
     <style>
         :root {
             --primary-color: #007bff;
@@ -83,19 +85,17 @@
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
-
+        /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
         .et_pb_section_0 {
-            background-color: #F5ECCE; 
-            padding: 80px 10px 10px;
+            background-color: #F5ECCE; /* Dunklere Hintergrundfarbe */
+            padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
             color: #405d64; /* Textfarbe */
             margin: 0;
-            position: relative;
+            
         }
 
-        
-
         .et_pb_section_0 h1 {
-            font-size: 2rem;
+            font-size: 3rem;
             font-weight: 700;
         }
 
@@ -118,188 +118,30 @@
             background: linear-gradient(135deg, #ffffff, #e9ecef);
             padding: 40px;
             border-radius: 15px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
             font-size: 25px;
             
         }
-        .about-content:hover {
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-            transform: translateY(-10px);
-        }
+        
  /******************** Media Queries *******************/
 
-        /* Mobile Styles */
-        @media (max-width: 576px) {
-            body {
-                font-size: 14px;
-            }
 
-            #logo {
-                height: 40px;
-                left: 50%;
-            }
-
-            .navbar-nav .nav-link {
-                font-size: 16px;
-                margin-right: 10px;
-            }
-
-            .et_pb_section_0 {
-                padding: 80px 10px 10px;
-            }
-
-            .et_pb_section_0 h1 {
-                font-size: 2rem;
-            }
-
-            #about {
-                padding: 20px;
-                margin: 10px auto;
-            }
-
-            .about-content {
-                font-size: 18px;
-                padding: 20px;
-            }
-
-            .footer-contact {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-contact-left,
-            .footer-contact-center,
-            .footer-contact-right {
-                padding: 10px;
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .navbar-toggler {
-                display: block;
-                margin-left: auto;
-            }
-
-            #subheader {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-        }
-
-        /* Tablet Styles */
-        @media (min-width: 577px) and (max-width: 768px) {
-            body {
-                font-size: 16px;
-            }
-
-            #logo {
-                height: 50px;
-                left: 50%;
-            }
-
-            .navbar-nav .nav-link {
-                font-size: 18px;
-                margin-right: 15px;
-            }
-
-            .et_pb_section_0 {
-                padding: 100px 20px 20px;
-            }
-
-            .et_pb_section_0 h1 {
-                font-size: 2.5rem;
-            }
-
-            #about {
-                padding: 30px;
-                margin: 15px auto;
-            }
-
-            .about-content {
-                font-size: 20px;
-                padding: 30px;
-            }
-
-            .footer-contact {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .footer-links {
-                flex-direction: row;
-                gap: 20px;
-            }
-
-            .navbar-toggler {
-                display: block;
-                margin-left: auto;
-            }
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 769px) {
-            body {
-                font-size: 18px;
-            }
-
-            #logo {
-                height: 60px;
-            }
-
-            .navbar-nav .nav-link {
-                font-size: 20px;
-                margin-right: 20px;
-            }
-
-            .et_pb_section_0 {
-                padding: 140px 20px 20px;
-            }
-
-            .et_pb_section_0 h1 {
-                font-size: 3rem;
-            }
-
-            #about {
-                padding: 40px;
-                margin: 20px auto;
-            }
-
-            .about-content {
-                font-size: 25px;
-                padding: 40px;
-            }
-
-            .footer-contact {
-                flex-direction: row;
-            }
-
-            .footer-links {
-                flex-direction: row;
-                gap: 30px;
-            }
-        }
 
  /******************** Fuss *******************/
 
-        .footer-contact {
+
+ .footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
             display: flex;
             justify-content: space-between;
-            text-align: center;
+            align-items: flex-start;
+            text-align: left;
             margin-bottom: 0; /* Remove bottom margin to eliminate space */
+
         }
-     
-   
 
         .footer-contact-left,
         .footer-contact-center,
@@ -324,16 +166,14 @@
         /* Footer Links Styling */
         .footer-links {
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            gap: 10px;
+            gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
             border-top: #90969c solid 1px;
             
             
         }
-  
         .footer-links a {
             color: white;
             padding-top: 20px;
@@ -355,7 +195,7 @@
             z-index: 1050;
             display: flex;
             justify-content: center;
-
+            align-items: center;
         }
 
         #subheader span {
@@ -408,13 +248,95 @@
             color: #afc0c5;
             font-size: 18px;   
         }
+        @media only screen and (max-width: 768px) {
+            /* Background Image adjustment */
+            body::before {
+                background-size: cover;
+            }
+            /* Anpassungen für das Logo im Handy-Format */
+            #logo {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                height: 40px; /* Kleinere Höhe für das Logo im Handy-Format */
+                width: auto;  /* Breite automatisch an die Höhe anpassen */
+                z-index: 1100; /* Erhöht den Z-Index, damit das Logo über dem Subheader liegt */
+                height: 20px;
+                
+            }
+
+            /* Subheader bleibt unverändert */
+            #subheader {
+                margin-top: 0;
+                padding: 15px;
+                text-align: center;
+                flex-direction: column;
+                
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px; /* Platz für das Logo oben schaffen */
+            }
+
+            /* Über uns Section Header Anpassungen */
+            .et_pb_section_0 {
+                padding: 60px 20px; /* Anpassung für mobile Ansicht */
+                text-align: center;
+            }
+
+            .et_pb_section_0 h1 {
+                font-size: 28px;
+                
+            }
+
+            /* About Section Anpassungen */
+            #about {
+                padding: 20px;
+                margin: 20px 10px;
+                text-align: start;
+                box-shadow: none;
+                border-radius: 10px;
+            }
+            #about h3 {
+                text-align: center;
+            }
+
+            .about-content {
+                font-size: 18px; /* Anpassung der Schriftgröße für mobile Ansicht */
+                line-height: 1.6;
+            }
+
+            /* Footer Anpassungen */
+            .footer-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact-left,
+            .footer-contact-center,
+            .footer-contact-right {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                padding-top: 10px;
+            }
+        }
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41 79 618 44 44"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
+        <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
             <div class="dropdown-content">
@@ -426,7 +348,7 @@
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <a  href="/index.html" class="navbar-brand">
+        <a  href="/index.html">
             <img id="logo" src="/image/logo.jpg" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

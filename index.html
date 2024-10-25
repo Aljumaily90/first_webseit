@@ -264,6 +264,94 @@
             font-size: 80px;
             color: rgb(122, 106, 14);
         }
+        /* Mobile Layout */
+        @media only screen and (max-width: 768px) {
+            /* Background Image adjustment */
+            body::before {
+                background-size: cover;
+            }
+
+            /* Navbar adjustments */
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px; /* Platz für das Logo oben schaffen */
+            }
+            
+            .navbar .navbar-nav {
+                flex-direction: column;
+            }
+
+            .navbar .nav-link {
+                margin-right: 0; /* Remove right margin */
+                margin-bottom: 10px; /* Add bottom margin for spacing */
+                font-size: 18px;
+            }
+
+            #logo {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                height: 40px; /* Kleinere Höhe für das Logo im Handy-Format */
+                width: auto;  /* Breite automatisch an die Höhe anpassen */
+                z-index: 1100; /* Erhöht den Z-Index, damit das Logo über dem Subheader liegt */
+                height: 20px;
+                
+            }
+
+            /* Subheader */
+            #subheader {
+                margin-top: 0;
+                padding: 15px;
+                text-align: center;
+                flex-direction: column;
+                
+            }
+
+            #subheader span {
+                padding-left: 0;
+            }
+
+            /* Main Sections adjustments */
+            .section-1, .section-2 {
+                padding: 40px 20px;
+                text-align: center;
+            }
+
+            .section-1 h1, .section-2 h1 {
+                font-size: 30px;
+                line-height: 1.4;
+            }
+
+            .btn-cta {
+                font-size: 18px;
+                padding: 10px 30px;
+                margin-top: 20px;
+            }
+
+            /* Footer adjustments */
+            .footer-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact-left,
+            .footer-contact-center,
+            .footer-contact-right {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                padding-top: 10px;
+            }
+        }
+
 
     </style>
 </head>

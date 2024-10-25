@@ -309,6 +309,100 @@
             color: #afc0c5;
             font-size: 18px;   
         }
+        @media only screen and (max-width: 768px) {
+            /* Anpassungen für das Logo im Handy-Format */
+            #logo {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                height: 40px; /* Kleinere Höhe für das Logo im Handy-Format */
+                width: auto;  /* Breite automatisch an die Höhe anpassen */
+                z-index: 1100; /* Erhöht den Z-Index, damit das Logo über dem Subheader liegt */
+                height: 20px;
+                
+            }
+
+            /* Subheader bleibt unverändert */
+            #subheader {
+                margin-top: 0;
+                padding: 15px;
+                text-align: center;
+                flex-direction: column;
+                
+            }
+
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px; /* Platz für das Logo oben schaffen */
+            }
+
+            /* Kontakten Section Header Anpassungen */
+            .et_pb_section_0 {
+                padding: 60px 20px; /* Anpassung für mobile Ansicht */
+                text-align: center;
+            }
+
+            .et_pb_section_0 h1 {
+                font-size: 28px;
+            }
+
+            /* Blende den Bereich contactIcon im Handy-Format aus */
+            #contactIcon {
+                display: none;
+            }
+
+            /* Formular passt sich im Handy-Format an */
+            #notice {
+                width: 100% !important; /* Volle Breite für mobile Ansicht */
+                float: none;
+                margin: 0 !important; /* Außenabstände entfernen */
+                padding: 0 !important; /* Innenabstände anpassen */
+            }
+
+            /* Anpassungen für das Formular */
+            #contactForm {
+                max-width: 100%; /* Volle Breite im Handy-Format */
+                padding: 20px;
+                box-shadow: none;
+                border-radius: 10px;
+                text-align: center;
+            }
+
+            #contactForm .form-control {
+                font-size: 16px;
+                margin-bottom: 10px; /* Abstand zwischen den Feldern */
+                width: 100% !important; /* Volle Breite der Eingabefelder */
+            }
+
+            #contactForm button {
+                font-size: 18px;
+                padding: 10px;
+                width: 100%; /* Volle Breite des Buttons für mobiles Format */
+            }
+
+            /* Footer Anpassungen */
+            .footer-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact-left,
+            .footer-contact-center,
+            .footer-contact-right {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                padding-top: 10px;
+            }
+        }
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
@@ -364,9 +458,9 @@
     </div>
 
     <!-- Contact Section -->
-    <div id="contact" class="p-5 bg-body-tertiary bg-light rounded-3 animate__animated animate__fadeIn">
+    <div id="contact" class="p-5 bg-body-tertiary bg-light rounded-3animate__animated animate__fadeIn ">
         <div class="container-fluid py-5 text-center">
-            <iframe class="contact-map animate__animated animate__fadeInUp" src="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU&output=embed"></iframe>
+            <iframe class="contact-map " src="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU&output=embed"></iframe>
             <form id="contactForm" class="contact-form  animate__animated animate__fadeInUp">
                 <section id="contactIcon">
                     <div class="contactIcons">

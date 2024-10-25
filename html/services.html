@@ -330,6 +330,127 @@
             color: #afc0c5;
             font-size: 18px;   
         }
+        @media only screen and (max-width: 768px) {
+            /* Anpassungen für das Logo im Handy-Format */
+            #logo {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                height: 40px; /* Kleinere Höhe für das Logo im Handy-Format */
+                width: auto;  /* Breite automatisch an die Höhe anpassen */
+                z-index: 1100; /* Erhöht den Z-Index, damit das Logo über dem Subheader liegt */
+                height: 20px;
+                
+            }
+
+            /* Subheader bleibt unverändert */
+            #subheader {
+                margin-top: 0;
+                padding: 15px;
+                text-align: center;
+                flex-direction: column;
+                
+            }
+
+            /* Navbar adjustments */
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px; /* Platz für das Logo oben schaffen */
+            }
+
+            /* Dienstleistungen Section Header Anpassungen */
+            .et_pb_section_0 {
+                padding: 60px 20px; /* Anpassung für mobile Ansicht */
+                text-align: center;
+            }
+
+            .et_pb_section_0 h1 {
+                font-size: 28px;
+                margin-top: 100px;
+                
+            }
+
+            /* Dienstleistungen Section Anpassungen */
+            #services {
+                padding: 20px 10px; /* Reduzierte Padding für mobile Ansicht */
+                text-align: center;
+            }
+
+            .service-item {
+                margin-bottom: 20px; /* Abstand zwischen den Service-Items */
+                text-align: center;
+                padding: 20px; /* Anpassung des Innenabstands für mobile Ansicht */
+                box-shadow: none;
+                border-radius: 10px;
+            }
+
+            .service-item h5 {
+                font-size: 20px;
+            }
+
+            .service-item p {
+                font-size: 16px;
+                display: block; /* Stellen Sie sicher, dass der Text sichtbar ist */
+                margin-top: 10px;
+            }
+
+            .service-icon {
+                font-size: 50px; /* Kleinere Icon-Größe für mobile Ansicht */
+            }
+
+            /* Footer Anpassungen */
+            .footer-contact {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-contact-left,
+            .footer-contact-center,
+            .footer-contact-right {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                padding-top: 10px;
+            }
+
+            /* Weitere Anpassungen für Sektionen */
+            .section-3 {
+                padding: 20px;
+            }
+
+            .section-3 .info-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .info-box {
+                margin-bottom: 20px;
+                text-align: left;
+                padding: 15px;
+                box-shadow: none;
+                border-radius: 10px;
+            }
+
+            .info-box h4 {
+                font-size: 18px;
+            }
+
+            .info-box ul {
+                padding-left: 15px;
+            }
+
+            .info-box ul li {
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
