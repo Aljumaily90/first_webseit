@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         /******** Navbar Styles ********/
         :root {
@@ -351,6 +352,11 @@
                 flex-direction: column;
                 
             }
+            /* Entferne eventuell störende Margins von enthaltenen Elementen */
+            #subheader span,
+            #subheader a {
+                margin-left: -40px; /* Entferne automatische Margins */
+            }
 
             /* Navbar adjustments */
             .navbar {
@@ -521,28 +527,32 @@
                     <div class="col-lg-3 mb-4">
                             <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">support_agent</span>
-                            <h5 data-key="service1-title">Persönliche Beratung</h5>
+                            <h5 data-key="service1-title" class="text-center">Persönliche Beratung</h5>
                             <p data-key="service1-desc">Wir hören Ihnen zu und beraten Sie individuell, um Ihre spezifischen Wünsche und Bedürfnisse zu verstehen.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
                             <span class="material-icons service-icon">local_shipping</span>
-                            <h5 data-key="service2-title">Umfassende Organisation</h5>
+                            <h5 data-key="service2-title" class="text-center">Umfassende Organisation</h5>
                             <p data-key="service2-desc">Wir kümmern uns um alle notwendigen Schritte, von der Planung der Bestattung bis hin zu den erforderlichen Formalitäten.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
-                            <span class="material-icons service-icon">clean_hands</span>
-                            <h5 data-key="service3-title">Rituelle Waschung & Abschiedszeremonie</h5>
+                            <span class="material-symbols-outlined service-icon">
+                                prayer_times
+                                </span>
+                            <h5 data-key="service3-title" class="text-center">Rituelle Waschung & Abschiedszeremonie</h5>
                             <p data-key="service3-desc">Durchführung der rituellen Waschung und Organisation der Abschiedszeremonie in Übereinstimmung mit den religiösen Traditionen.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
-                            <span class="material-icons service-icon ">emoji_people</span>
-                            <h5 data-key="service4-title">Transport/ Rückführung</h5>
+                            <span class="material-symbols-outlined service-icon">
+                                travel
+                                </span>
+                            <h5 data-key="service4-title" class="text-center">Transport / Rückführung</h5>
                             <p data-key="service4-desc">Sicherer Transport und Rückführung des Verstorbenen, sowohl national als auch international, unter Einhaltung aller Vorschriften.</p>
                         </div>
                     </div>
@@ -558,25 +568,25 @@
                     <h4 data-key="home-death-title">Zu Hause:</h4>
                     <ul>
                         <li data-key="home-death-step1">Arzt benachrichtigen (am besten Hausarzt)</li>
-                        <li data-key="home-death-step2">Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)</li>
-                        <li data-key="home-death-step3">Der Arzt stellt die Todesbescheinigung aus (Totenschein)</li>
+                        <li data-key="home-death-step2">Ansonsten ärztlicher Notfalldienst (061 485 90 00)</li>
+                        <li data-key="home-death-step3">Der Arzt stellt die Todesbescheinigung aus</li>
                     </ul>
                 </div>
                 <div class="info-box">
-                    <h4 data-key="accident-death-title">Im Krankenhaus oder in Pflege- & Altersheim</h4>
+                    <h4 data-key="accident-death-title">Im Krankenhaus oder in Pflege- & Altersheim:</h4>
                     <ul>
-                        <li data-key="accident-death-step1">Polizei benachrichtigen</li>
-                        <li data-key="accident-death-step2">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
-                        <li data-key="accident-death-step3">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
+                        <li data-key="accident-death-step1">Spitalbehörden stellen Todeschbescheinigung aus</li>
+                        <li data-key="accident-death-step2">oder Heimbehörden stellen Todeschbescheinigung aus</li>
+                        <li data-key="accident-death-step3">Original wird ans zuständige Zivilstandsamt weitergeleitet </li>
 
                     </ul>
                 </div>
                 <div class="info-box">
                     <h4 data-key="hospital-death-title">Bei einem Unfall:</h4>
                     <ul>
-                        <li data-key="hospital-death-step1">Polizei benachrichtigen</li>
-                        <li data-key="hospital-death-step2">auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid</li>
-                        <li data-key="hospital-death-step3">Der Arzt stellt die Todesbescheinigung aus (Totenschein)</li>
+                        <li data-key="hospital-death-step1">Polizei benachrichtigen (117)</li>
+                        <li data-key="hospital-death-step2">auch bei Verkehrs-, Arbeits- und sonstigen Unfällen</li>
+                        <li data-key="hospital-death-step3">Der Arzt stellt die Todesbescheinigung aus </li>
                     </ul>
                 </div>
             </div>
@@ -624,6 +634,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="/main.js"></script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {

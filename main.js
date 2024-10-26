@@ -1,30 +1,50 @@
 $(document).ready(function() {
-    var navbar = $('.navbar');
-    var logo = $('#logo');
-    var lastScrollTop = 0;
-    navbar.addClass('transparent'); // Set the navbar to transparent on load
+    let navbar = $('.navbar');
+    let logo = $('#logo');
+    let lastScrollTop = 0;
 
-    $(window).scroll(function() {
-        var currentScroll = $(this).scrollTop();
+    if ($(window).width() > 768) {
+        navbar.addClass('transparent');
+        logo.addClass('large');
 
-        if (currentScroll > lastScrollTop) {
-            // Scrolling down (navbar shrinks or becomes transparent)
-            navbar.addClass('navbar-large').removeClass('navbar-small');
-        } else {
-            // Scrolling up (navbar enlarges or becomes opaque)
-            navbar.addClass('navbar-small').removeClass('navbar-large');
-        }
-        
-        // Entferne den Hintergrund (transparent) wenn nach unten gescrollt wird
-        if (currentScroll > 100) {
-            navbar.addClass('transparent');
-            logo.addClass('large'); // Increase logo size when scrolled
-        } else {
-            navbar.removeClass('transparent');
+        $(window).scroll(function() {
+            let currentScroll = $(this).scrollTop();
+
+            if (currentScroll > lastScrollTop) {
+                navbar.addClass('navbar-large').removeClass('navbar-small');
+                
+            } else {
+                navbar.addClass('navbar-small').removeClass('navbar-large');
+            }
             
-            logo.removeClass('large'); // Reset logo size when at top
-        }
+            if (currentScroll > 100) {
+                navbar.addClass('transparent');
+                logo.removeClass('large');
+                
+            } else {
+                navbar.removeClass('transparent');
+                logo.addClass('large');
+            }
 
-        lastScrollTop = currentScroll;
-    });
+            lastScrollTop = currentScroll;
+        });
+    }
+});
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    // Verhindert das automatische Absenden, wenn Felder fehlen
+    event.preventDefault();
+    
+    // Führe Validierung durch
+    let name = document.getElementById('name').value;
+    let email = document.getElementById('email').value;
+    let telefon = document.getElementById('telefon').value;
+    let nachricht = document.getElementById('nachricht').value;
+    
+    if (name === "" || email === "" || telefon === "" || nachricht === "") {
+        alert("Bitte füllen Sie alle Felder aus!");
+        return;
+    }
+    
+    // Wenn die Validierung erfolgreich ist, sende das Formular
+    this.submit();
 });
