@@ -20,18 +20,16 @@
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
-        /* Background Image */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('/image/About.jpg') no-repeat center center/cover;
-            filter: blur(8px);
-            z-index: -1;
+        body {
+            padding-top: 60px; /* Adjust this value to the height of your fixed navbar */
         }
+        /* Optionale Anpassungen für bessere Bild-Text-Ausrichtung */
+        #about img {
+            max-height: 500px; /* Passt die maximale Höhe des Bildes an, falls notwendig */
+            object-fit: cover;  /* Sorgt dafür, dass das Bild die gesamte Fläche füllt */
+            width: 90%;
+        }
+
 
         /* Navbar Styles */
         .navbar {
@@ -85,19 +83,7 @@
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
-        /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
-        .et_pb_section_0 {
-            background-color: #F5ECCE; /* Dunklere Hintergrundfarbe */
-            padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
-            color: #405d64; /* Textfarbe */
-            margin: 0;
-            
-        }
 
-        .et_pb_section_0 h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
 
         /* About Section */
         #about {
@@ -107,7 +93,8 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
-            margin: 20px auto;
+            
+            
         }
 
         #about:hover {
@@ -376,24 +363,28 @@
             </ul>
         </div>
     </nav>
-    <!-- Über uns Section Header -->
-    <div class="et_pb_section et_pb_section_0 et_pb_with_background et_section_regular">
-        <div class="et_pb_row et_pb_row_0">
-            <div class="et_pb_column et_pb_column_4_4 et_pb_column_0 et_pb_css_mix_blend_mode_passthrough et-last-child">
-                <div class="et_pb_module et_pb_text et_pb_text_0 et_pb_text_align_left et_pb_bg_layout_light">
-                    <div class="et_pb_text_inner ">
-                        <h1 class="display-4 fw-bold" data-key="about_title">Über uns</h1>
-                    </div>
+    
+
+    <div id="about" class="card animate__animated animate__fadeInUp" style="max-width: 80%; margin: 100px auto 40px;">
+        <div class="row no-gutters align-items-center">
+            <!-- Image Column -->
+            <div class="col-md-4">
+                <img src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image" style="border-radius: 15px; margin-right: 20px;">
+            </div>
+            <!-- Text Column -->
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title" data-key="about_title">Ihr Partner für islamische und kulturelle Bestattungen schweizweit</h3>
+                    <p class="card-text about-content" data-key="about_content_1">
+                        Eman Bestattungen GmbH ist ein Bestattungsinstitut, das sich auf islamische Bestattungen spezialisiert hat. Mit unserem tiefen Verständnis für religiöse und kulturelle Bedürfnisse und unserer langjährigen Erfahrung bieten wir Angehörigen und Interessierten professionelle und einfühlsame Unterstützung in schweren Zeiten.
+                        <br><br>
+                        Unser Team behandelt Bestattungen aller Religionen und Kulturen mit höchstem Respekt und Sorgfalt. Wir führen sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch und arbeiten dabei eng mit Schweizer und internationalen Behörden zusammen, um einen reibungslosen Ablauf zu gewährleisten.
+                        <br><br>
+                        Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung. Wir setzen alles daran, Sie bestmöglich zu entlasten und einen würdevollen Verlauf aller Prozesse zu garantieren.
+                    </p>
                 </div>
             </div>
-        </div>
-    </div>
-    <div id="about" class="card animate__animated animate__fadeInUp" style="max-width: 900px;">
-        <div class="row g-0">
-            <div class="card-body">
-              <h3 class="card-title" data-key="about_title">Über uns:</h3>
-              <p class="card-text about-content" data-key="about_content_1">Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.</p>
-            </div>
+            
         </div>
     </div>
     
