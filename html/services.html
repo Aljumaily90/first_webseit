@@ -47,15 +47,15 @@
             height: 60px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
             position: absolute;
-            top: 50%;
-            left: 30%;
+            top: 30%;
+            left: 20%;
             transform: translate(-50%, -50%) scale(1);
             z-index: 1000;
             
         }
 
         #logo.large {
-            transform: translate(-50%, -50%) scale(2); /* Increase logo size when scrolled */
+            transform: translate(-50%, -50%) scale(2.5); /* Increase logo size when scrolled */
         }
 
 
@@ -73,19 +73,7 @@
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
-        /* Dienstleistungen Abschnitt Kopfzeilen-Stile */
-        .et_pb_section_0 {
-            background-color: #F5ECCE; /* Dunklere Hintergrundfarbe */
-            padding: 140px 0 20px 10px; /* Erhöhte Polsterung für bessere Sichtbarkeit */
-            color: #405d64; /* Textfarbe */
-            margin: 0;
-            
-        }
 
-        .et_pb_section_0 h1 {
-            font-size: 3rem;
-            font-weight: 700;
-        }
 
         /* Dienstleistungen Abschnitt Stile */
         #services {
@@ -276,7 +264,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1050;
+            z-index: 1000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -335,42 +323,52 @@
         @media only screen and (max-width: 768px) {
             /* Anpassungen für das Logo im Handy-Format */
             #logo {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                height: 40px; /* Kleinere Höhe für das Logo im Handy-Format */
-                width: auto;  /* Breite automatisch an die Höhe anpassen */
-                z-index: 1100; /* Erhöht den Z-Index, damit das Logo über dem Subheader liegt */
-                height: 20px;
-                
+            height: 30px;
+            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+            position: absolute;
+            top: -80px;
+            left: 40px;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1000;
+
             }
 
-            /* Subheader bleibt unverändert */
+                    /* Subheader anpassen, damit Text nicht verdeckt wird */
             #subheader {
-                margin-top: 0;
-                padding: 15px;
-                text-align: center;
-                flex-direction: column;
-                
+            padding-top: 15px;
+            padding-bottom: 15px;
+            z-index: 500;
+            display: flex;
+            flex-direction: column; /* Ordne den Inhalt vertikal an */
+            align-items: center;
+            text-align: center;
+            position: fixed; /* Subheader bleibt fixiert */
+            top: 0;
+            
             }
-            /* Entferne eventuell störende Margins von enthaltenen Elementen */
+                    /* Entferne eventuell störende Margins von enthaltenen Elementen */
             #subheader span,
             #subheader a {
                 margin-left: -40px; /* Entferne automatische Margins */
+                        
+            }
+            /* Abstand zwischen den Elementen im Subheader */
+            #subheader span {
+                margin-bottom: 5px; /* Füge Abstand zwischen den Zeilen hinzu */
             }
 
-            /* Navbar adjustments */
             .navbar {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 60px; /* Platz für das Logo oben schaffen */
-            }
-
-
+            position: fixed; /* Navbar bleibt fixiert */
+            top: 50px; /* Platziere die Navbar direkt unter dem Subheader */
+            width: 100%;
+            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
+            background-color: #405d64; /* Stelle sicher, dass die Hintergrundfarbe festgelegt ist */
+            margin-top: 60px;
+        }
 
             /* Dienstleistungen Section Anpassungen */
             #services {
-                padding: 20px 10px; /* Reduzierte Padding für mobile Ansicht */
+                padding: 60px 10px 0 0; /* Reduzierte Padding für mobile Ansicht */
                 text-align: center;
             }
 
@@ -447,6 +445,7 @@
             .info-box ul li {
                 font-size: 14px;
             }
+           
         }
     </style>
 </head>
@@ -506,14 +505,14 @@
                 <div class="row">
                     <div class="col-lg-3 mb-4">
                             <div class="service-item animate__animated animate__fadeInUp">
-                            <span class="material-icons service-icon">support_agent</span>
+                                <span class="material-icons service-icon">person_search</span>
                             <h5 data-key="service1-title" class="text-center">Persönliche Beratung</h5>
                             <p data-key="service1-desc">Wir hören Ihnen zu und beraten Sie individuell, um Ihre spezifischen Wünsche und Bedürfnisse zu verstehen.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 mb-4">
                         <div class="service-item animate__animated animate__fadeInUp">
-                            <span class="material-icons service-icon">local_shipping</span>
+                            <span class="material-icons service-icon">assignment</span>
                             <h5 data-key="service2-title" class="text-center">Umfassende Organisation</h5>
                             <p data-key="service2-desc">Wir kümmern uns um alle notwendigen Schritte, von der Planung der Bestattung bis hin zu den erforderlichen Formalitäten.</p>
                         </div>
@@ -542,8 +541,8 @@
                 <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
             </div>
         </section>
-        <div class="p-5 bg-body-tertiary section-3 rounded-3">
-            <h2 class=" mb-2" style="font-weight: 600; color: #405d64;">
+        <div id="tun" class="p-5 bg-body-tertiary section-3 rounded-3">
+            <h2 class=" mb-2 " style="font-weight: 600; color: #405d64;">
                 Was tun beim Todesfall ?
             </h2>
             <div class="container-fluid py-5 info-container">

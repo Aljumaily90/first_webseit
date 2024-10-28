@@ -64,15 +64,15 @@
             height: 60px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
             position: absolute;
-            top: 50%;
-            left: 30%;
+            top: 30%;
+            left: 20%;
             transform: translate(-50%, -50%) scale(1);
             z-index: 1000;
             
         }
 
         #logo.large {
-            transform: translate(-50%, -50%) scale(2); /* Increase logo size when scrolled */
+            transform: translate(-50%, -50%) scale(2.5); /* Increase logo size when scrolled */
         }
 
 
@@ -210,7 +210,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1050;
+            z-index: 1000;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -279,12 +279,15 @@
             }
 
             /* Navbar adjustments */
+                /* Navbar anpassen, damit sie unter dem Subheader angezeigt wird */
             .navbar {
-                flex-direction: column;
-                text-align: center;
-                
-                padding-top: 60px; /* Platz für das Logo oben schaffen */
-            }
+            position: fixed; /* Navbar bleibt fixiert */
+            top: 50px; /* Platziere die Navbar direkt unter dem Subheader */
+            width: 100%;
+            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
+            background-color: #405d64; /* Stelle sicher, dass die Hintergrundfarbe festgelegt ist */
+            margin-top: 60px;
+        }
 
             .navbar .navbar-nav {
                 flex-direction: column;
@@ -297,30 +300,38 @@
             }
 
             #logo {
-                position: absolute;
-                top: 10px;
-                left: 10px;
-                height: 40px; /* Kleinere Höhe für das Logo im Handy-Format */
-                width: auto;  /* Breite automatisch an die Höhe anpassen */
-                z-index: 1100; /* Erhöht den Z-Index, damit das Logo über dem Subheader liegt */
-                height: 20px;
-                
+            height: 30px;
+            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+            position: absolute;
+            top: -80px;
+            left: 40px;
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 1000;
+
             }
 
-            /* Subheader */
+                    /* Subheader anpassen, damit Text nicht verdeckt wird */
             #subheader {
-                margin-top: 0;
-                padding: 15px;
-                text-align: center;
-                flex-direction: column;
-                
+            padding-top: 15px;
+            padding-bottom: 15px;
+            z-index: 500;
+            display: flex;
+            flex-direction: column; /* Ordne den Inhalt vertikal an */
+            align-items: center;
+            text-align: center;
+            position: fixed; /* Subheader bleibt fixiert */
+            top: 0;
+            
             }
-
-            /* Entferne eventuell störende Margins von enthaltenen Elementen */
+                    /* Entferne eventuell störende Margins von enthaltenen Elementen */
             #subheader span,
             #subheader a {
                 margin-left: -40px; /* Entferne automatische Margins */
-                
+                        
+            }
+            /* Abstand zwischen den Elementen im Subheader */
+            #subheader span {
+                margin-bottom: 5px; /* Füge Abstand zwischen den Zeilen hinzu */
             }
 
             /* Main Sections adjustments */
@@ -367,7 +378,6 @@
             color: rgb(122, 106, 14);
             }
         }
-
 
     </style>
 </head>
