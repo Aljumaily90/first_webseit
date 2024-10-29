@@ -48,3 +48,36 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     // Wenn die Validierung erfolgreich ist, sende das Formular
     this.submit();
 });
+
+
+function toggleDropdown() {
+        const dropdownContent = document.getElementById("dropdown-content");
+        dropdownContent.classList.toggle("show");
+}
+
+// Schließt das Dropdown, wenn man außerhalb klickt
+window.onclick = function(event) {
+        if (!event.target.matches('#selected-language')) {
+            const dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+};
+$(document).ready(function() {
+    // Holt den Pfad der aktuellen URL
+    const currentPath = window.location.pathname;
+
+    // Schleife durch alle Navigation-Links und überprüft die Übereinstimmung
+    $('.navbar-nav .nav-link').each(function() {
+        const linkPath = $(this).attr('href');
+        if (linkPath === currentPath) {
+            $(this).addClass('active'); // Fügt die Klasse "active" hinzu
+        }
+    });
+});
+
+

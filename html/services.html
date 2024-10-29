@@ -14,18 +14,91 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
         /******** Navbar Styles ********/
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #595d61;
-            --light-color: #ffffff;
-            --dark-color: #020000;
-            --accent-color: #39b9e0;
+        /******************************Logo**************************************************/
+        #logo {
+            height: 60px;
+            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+            top: 4%; /* Positioniert das Logo 10px vom oberen Rand */
+            left: 20%; /* Positioniert das Logo 10px vom rechten Rand */
+            z-index: 1003;
+            padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
+            transition: transform 0.4s ease, height 0.4s ease; /* Animation bleibt für Größenänderungen */
         }
+
+        #logo.large {
+            transform: scale(2.5); /* Vergrößert das Logo, falls dies noch gewünscht ist */
+        }
+/************************************subheader*****************************************/
+
+#subheader {
+            background-color: #405d64;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #subheader span {
+            margin: 0 10px;
+            font-weight: 600;
+            color: #afc0c5;
+            padding-left: 50px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--light-color);
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1010;
+        }
+
+        .dropdown-content a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        #subheader a {
+            color: #afc0c5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #subheader a:hover {
+            font-size: 18px;
+        }
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
+        }
+/****************************Nav**********************************************************/
         /* Navbar Styles */
         .navbar {
             background-color: #405d64;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease; /* Smooth transition for navbar styles */
+            z-index: 1;
         }
 
         .navbar.scrolled {
@@ -43,20 +116,6 @@
             background-color: transparent; /* Make navbar transparent */
         }
 
-        #logo {
-            height: 60px;
-            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
-            position: absolute;
-            top: 30%;
-            left: 20%;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 1000;
-            
-        }
-
-        #logo.large {
-            transform: translate(-50%, -50%) scale(2.5); /* Increase logo size when scrolled */
-        }
 
 
         .navbar-nav .nav-link {
@@ -72,6 +131,19 @@
         .navbar-nav .nav-link:hover {
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
+        }
+
+
+/**************************content*************************************************/
+
+
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #595d61;
+            --light-color: #ffffff;
+            --dark-color: #020000;
+            --accent-color: #39b9e0;
         }
 
 
@@ -201,7 +273,7 @@
             color: #595d61;
             font-size: 1.3rem;
         }
- /******************** Fuss *******************/
+/***********************************footer***********************************************/
 
         .footer-contact {
             padding: 30px;
@@ -258,86 +330,25 @@
             margin-top: 10px;
         }
         /* Subheader Styles */
-        #subheader {
-            background-color: #405d64;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        #subheader span {
-            margin: 0 10px;
-            font-weight: 600;
-            color: #afc0c5;
-            padding-left: 50px;
-        }
-
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--light-color);
-            min-width: 100px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: var(--dark-color);
-            text-decoration: none;
-            display: block;
-            padding: 8px 16px;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        #subheader a {
-            color: #afc0c5;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        #subheader a:hover {
-            font-size: 18px;
-        }
-        #available{
-            margin-right: 10px;
-            color: #afc0c5;
-            font-size: 18px;   
-        }
+       
         @media only screen and (max-width: 768px) {
             /* Anpassungen für das Logo im Handy-Format */
             #logo {
             height: 30px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
             position: absolute;
-            top: -80px;
+            top: 20px;
             left: 40px;
             transform: translate(-50%, -50%) scale(1);
-            z-index: 1000;
-
+            z-index: 3;
+            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             }
 
-                    /* Subheader anpassen, damit Text nicht verdeckt wird */
+            /* Subheader anpassen, damit Text nicht verdeckt wird */
             #subheader {
             padding-top: 15px;
             padding-bottom: 15px;
-            z-index: 500;
+            z-index: 2;
             display: flex;
             flex-direction: column; /* Ordne den Inhalt vertikal an */
             align-items: center;
@@ -361,7 +372,7 @@
             position: fixed; /* Navbar bleibt fixiert */
             top: 50px; /* Platziere die Navbar direkt unter dem Subheader */
             width: 100%;
-            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
+            z-index: 1; /* Lege die Navbar unterhalb des Subheaders */
             background-color: #405d64; /* Stelle sicher, dass die Hintergrundfarbe festgelegt ist */
             margin-top: 60px;
         }
@@ -451,6 +462,9 @@
 </head>
 <body class="animate__animated animate__fadeIn">
     <!-- Subheader -->
+     <span><a  href="/index.html">
+        <img id="logo" src="/image/logo.jpg" alt="">
+    </a></span>
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
@@ -465,9 +479,7 @@
     </div>
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <a  href="/index.html">
-            <img id="logo" src="/image/logo.jpg" alt="">
-        </a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

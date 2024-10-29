@@ -13,6 +13,7 @@
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <style>
+
         :root {
             --primary-color: #007bff;
             --secondary-color: #595d61;
@@ -20,30 +21,102 @@
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
-        body {
-            padding-top: 60px; /* Adjust this value to the height of your fixed navbar */
-        }
-        /* Optionale Anpassungen für bessere Bild-Text-Ausrichtung */
-        #about img {
-            max-height: 500px; /* Passt die maximale Höhe des Bildes an, falls notwendig */
-            object-fit: cover;  /* Sorgt dafür, dass das Bild die gesamte Fläche füllt */
-            width: 90%;
+/******************************Logo**************************************************/
+        #logo {
+            height: 60px;
+            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+            top: 4%; /* Positioniert das Logo 10px vom oberen Rand */
+            left: 20%; /* Positioniert das Logo 10px vom rechten Rand */
+            z-index: 1003;
+            padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
+            transition: transform 0.4s ease, height 0.4s ease; /* Animation bleibt für Größenänderungen */
         }
 
+        #logo.large {
+            transform: scale(2.5); /* Vergrößert das Logo, falls dies noch gewünscht ist */
+        }
+/************************************subheader*****************************************/
+        /* Subheader Styles */
+        #subheader {
+            background-color: #405d64;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1001;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-                /* Navbar Styles */
-                .navbar {
+        #subheader span {
+            margin: 0 10px;
+            font-weight: 600;
+            color: #afc0c5;
+            padding-left: 50px;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
+        }
+
+        /* Standardmäßig ist das Dropdown-Inhaltsmenü ausgeblendet */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--light-color); /* Passe die Farbe an deine Bedürfnisse an */
+            min-width: 100px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            z-index: 1002;
+            
+        }
+
+        /* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
+        .dropdown-content.show {
+            display: block;
+        }
+
+        /* Stil für die Links im Dropdown-Inhalt */
+        .dropdown-content a {
+            color: var(--dark-color); /* Passe die Textfarbe an */
+            text-decoration: none;
+            display: block;
+            padding: 8px 16px;
+        }
+
+        /* Hover-Effekt für die Links im Dropdown */
+        .dropdown-content a:hover {
+            background-color: #f1f1f1; /* Passe die Hover-Hintergrundfarbe an */
+        }
+
+        #subheader a {
+            color: #afc0c5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        #subheader a:hover {
+            font-size: 18px;
+        }
+/****************************Nav**********************************************************/
+ /* Navbar Styles */
+        .navbar {
             background-color: #405d64;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease; /* Smooth transition for navbar styles */
+            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
         }
-
         .navbar.scrolled {
             background-color: #007bff; /* Change background when scrolled */
             padding: 10px; /* Reduce padding when scrolled */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-
         .navbar-hidden {
             top: 0;
             transition: top 0.4s ease; /* Smooth transition for navbar position */
@@ -52,23 +125,6 @@
         .navbar.transparent {
             background-color: transparent; /* Make navbar transparent */
         }
-
-        #logo {
-            height: 60px;
-            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
-            position: absolute;
-            top: 30%;
-            left: 20%;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 1000;
-            
-        }
-
-        #logo.large {
-            transform: translate(-50%, -50%) scale(2.5); /* Increase logo size when scrolled */
-        }
-
-
         .navbar-nav .nav-link {
             font-weight: 700;
             font-size: 20px;
@@ -83,8 +139,16 @@
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
-
-
+/**************************content*************************************************/
+        body {
+            padding-top: 60px; /* Adjust this value to the height of your fixed navbar */
+        }
+        /* Optionale Anpassungen für bessere Bild-Text-Ausrichtung */
+        #about img {
+            max-height: 500px; /* Passt die maximale Höhe des Bildes an, falls notwendig */
+            object-fit: cover;  /* Sorgt dafür, dass das Bild die gesamte Fläche füllt */
+            width: 90%;
+        }
         /* About Section */
         #about {
             background: linear-gradient(135deg, var(--light-color), #e9ecef);
@@ -92,11 +156,8 @@
             border-radius: 15px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
-            position: relative;
-            
-            
+            position: relative;            
         }
-
         #about:hover {
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
             transform: translateY(-10px);
@@ -108,17 +169,9 @@
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
             font-size: 25px;
-            
         }
-        
- /******************** Media Queries *******************/
-
-
-
- /******************** Fuss *******************/
-
-
- .footer-contact {
+/***********************************footer***********************************************/
+        .footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
@@ -135,7 +188,9 @@
         .footer-contact-right {
             flex: 1;
             padding: 20px;
+            font-size: 18px;
         }
+
 
         .footer-contact p a {
             margin: 0;
@@ -158,8 +213,7 @@
             margin-top: 20px;
             margin-bottom: 10px;
             border-top: #90969c solid 1px;
-            
-            
+
         }
         .footer-links a {
             color: white;
@@ -172,91 +226,29 @@
             font-size: 14px;
             margin-top: 10px;
         }
-        /* Subheader Styles */
-        #subheader {
-            background-color: #405d64;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        #subheader span {
-            margin: 0 10px;
-            font-weight: 600;
-            color: #afc0c5;
-            padding-left: 50px;
-        }
+ /***********************************media***********************************************/
+ 
 
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--light-color);
-            min-width: 100px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: var(--dark-color);
-            text-decoration: none;
-            display: block;
-            padding: 8px 16px;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        #subheader a {
-            color: #afc0c5;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        #subheader a:hover {
-            font-size: 18px;
-        }
-        #available{
-            margin-right: 10px;
-            color: #afc0c5;
-            font-size: 18px;   
-        }
+ 
         @media only screen and (max-width: 768px) {
             /* Background Image adjustment */
-            body::before {
-                background-size: cover;
-            }
-            /* Anpassungen für das Logo im Handy-Format */
             #logo {
             height: 30px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
             position: absolute;
-            top: -80px;
+            top: 20px;
             left: 40px;
             transform: translate(-50%, -50%) scale(1);
-            z-index: 1000;
-
+            z-index: 3;
+            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             }
 
-                    /* Subheader anpassen, damit Text nicht verdeckt wird */
+            /* Subheader anpassen, damit Text nicht verdeckt wird */
             #subheader {
             padding-top: 15px;
             padding-bottom: 15px;
-            z-index: 500;
+            z-index: 2;
             display: flex;
             flex-direction: column; /* Ordne den Inhalt vertikal an */
             align-items: center;
@@ -280,11 +272,10 @@
             position: fixed; /* Navbar bleibt fixiert */
             top: 50px; /* Platziere die Navbar direkt unter dem Subheader */
             width: 100%;
-            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
+            z-index: 1; /* Lege die Navbar unterhalb des Subheaders */
             background-color: #405d64; /* Stelle sicher, dass die Hintergrundfarbe festgelegt ist */
             margin-top: 60px;
         }
-
             
 
             /* About Section Anpassungen */
@@ -326,9 +317,13 @@
                 padding-top: 10px;
             }
         }
+/**************************************************************************************/
     </style>
 </head>
 <body class="animate__animated animate__fadeIn">
+    <span>        <a  href="/index.html">
+        <img id="logo" src="/image/logo.jpg" alt="">
+    </a></span>
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
@@ -345,9 +340,7 @@
 
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <a href="/index.html">
-            <img id="logo" src="/image/logo.jpg" alt="">
-        </a>
+
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -397,25 +390,25 @@
     <!----- Footer ----->
     <footer>
         <div class="footer-contact">
-
             <div class="footer-contact-left">
-                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon">Eman Bestattungen GmbH</a></p>
+                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
                 <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
-                <p><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
-                <p style="margin-left: 50px;"><a href="tel:+41414403333">+41 41 440 33 33</a></p>
+                <p ><a href="tel:+41414403333"><img src="/image/Deskphone-icon.png" alt="telefon" style="height: 40px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
+
                 <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
             </div>
             <div class="footer-contact-right">
-                <h4>Öffnungszeiten</h4>
+                
                 <p><strong>Unser Telefonzeiten:</strong></p>
-                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche: <a href="tel:+41 79 618 44 44"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche:&nbsp;<a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
+                </p>
 
                 <p><strong>Unser Bürozeiten:</strong></p>
-                <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
-                <p>Sa, So, Feiertag: nach Vereinbarung</p>
+                <p>Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
+                
             </div>
             <div class="footer-contact-center">
-                <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+                <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Eman Bestattungen">
             </div>
 
         </div>
@@ -425,7 +418,7 @@
                 <a href="#" data-key="privacy">Datenschutzerklärung</a>
                 <a href="#" data-key="terms">AGB</a>
             </div>
-            <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+            <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -434,6 +427,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="/main.js"></script>
+
 
 
     <!-- Custom JS to handle language switching -->
