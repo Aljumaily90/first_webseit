@@ -1,0 +1,125 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #595d61;
+    --light-color: #ffffff;
+    --dark-color: #020000;
+    --accent-color: #39b9e0;
+}
+/******************************Logo**************************************************/
+#logo {
+    height: 60px;
+    position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+    top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
+    left: 15%; /* Positioniert das Logo 10px vom rechten Rand */
+    z-index: 1004;
+    padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
+    transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
+}
+
+#logo.large {
+    height: 90px; /* Vergrößert das Logo, falls dies noch gewünscht ist */
+}
+/************************************subheader*****************************************/
+/* Subheader Styles */
+#subheader {
+    background-color: #26414c;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1001;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#subheader span {
+    margin: 0 10px;
+    font-weight: 600;
+    color: #c2d4da;
+    padding-left: 50px;
+}
+
+.dropdown {
+    position: relative;
+}
+#available{
+    margin-right: 10px;
+    color: #afc0c5;
+    font-size: 18px;   
+}
+
+/* Standardmäßig ist das Dropdown-Inhaltsmenü ausgeblendet */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--light-color); /* Passe die Farbe an deine Bedürfnisse an */
+    min-width: 100px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1002;
+    
+}
+
+/* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
+.dropdown-content.show {
+    display: block;
+}
+
+/* Stil für die Links im Dropdown-Inhalt */
+.dropdown-content a {
+    color: var(--dark-color); /* Passe die Textfarbe an */
+    text-decoration: none;
+    display: block;
+    padding: 8px 16px;
+}
+
+/* Hover-Effekt für die Links im Dropdown */
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Passe die Hover-Hintergrundfarbe an */
+}
+
+#subheader a {
+    color: #afc0c5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#subheader a:hover {
+    font-size: 18px;
+}
+/****************************Nav**********************************************************/
+/* Navbar Styles */
+.navbar {
+    background-color: #e6e7e7;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease; /* Smooth transition for navbar styles */
+    z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
+}
+.navbar.scrolled {
+    background-color: #007bff; /* Change background when scrolled */
+    padding: 10px; /* Reduce padding when scrolled */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+.navbar-hidden {
+    top: 0;
+    transition: top 0.4s ease; /* Smooth transition for navbar position */
+}
+
+.navbar.transparent {
+    background-color: transparent; /* Make navbar transparent */
+}
+.navbar-nav .nav-link {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000 !important; /* Set link color to black */
+    padding: 10px;
+    transition: all 0.3s ease; /* Smooth transition for link styles */
+    margin-right: 20px;
+}
+
+
+.navbar-nav .nav-link:hover {
+    font-size: 22px; /* Increase font size on hover */
+    color: #383535 !important; /* Change link color on hover */
+}

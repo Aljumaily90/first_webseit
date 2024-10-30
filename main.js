@@ -22,7 +22,7 @@ $(document).ready(function() {
                 logo.removeClass('large');
                 
             } else {
-                navbar.removeClass('transparent');
+                navbar.addClass('transparent');
                 logo.addClass('large');
             }
 

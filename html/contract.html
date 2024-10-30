@@ -29,25 +29,25 @@
         #logo {
             height: 60px;
             position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
-            top: 4%; /* Positioniert das Logo 10px vom oberen Rand */
-            left: 20%; /* Positioniert das Logo 10px vom rechten Rand */
-            z-index: 1003;
+            top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
+            left: 15%; /* Positioniert das Logo 10px vom rechten Rand */
+            z-index: 1004;
             padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
-            transition: transform 0.4s ease, height 0.4s ease; /* Animation bleibt für Größenänderungen */
+            transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
         }
 
         #logo.large {
-            transform: scale(2.5); /* Vergrößert das Logo, falls dies noch gewünscht ist */
+            height: 90px; /* Vergrößert das Logo, falls dies noch gewünscht ist */
         }
-/************************************subheader*****************************************/
-
-#subheader {
-            background-color: #405d64;
+        /************************************subheader*****************************************/
+        /* Subheader Styles */
+        #subheader {
+            background-color: #26414c;
             padding: 10px;
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: 1000;
+            z-index: 1001;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -56,37 +56,47 @@
         #subheader span {
             margin: 0 10px;
             font-weight: 600;
-            color: #afc0c5;
+            color: #c2d4da;
             padding-left: 50px;
         }
 
         .dropdown {
             position: relative;
         }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
+        #available{
+            margin-right: 10px;
+            color: #afc0c5;
+            font-size: 18px;   
         }
 
+        /* Standardmäßig ist das Dropdown-Inhaltsmenü ausgeblendet */
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: var(--light-color);
+            background-color: var(--light-color); /* Passe die Farbe an deine Bedürfnisse an */
             min-width: 100px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             padding: 10px;
-            z-index: 1010;
+            z-index: 1002;
+            
         }
 
+        /* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
+        .dropdown-content.show {
+            display: block;
+        }
+
+        /* Stil für die Links im Dropdown-Inhalt */
         .dropdown-content a {
-            color: var(--dark-color);
+            color: var(--dark-color); /* Passe die Textfarbe an */
             text-decoration: none;
             display: block;
             padding: 8px 16px;
         }
 
+        /* Hover-Effekt für die Links im Dropdown */
         .dropdown-content a:hover {
-            background-color: #f1f1f1;
+            background-color: #f1f1f1; /* Passe die Hover-Hintergrundfarbe an */
         }
 
         #subheader a {
@@ -98,26 +108,19 @@
         #subheader a:hover {
             font-size: 18px;
         }
-        #available{
-            margin-right: 10px;
-            color: #afc0c5;
-            font-size: 18px;   
-        }
-/****************************Nav**********************************************************/
+        /****************************Nav**********************************************************/
         /* Navbar Styles */
         .navbar {
-            background-color: #405d64;
+            background-color: #e6e7e7;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.4s ease; /* Smooth transition for navbar styles */
-            z-index: 1;
+            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
         }
-
         .navbar.scrolled {
             background-color: #007bff; /* Change background when scrolled */
             padding: 10px; /* Reduce padding when scrolled */
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-
         .navbar-hidden {
             top: 0;
             transition: top 0.4s ease; /* Smooth transition for navbar position */
@@ -126,9 +129,6 @@
         .navbar.transparent {
             background-color: transparent; /* Make navbar transparent */
         }
-
-
-
         .navbar-nav .nav-link {
             font-weight: 700;
             font-size: 20px;
@@ -147,7 +147,7 @@
 
 /**************************content*************************************************/
 
-.rounded-3 {
+        .rounded-3 {
             border-radius: 1rem; /* More rounded corners for sections */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow to make sections pop */
         }
@@ -161,7 +161,6 @@
             width: 100%;
             height: 400px;
             margin-bottom: 50px;
-            border-radius: 15px;
             margin: 0 auto;
         }
 
@@ -169,10 +168,9 @@
             min-height: 500px;
             background-repeat: no-repeat;
             background-size: cover;
-            max-width: 80%;
-            margin: auto;
+            max-width: 100%;
+            margin-top: 30px;
             padding: 40px;
-            border-radius: 20px;
             box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
             background-color: #ffffff;
         }
@@ -194,9 +192,10 @@
             padding: 10px;
             margin: 0px 10px 10px 10px;
             background-color: #8db6c2;
-            height: 136px;
+            height: 155px;
             border-radius: 5px;  
         }
+ 
 
         #contactForm #notice{
             float: right;
@@ -217,16 +216,19 @@
         }
 
         #contactForm button {
-            background: linear-gradient(135deg, #007bff, #0056b3);
+            background-color: #26414c;
             border: none;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
             transition: background 0.3s ease, box-shadow 0.3s ease;
+            color: #c6c6c6;
+            margin-top: 10px;
         }
 
         #contactForm button:hover {
-            background: linear-gradient(135deg, #0056b3, #004080);
+            background-color: #c6c6c6;
             box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            color: #26414c;
         }
 
         #contactForm label {
@@ -243,7 +245,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #007bff;
+            background-color: #5e91c7;
             padding: 15px;
             border-radius: 10px;
             color: #080000;
@@ -260,15 +262,19 @@
             margin: 0;
             font-size: calc(0.7rem + 0.5vw); /* Dynamische Schriftgröße */
             word-wrap: break-word;
+            
         }   
         .contactIcons span {
             font-size: calc(2rem + 0.5vw); /* Dynamische Schriftgröße für Icons */
             margin-bottom: 10px;
+            
         }
         .contactIcons a {
             text-decoration: none;
             color: inherit;
+            
         }
+
 
 
  /******************** Fuss *******************/
@@ -333,6 +339,7 @@
 
 /********************************************************************************/
         @media only screen and (max-width: 768px) {
+
             #logo {
             height: 30px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
@@ -507,6 +514,7 @@
                 box-shadow: none;
                 border-radius: 10px;
                 text-align: center;
+                
             }
 
             #contactForm .form-control {
@@ -590,7 +598,7 @@
     <!-- Contact Section -->
     <div id="contact" class="p-5 bg-body-tertiary bg-light rounded-3animate__animated animate__fadeIn ">
         <div class="container-fluid py-5 text-center">
-            <div id="map" style="width: 100%; height: 400px; border-radius: 15px; margin: 0 auto;"></div>
+            <div id="map" style="width: 100%; height: 400px;  margin-top: -90px;"></div>
             <form id="contactForm" action="/html/process_contact.php" method="POST" class="contact-form animate__animated animate__fadeInUp">
                 <section id="contactIcon">
                     <div class="contactIcons">
@@ -642,7 +650,7 @@
                             <label for="nachricht"></label>
                             <textarea class="form-control" id="nachricht" name="message" rows="4" placeholder="Nachricht" required></textarea>
                         </div>
-                        <button class="btn btn-primary btn-lg  w-100" type="submit">Senden</button>
+                        <button class="btn btn-lg  w-100" type="submit">Senden</button>
                 </section>
             </form>
 
@@ -652,36 +660,31 @@
     <!----- Footer ----->
     <footer>
         <div class="footer-contact">
-
             <div class="footer-contact-left">
-                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen</a></p>
-                <p style="margin-left: 50px;">Oberfeld 2<br>6037 Root LU</p> <br>
-                <p><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
-                <p style="margin-left: 50px;"><a href="tel:+41414403333">+41 41 440 33 33</a></p>
+                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
+                <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
+                <p ><a href="tel:+41414403333"><img src="/image/Deskphone-icon.png" alt="telefon" style="height: 40px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
 
                 <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
             </div>
             <div class="footer-contact-right">
-                <h4>Öffnungszeiten</h4>
+                
                 <p><strong>Unser Telefonzeiten:</strong></p>
-                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die <br>Woche: <a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Phone Icon"> +41 79 618 44 44</a></p>
+                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
+                </p>
 
                 <p><strong>Unser Bürozeiten:</strong></p>
-                <p>Mo - Fr: 09:00 - 18:00 Uhr</p>
-                <p>Sa, So, Feiertag: nach Vereinbarung</p>
+                <p>Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
+                
             </div>
             <div class="footer-contact-center">
-                <img id="footer-logo" src="/image/logo.jpg" alt="Logo of Ivati Bestattungen">
+                <p><a href="#" data-key="impressum">Impressum</a></p>
+                <p><a href="#" data-key="privacy">Datenschutzerklärung</a></p>
+                <p><a href="#" data-key="terms">AGB</a></p>
             </div>
-
         </div>
-        <div id="ida" class="container-fluid bg-dark text-light text-center py-3 ">
-            <div class="footer-links">
-                <a href="#" data-key="impressum">Impressum</a>
-                <a href="#" data-key="privacy">Datenschutzerklärung</a>
-                <a href="#" data-key="terms">AGB</a>
-            </div>
-            <p>&copy; 2024 Bestattungsunternehmen. Alle Rechte vorbehalten.</p>
+        <div class="bg-dark text-light text-center py-3  ">
+            <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
@@ -739,7 +742,7 @@
             });
         }
             // Initialisiere die Karte
-        var map = L.map('map').setView([47.102501, 8.38669], 15); // Setze die Koordinaten für Oberfeld 2, 6037 Root LU
+        var map = L.map('map').setView([47.102501, 8.35269], 11); // Setze die Koordinaten für Oberfeld 2, 6037 Root LU
         
 
         // Lade die OpenStreetMap-Kachel
