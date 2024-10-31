@@ -62,7 +62,9 @@
         }
 
         .dropdown {
-            position: relative;
+            position: relative;            
+            
+            
         }
         #available{
             margin-right: 10px;
@@ -79,8 +81,10 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             padding: 10px;
             z-index: 1002;
+            margin-left:30px;
             
         }
+
 
         /* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
         .dropdown-content.show {
@@ -108,6 +112,12 @@
 
         #subheader a:hover {
             font-size: 18px;
+        }
+        #selected-language {
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center; /* Zentriert den Text und das Icon vertikal */
         }
         /****************************Nav**********************************************************/
         /* Navbar Styles */
@@ -284,7 +294,7 @@
          /* Mobile Layout */
          @media only screen and (max-width: 768px) {
             #logo {
-            height: 30px;
+            height: 39px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
             position: absolute;
             top: 20px;
@@ -305,12 +315,14 @@
             text-align: center;
             position: fixed; /* Subheader bleibt fixiert */
             top: 0;
+            height: 90px;
             
             }
                     /* Entferne eventuell störende Margins von enthaltenen Elementen */
             #subheader span,
             #subheader a {
                 margin-left: -40px; /* Entferne automatische Margins */
+                font-size: 16px;
                         
             }
             /* Abstand zwischen den Elementen im Subheader */
@@ -324,7 +336,7 @@
             width: 100%;
             z-index: 1; /* Lege die Navbar unterhalb des Subheaders */
             background-color: #405d64; /* Stelle sicher, dass die Hintergrundfarbe festgelegt ist */
-            margin-top: 60px;
+            margin-top: 40px;
         }
 
             /* Main Sections adjustments */
@@ -349,17 +361,31 @@
                 margin-top: 20px;
             }
 
-            /* Footer adjustments */
             .footer-contact {
-                flex-direction: column;
-                text-align: center;
+                flex-direction: column; /* Stellt die Sektionen untereinander dar */
+                align-items: center; /* Zentriert den Inhalt */
+                text-align: center; /* Zentriert den Text in allen Elementen */
+                padding: 20px; /* Anpassung des Innenabstands für mobile Ansicht */
             }
 
+            /* Stile für die einzelnen Bereiche im Footer */
             .footer-contact-left,
             .footer-contact-center,
             .footer-contact-right {
+                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */
                 padding: 10px;
-                margin-bottom: 20px;
+                margin-bottom: 20px; /* Abstand zwischen den Bereichen */
+                text-align: center; /* Zentriert den Text in jedem Bereich */
+            }
+                        /* Links in footer-contact-right für mobile Ansicht */
+            .footer-contact-right a {
+                color: white;
+                font-size: 16px; /* Schriftgröße für bessere Lesbarkeit auf kleinen Bildschirmen */
+                display: block; /* Jeder Link wird in einer neuen Zeile angezeigt */
+                margin: 5px 0; /* Abstand zwischen den Links */
+            }
+            .footer-contact-left{
+                margin-left: -50px;
             }
 
             .footer-links {
@@ -388,8 +414,11 @@
         <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language">DE</span>
-            <div class="dropdown-content">
+            <span onclick="toggleDropdown()" style="font-weight: 600; cursor: pointer;" id="selected-language">
+                DE
+                <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
+            </span>
+            <div class="dropdown-content" id="language-dropdown">
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
                 <a href="#" onclick="setLanguage('tr')">TR</a>
@@ -454,9 +483,9 @@
                 
             </div>
             <div class="footer-contact-center">
-                <p><a href="#" data-key="impressum">Impressum</a></p>
-                <p><a href="#" data-key="privacy">Datenschutzerklärung</a></p>
-                <p><a href="#" data-key="terms">AGB</a></p>
+                <p><a href="/AGB/impressum.html" data-key="impressum">Impressum</a></p>
+                <p><a href="/AGB/datenschutz.html" data-key="privacy">Datenschutzerklärung</a></p>
+                <p><a href="/AGB/AGB.html" data-key="terms">AGB</a></p>
             </div>
         </div>
         <div class="bg-dark text-light text-center py-3  ">
@@ -512,8 +541,9 @@
             }
         };
 
+        // Funktion zum Setzen der Sprache und Übersetzen der Inhalte
         function setLanguage(language) {
-            document.getElementById('selected-language').textContent = language.toUpperCase();
+            document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
             const elements = document.querySelectorAll('[data-key]');
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
@@ -521,6 +551,23 @@
                     element.textContent = translations[language][key];
                 }
             });
+        }
+        // Funktion zum Ein- und Ausblenden des Dropdowns
+        function toggleDropdown() {
+            document.getElementById("language-dropdown").classList.toggle("show");
+        }
+
+        // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
+        window.onclick = function(event) {
+            if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
         }
 
 

@@ -49,24 +49,6 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     this.submit();
 });
 
-
-function toggleDropdown() {
-        const dropdownContent = document.getElementById("dropdown-content");
-        dropdownContent.classList.toggle("show");
-}
-
-// Schließt das Dropdown, wenn man außerhalb klickt
-window.onclick = function(event) {
-        if (!event.target.matches('#selected-language')) {
-            const dropdowns = document.getElementsByClassName("dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-};
 $(document).ready(function() {
     // Holt den Pfad der aktuellen URL
     const currentPath = window.location.pathname;
