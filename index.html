@@ -361,42 +361,55 @@
                 margin-top: 20px;
             }
 
-            .footer-contact {
-                flex-direction: column; /* Stellt die Sektionen untereinander dar */
-                align-items: center; /* Zentriert den Inhalt */
-                text-align: center; /* Zentriert den Text in allen Elementen */
-                padding: 20px; /* Anpassung des Innenabstands für mobile Ansicht */
+            /* Footer Schriftgrößenanpassung */
+            .footer-contact p, 
+            .footer-contact a, 
+            .bg-dark p {
+                font-size: 14px; /* Schriftgröße für Mobilansicht */
             }
 
-            /* Stile für die einzelnen Bereiche im Footer */
+            /* Weitere Anpassungen für das Layout */
+            .footer-contact {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 20px;
+            }
+
             .footer-contact-left,
             .footer-contact-center,
             .footer-contact-right {
-                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */
+                width: 100%; /* Volle Breite für mobile Ansicht */
                 padding: 10px;
-                margin-bottom: 20px; /* Abstand zwischen den Bereichen */
-                text-align: center; /* Zentriert den Text in jedem Bereich */
+                margin-bottom: 10px;
+                text-align: center;
             }
-                        /* Links in footer-contact-right für mobile Ansicht */
-            .footer-contact-right a {
+            footer .footer-contact-left{
+                margin-left: -40px;
+            }
+            .footer-contact-left p a {
+                font-size: 16px !important;
+
+            }
+            .footer-contact-center p a {
+                font-size: 16px !important;
+            }
+
+            .footer-contact-right p a {
                 color: white;
-                font-size: 16px; /* Schriftgröße für bessere Lesbarkeit auf kleinen Bildschirmen */
-                display: block; /* Jeder Link wird in einer neuen Zeile angezeigt */
-                margin: 5px 0; /* Abstand zwischen den Links */
+                font-size: 14px !important;
+                display: block;
+                margin: 5px 0;
             }
-            .footer-contact-left{
-                margin-left: -50px;
+
+            .footer-contact-left {
+                margin-left: 0; /* Entferne die negative Einrückung für ein einheitliches Layout */
             }
 
             .footer-links {
                 flex-direction: column;
                 gap: 10px;
             }
-            
-            .footer-links a {
-                padding-top: 10px;
-            }
-
          }
 
   /**************************************************************************************/

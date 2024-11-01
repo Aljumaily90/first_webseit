@@ -155,132 +155,158 @@
 
 
 /**************************content*************************************************/
+            .rounded-3 {
+                border-radius: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
 
-        .rounded-3 {
-                    border-radius: 1rem; /* More rounded corners for sections */
-                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow to make sections pop */
-                }
+            /****** kontakten**** */
+            #contact {
+                margin-top: 110px;
+            }
+            .contact-map {
+                border: 0;
+                width: 100%;
+                height: 400px;
+                margin-bottom: 50px;
+                margin: 0 auto;
+            }
 
-        /****** kontakten**** */
-        #contact{
-            margin-top: 110px;
-        }
-        .contact-map {
-            border: 0;
-            width: 100%;
-            height: 400px;
-            margin-bottom: 50px;
-            margin: 0 auto;
-        }
+            #contactForm {
+                min-height: 500px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                max-width: 100%;
+                margin-top: 30px;
+                padding: 40px;
+                box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+                background-color: #ffffff;
+            }
 
-        #contactForm {
-            min-height: 500px;
-            background-repeat: no-repeat;
-            background-size: cover;
-            max-width: 100%;
-            margin-top: 30px;
-            padding: 40px;
-            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-            background-color: #ffffff;
-        }
+            #contactForm::after {
+                clear: both;
+                display: block;
+                content: "";
+            }
 
-        #contactForm::after {
-            clear: both;
-            display: block;
-            content: "";
-        }
+            #contactForm #contactIcon {
+                float: left;
+                width: 50%;
+            }
 
-        #contactForm #contactIcon{
-            float: left;
-            width: 50%;
-        }
+            #contactForm .contactIcons {
+                float: right;
+                width: 70%;
+                padding: 10px;
+                margin: 0px 10px 10px 10px;
+                background-color: transparent; /* Entfernt den Hintergrund */
+                height: 155px;
+                border-radius: 5px;  
+            }
 
-        #contactForm .contactIcons{
-            float: right;
-            width: 70%;
-            padding: 10px;
-            margin: 0px 10px 10px 10px;
-            background-color: #c6c6c6;
-            height: 155px;
-            border-radius: 5px;  
-        }
- 
+            #contactForm #notice {
+                float: right;
+                width: 50%;
+            }
 
-        #contactForm #notice{
-            float: right;
-            width: 50%;
+            #contactForm #notice .form-control {
+                border-radius: 0; /* Entfernt die abgerundeten Ecken */
+                background-color: transparent; /* Entfernt den weißen Hintergrund */
+                border: 1px solid #000; /* Fügt einen 1px-Rahmen in Schwarz hinzu */
+                box-shadow: none; /* Entfernt jeglichen Schatten */
+                padding: 10px; /* Optional: fügt etwas Innenabstand hinzu */
+            }
+
+            #contactForm #notice .form-control:focus {
+                border-color: #000; /* Farbe für den Fokuszustand, z.B. Blau */
+                box-shadow: none; /* Entfernt den Schatten im Fokuszustand */
+            }
+
+            #contactForm button {
+                background-color: #26414c;
+                border: none;
+                border-radius: 0; /* Entfernt die abgerundeten Ecken des Buttons */
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+                transition: background 0.3s ease, box-shadow 0.3s ease;
+                color: #c6c6c6;
+                margin-top: 10px;
+            }
+
+            #contactForm button:hover {
+                background-color: #c6c6c6;
+                box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+                color: #26414c;
+            }
+
+            #contactForm label {
+                font-weight: 600;
+                color: #444;
+            }
+
+
             
-        }
 
-        #contactForm #notice .form-control {
-            background-color: #f1f2f3;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
 
-        #contactForm #notice .form-control:focus {
-            box-shadow: 0px 8px 16px rgba(0, 123, 255, 0.2);
-        }
-
-        #contactForm button {
-            background-color: #26414c;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            color: #c6c6c6;
-            margin-top: 10px;
-        }
-
-        #contactForm button:hover {
-            background-color: #c6c6c6;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-            color: #26414c;
-        }
-
-        #contactForm label {
-            font-weight: 600;
-            color: #444;
-        }
-
-        #contactForm select.form-control {
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .contactIcons {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #7e7676;  
-            padding: 15px;
-            border-radius: 10px;
-            color: #080000;
-            margin-bottom: 20px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        .contactIcons h4, 
-        .contactIcons h5, 
-        .contactIcons p {
-            margin: 0;
-            font-size: calc(0.7rem + 0.5vw); /* Dynamische Schriftgröße */
-            word-wrap: break-word;
-            
-        }   
-        .contactIcons span {
-            font-size: calc(2rem + 0.5vw); /* Dynamische Schriftgröße für Icons */
-            margin-bottom: 10px;
-            
-        }
-        .contactIcons a {
-            text-decoration: none;
-            color: inherit;
-            
-        }
+            .contactIcons {
+                display: flex;
+                align-items: flex-start; /* Zentriert das Icon vertikal zum Text */
+                padding: 15px;
+                border-radius: 10px;
+                color: #080000;
+                margin-bottom: 20px;
+                text-align: left; /* Text linksbündig */
+                transition: all 0.3s ease;
+                background-color: transparent; /* Entfernt den Hintergrund */
+            }
+            .contactIcons img {
+                width: 30px;
+                height: 30px;
+                margin-right: 10px; /* Abstand zwischen Icon und Text */
+            }
+            .contactIcons h4, 
+            .contactIcons h5, 
+            .contactIcons p {
+                margin: 0;
+                font-size: calc(0.7rem + 0.5vw);
+                word-wrap: break-word;
+            }   
+            .contactIcons span {
+                font-size: calc(2rem + 0.5vw);
+                margin-bottom: 10px;
+            }
+            .contactIcons a {
+                text-decoration: none;
+                color: inherit;
+            }
+            .custom-dropdown {
+                position: relative;
+                width: 200px;
+            }
+            .dropdown-selected {
+                padding: 10px;
+                border: 1px solid black;
+                cursor: pointer;
+                text-align: left; /* Text linksbündig ausrichten */
+            }
+            .dropdown-options {
+                display: none; /* Versteckt Optionen standardmäßig */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                border: 1px solid #ccc;
+                background-color: #fff;
+                z-index: 1000;
+                text-align: left; /* Text linksbündig ausrichten */
+            }
+            .dropdown-option {
+                padding: 10px;
+                cursor: pointer;
+                text-align: left; /* Text linksbündig ausrichten */
+            }
+            .dropdown-option:hover {
+                background-color: #f0f0f0;
+            }
 
 
 
@@ -525,53 +551,52 @@
             <form id="contactForm" action="/html/process_contact.php" method="POST" class="contact-form animate__animated animate__fadeInUp">
                 <section id="contactIcon">
                     <div class="contactIcons">
-                        <span class="material-symbols-outlined">source_environment</span>
-                        <h4>Eman Bestattungen GmbH</h4>
-
-                        <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank" style=" text-decoration: none;">
-                            Oberfeld 2<br>
-                            CH-6037 Root LU</a>
-                        </p>
-                    </div>
-
-                    <div class="contactIcons">
-                        <span class="material-symbols-outlined">add_call</span>
-                        <h5><a href="tel:+41414403333" style=" text-decoration: none;">+41 41 440 33 33</a></h5>
-                       
+                        <img src="/image/map-icon.png" alt="Location Icon" style="width: 20px; height: 20px; margin-right: 10px; filter: brightness(0) invert(0);">
+                        <div>
+                            <h4>Eman Bestattungen GmbH</h4>
+                            <p><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank" style="text-decoration: none;">
+                                Oberfeld 2<br>
+                                CH-6037 Root LU</a>
+                            </p>
+                        </div>
                     </div>
                     
                     <div class="contactIcons">
-                        <span class="material-symbols-outlined">mail</span>
-                        <h5><a href="mailto:info@eman-bestattungen.ch" style=" text-decoration: none;">info@eman-bestattungen.ch</a></h5>
+                        <img src="/image/phone-icon.png" alt="Phone Icon" style="width: 20px; height: 20px; margin-right: 10px; filter: brightness(0) invert(0);">
+                        <h5><a href="tel:+41414403333" style="text-decoration: none;">+41 41 440 33 33</a></h5>
                     </div>
-
+                    
+                    <div class="contactIcons" style="margin-top: -120px;">
+                        <img src="/image/email-icon.png" alt="Email Icon" style=" width: 20px; height: 20px; margin-right: 10px; filter: brightness(1) invert(0);">
+                        <h5><a href="mailto:info@eman-bestattungen.ch" style="text-decoration: none;">info@eman-bestattungen.ch</a></h5>
+                    </div>
                 </section>
                 <section id="notice">
-                        <div class="form-row mb-1">
-                            <div class="col-md-4 mb-1">
-                                <select class="form-control" id="anrede" name="anrede">
-                                    <option>Herr</option>
-                                    <option>Frau</option>
-                                    <option>Andere</option>
-                                </select>
-                            </div>
+                    <div class="custom-dropdown">
+                        <div class="dropdown-selected" onclick="toggleDropdown()">Andere</div>
+                        <div class="dropdown-options" id="dropdownOptions">
+                            <div class="dropdown-option" onclick="selectOption('Andere')">Andere</div>
+                            <div class="dropdown-option" onclick="selectOption('Frau')">Frau</div>
+                            <div class="dropdown-option" onclick="selectOption('Herr')">Herr</div>
                         </div>
+                    </div>
+             
                         <div class="form-group mb-1">
                                 <label for="name"></label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name und Vorname" required>
-                            </div>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Name und Vorname*" required>
+                        </div>
         
                         <div class="form-group mb-1">
                             <label for="email"></label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="E-Mail*" required>
                         </div>
                         <div class="form-group mb-1">
                             <label for="telefon"></label>
-                            <input type="tel" class="form-control" id="telefon" name="telefon" rows="4" placeholder="Telefon" required>
+                            <input type="tel" class="form-control" id="telefon" name="telefon" rows="4" placeholder="Telefon*" required>
                         </div>
                         <div class="form-group mb-1">
                             <label for="nachricht"></label>
-                            <textarea class="form-control" id="nachricht" name="message" rows="4" placeholder="Nachricht" required></textarea>
+                            <textarea class="form-control" id="nachricht" name="message" rows="4" placeholder="Nachricht*" required></textarea>
                         </div>
                         <button class="btn btn-lg  w-100" type="submit">Senden</button>
                 </section>
@@ -712,6 +737,24 @@
                     });
                 });
             });
+            function toggleDropdown() {
+                const dropdown = document.getElementById('dropdownOptions');
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            }
+
+            function selectOption(value) {
+                document.querySelector('.dropdown-selected').innerText = value;
+                toggleDropdown(); // Dropdown schließen nach Auswahl
+            }
+
+            // Klick außerhalb schließt Dropdown
+            document.addEventListener('click', (e) => {
+                const dropdown = document.querySelector('.custom-dropdown');
+                if (!dropdown.contains(e.target)) {
+                    document.getElementById('dropdownOptions').style.display = 'none';
+                }
+            });
+
     </script>
 </body>
 </html>
