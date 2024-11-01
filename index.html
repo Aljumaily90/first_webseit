@@ -294,50 +294,101 @@
          /* Mobile Layout */
          @media only screen and (max-width: 768px) {
             #logo {
-            height: 39px;
+            height: 50px;
             transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
             position: absolute;
-            top: 20px;
-            left: 40px;
+            top: 30px;
+            left: 60px;
             transform: translate(-50%, -50%) scale(1);
-            z-index: 3;
+            z-index: 10;
             position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             }
 
-            /* Subheader anpassen, damit Text nicht verdeckt wird */
+            /* Subheader ausblenden */
             #subheader {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            z-index: 2;
-            display: flex;
-            flex-direction: column; /* Ordne den Inhalt vertikal an */
-            align-items: center;
-            text-align: center;
-            position: fixed; /* Subheader bleibt fixiert */
-            top: 0;
-            height: 90px;
-            
-            }
-                    /* Entferne eventuell störende Margins von enthaltenen Elementen */
-            #subheader span,
-            #subheader a {
-                margin-left: -40px; /* Entferne automatische Margins */
-                font-size: 16px;
-                        
-            }
-            /* Abstand zwischen den Elementen im Subheader */
-            #subheader span {
-                margin-bottom: 5px; /* Füge Abstand zwischen den Zeilen hinzu */
-            }
+                    display: none; /* Verbirgt den Subheader auf Mobilgeräten */
+                }
 
-            .navbar {
-            position: fixed; /* Navbar bleibt fixiert */
-            top: 50px; /* Platziere die Navbar direkt unter dem Subheader */
-            width: 100%;
-            z-index: 1; /* Lege die Navbar unterhalb des Subheaders */
-            background-color: #405d64; /* Stelle sicher, dass die Hintergrundfarbe festgelegt ist */
-            margin-top: 40px;
+
+
+    /* Navbar fixieren und Hintergrund beibehalten */
+    .navbar {
+        background-color: #405d64; /* Hintergrundfarbe der Navbar */
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        z-index: 1; /* Ganz oben fixiert */
+        height: 60px;
+        margin-top: -47px;
+        
+    }
+        /* Telefonnummer sichtbar und linksbündig */
+        .navbar-phone {
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        display: flex;
+        align-items: center;
+        margin-left: 10px; /* Abstand links für bessere Sichtbarkeit */
+        z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
+        position: fixed;
+        top: 15px;
+        left: 130px;
+        
+    }
+    /* Hover-Effekt (optional) */
+        .navbar-phone:hover {
+            color: white; /* Keine Farbänderung beim Hover */
+            text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+
         }
+
+        /* Wenn die Telefonnummer angeklickt wird */
+        .navbar-phone:active {
+            font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
+            color: white; /* Farbe bleibt weiß */
+            text-decoration: none; /* Keine Unterstreichung */
+        }
+
+    /* Navbar-Toggle-Button rechts positionieren */
+    .navbar-toggler {
+        margin-left: auto;
+        font-size: 24px;
+        z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
+    }
+
+    /* Dropdown-Menü im geöffneten Zustand */
+    .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+        display: block;
+        background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
+        position: absolute;
+        top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
+        width: 100%;
+        z-index: 998;
+    }
+
+    /* Standardmäßig sind die Navbar-Links versteckt */
+    .navbar-collapse {
+        display: none;
+    }
+
+    /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
+    .navbar-collapse.show {
+        display: block;
+    }
+
+    /* Stil für die Links im Dropdown-Menü */
+    .navbar-nav .nav-link {
+        font-size: 18px;
+        color: white !important; /* Links in weiß für gute Lesbarkeit */
+        padding: 10px;
+        text-align: center;
+        display: block;
+    }
 
             /* Main Sections adjustments */
             .section-1, .section-2 {
@@ -423,6 +474,7 @@
     <span>        <a  href="/index.html">
         <img id="logo" src="/image/logo.jpg" alt="Logo">
     </a></span>
+
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
@@ -438,23 +490,32 @@
             </div>
         </div>
     </div>
+    <!-- Telefonnummer in der Navbar -->
+    <a href="tel:+41796184444" class="navbar-phone">
+        <img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 20px; margin-right: 5px;"> +41 79 618 44 44
+    </a>
+
+
+
     <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Toggle Button für mobile Ansicht -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="/index.html" data-key="home">Home</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
                 </li>
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
                 </li>
             </ul>
