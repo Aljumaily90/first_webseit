@@ -62,4 +62,12 @@ $(document).ready(function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('background-video');
+    video.addEventListener('canplay', () => {
+        video.play().catch(() => {
+            console.log('Autoplay wurde blockiert');
+        });
+    });
+});
 
