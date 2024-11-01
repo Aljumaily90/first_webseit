@@ -200,7 +200,6 @@
 
                 
         .rounded-3 {
-            border-radius: 1rem; /* More rounded corners for sections */
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow to make sections pop */
         }
 
@@ -232,7 +231,8 @@
 
 
 /***********************************footer***********************************************/
-        .footer-contact {
+
+.footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
@@ -249,9 +249,7 @@
         .footer-contact-right {
             flex: 1;
             padding: 20px;
-            font-size: 18px;
         }
-
 
         .footer-contact p a {
             margin: 0;
@@ -274,7 +272,8 @@
             margin-top: 20px;
             margin-bottom: 10px;
             border-top: #90969c solid 1px;
-
+            
+            
         }
         .footer-links a {
             color: white;
@@ -288,6 +287,10 @@
             margin-top: 10px;
         }
 
+/* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
+.mobile-language-dropdown {
+    display: none;
+}
 
 
  /***********************************media***********************************************/
@@ -333,7 +336,7 @@
         color: white;
         display: flex;
         align-items: center;
-        margin-left: 10px; /* Abstand links für bessere Sichtbarkeit */
+        margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
         z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
         position: fixed;
         top: 15px;
@@ -360,9 +363,8 @@
         font-size: 24px;
         z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
     }
-
-    /* Dropdown-Menü im geöffneten Zustand */
-    .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+        /* Dropdown-Menü im geöffneten Zustand */
+        .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
         display: block;
         background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
         position: absolute;
@@ -370,6 +372,8 @@
         width: 100%;
         z-index: 998;
     }
+
+
 
     /* Standardmäßig sind die Navbar-Links versteckt */
     .navbar-collapse {
@@ -389,6 +393,79 @@
         text-align: center;
         display: block;
     }
+    /*******************************************************************************/
+
+    /* Sprachauswahl anzeigen */
+    .mobile-language-dropdown {
+        display: block;
+        width: 100%;
+        text-align: center;
+        
+        
+    }
+
+    .mobile-language-dropdown #selected-language {
+        color: white;
+        padding: 10px;
+        display: inline-flex;
+        align-items: center;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+
+/* Dropdown-Container Styling */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
+    left: -10px; /* Startet am linken Rand des übergeordneten Containers */
+    background-color: #405d64; /* Hintergrundfarbe passend zur Navbar */
+    width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
+    border-radius: 0px; /* Keine abgerundeten Ecken */
+    z-index: 1000;
+    margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
+}
+
+    /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
+    .dropdown-content.show {
+        display: block;
+
+    }
+
+
+/* Styling für Dropdown-Links */
+.dropdown-content a {
+    color: white; /* Weiße Schriftfarbe für guten Kontrast */
+    padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: -14px;
+}
+
+/* Dropdown-Pfeil Styling */
+#dropdown-arrow {
+    transition: transform 0.3s ease;
+}
+    /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
+    #language-dropdown.show ~ #dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    /* Hover-Effekt für die Links im Dropdown */
+    .dropdown-content a:hover {
+        background-color: #333;
+    }
+
+
+
+/*************************************************************************************************/
+
 
             /* Main Sections adjustments */
             .section-1, .section-2 {
@@ -412,56 +489,82 @@
                 margin-top: 20px;
             }
 
-            /* Footer Schriftgrößenanpassung */
-            .footer-contact p, 
-            .footer-contact a, 
-            .bg-dark p {
-                font-size: 14px; /* Schriftgröße für Mobilansicht */
+            .noneM{
+                display: none;
+
             }
 
-            /* Weitere Anpassungen für das Layout */
             .footer-contact {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                padding: 20px;
+                flex-direction: column; /* Stellt die Sektionen untereinander dar */
+                align-items: center; /* Zentriert den Inhalt */
+                text-align: center; /* Zentriert den Text in allen Elementen */
+                padding: 10px; /* Anpassung des Innenabstands für mobile Ansicht */
+               
+                
+                
             }
 
+            /* Stile für die einzelnen Bereiche im Footer */
             .footer-contact-left,
             .footer-contact-center,
             .footer-contact-right {
-                width: 100%; /* Volle Breite für mobile Ansicht */
-                padding: 10px;
-                margin-bottom: 10px;
-                text-align: center;
-            }
-            footer .footer-contact-left{
-                margin-left: -40px;
-            }
-            .footer-contact-left p a {
-                font-size: 16px !important;
-
-            }
-            .footer-contact-center p a {
-                font-size: 16px !important;
-            }
-
-            .footer-contact-right p a {
-                color: white;
+                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */
+        
+                
+                margin-bottom: 20px ; /* Abstand zwischen den Bereichen */
+                text-align: center ; /* Zentriert den Text in jedem Bereich */
                 font-size: 14px !important;
-                display: block;
-                margin: 5px 0;
+                
+                
             }
+            .footer-contact-left{
+                margin-left: -50px;
+                
+                
+            }
+            .footer-contact-left a {
+                font-size: 15px !important;
 
-            .footer-contact-left {
-                margin-left: 0; /* Entferne die negative Einrückung für ein einheitliches Layout */
             }
+                        /* Links in footer-contact-right für mobile Ansicht */
+            .footer-contact-right a {
+                color: white;
+                display: block; /* Jeder Link wird in einer neuen Zeile angezeigt */
+                margin: 0px 0; /* Abstand zwischen den Links */
+                
+            }
+                /* Bereich für footer-contact-center anpassen */
+    .footer-contact-center {
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Platz zwischen den Links */
+        margin-top: -100px;
+        
+    }
+    /* Links nebeneinander und ohne Außenabstand */
+    .footer-contact-center p {
+        margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */
+        
+    }
+
+    .footer-contact-center a {
+        font-size: 14px !important; /* Kleinere Schriftgröße für mobile Ansicht */
+        color: white;
+        text-decoration: none; /* Entfernt Unterstreichung */
+         /* Horizontaler Abstand zwischen Links */
+        display: inline; /* Stellt sicher, dass die Links in einer Zeile angezeigt werden */
+        
+    }
 
             .footer-links {
                 flex-direction: column;
                 gap: 10px;
             }
-         }
+            
+            .footer-links a {
+                padding-top: 10px;
+            }
+        }
 
   /**************************************************************************************/
     </style>
@@ -477,9 +580,9 @@
 
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
+        <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
-            <span onclick="toggleDropdown()" style="font-weight: 600; cursor: pointer;" id="selected-language">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
                 DE
                 <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
@@ -491,8 +594,9 @@
         </div>
     </div>
     <!-- Telefonnummer in der Navbar -->
+    <!-- Telefonnummer in der Navbar -->
     <a href="tel:+41796184444" class="navbar-phone">
-        <img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 20px; margin-right: 5px;"> +41 79 618 44 44
+        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 40px; margin-right: 5px; filter: brightness(1) invert(1);"> +41 79 618 44 44
     </a>
 
 
@@ -518,6 +622,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
                 </li>
+                <li class="nav-item dropdown mobile-language-dropdown">
+                    <div class="dropdown">
+                        <span style="font-weight: 600; cursor: pointer;" data-key="languageLabel" id="selected-language">
+                            DE
+                            <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
+                        </span>
+                        <div class="dropdown-content" id="language-dropdown">
+                            <a href="#" onclick="setLanguage('de')">DE</a>
+                            <a href="#" onclick="setLanguage('en')">EN</a>
+                            <a href="#" onclick="setLanguage('tr')">TR</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -536,36 +653,37 @@
             </div>
         </div>
 
-    <!----- Footer ----->
-    <footer>
-        <div class="footer-contact">
-            <div class="footer-contact-left">
-                <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
-                <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
-                <p ><a href="tel:+41414403333"><img src="/image/Deskphone-icon.png" alt="telefon" style="height: 40px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
+<!----- Footer ----->
+<footer>
+    <div class="footer-contact">
+        <div class="footer-contact-left">
+            <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
+            <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
+            <p ><a href="tel:+41414403333"><img src="/image/Deskphone-icon.png" alt="telefon" style="height: 40px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
 
-                <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
-            </div>
-            <div class="footer-contact-right">
-                
-                <p><strong>Unser Telefonzeiten:</strong></p>
-                <p>Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
-                </p>
+            <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
+        </div>
+        <div class="footer-contact-right">
+            
+            <p class="noneM"><strong>Unser Telefonzeiten:</strong></p>
+            <p class="noneM">Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
+            </p>
 
-                <p><strong>Unser Bürozeiten:</strong></p>
-                <p>Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
-                
-            </div>
-            <div class="footer-contact-center">
-                <p><a href="/AGB/impressum.html" data-key="impressum">Impressum</a></p>
-                <p><a href="/AGB/datenschutz.html" data-key="privacy">Datenschutzerklärung</a></p>
-                <p><a href="/AGB/AGB.html" data-key="terms">AGB</a></p>
-            </div>
+            <p class="noneM"><strong>Unser Bürozeiten:</strong></p>
+            <p class="noneM">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
+            
         </div>
-        <div class="bg-dark text-light text-center py-3  ">
-            <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+        <div class="footer-contact-center">
+            <p><a href="/AGB/impressum.html" data-key="impressum">Impressum</a></p>
+            <p><a href="/AGB/datenschutz.html" data-key="privacy">Datenschutzerklärung</a></p>
+            <p><a href="/AGB/AGB.html" data-key="terms">AGB</a></p>
         </div>
-    </footer>
+    </div>
+    <div class="bg-dark text-light text-center py-3  ">
+        <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+    </div>
+</footer>
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -587,7 +705,9 @@
                 terms: "AGB",
                 saying: "Gemeinsam meistern wir auch die schweren Zeiten",
                 verse: "Wir gehören Allāh und zu  Ihm kehren wir zurück",
-                contactUs: "Kontaktieren Sie uns"
+                contactUs: "Kontaktieren Sie uns",
+                languageLabel: "DE"
+
             },
             en: {
                 home: "Home",
@@ -599,7 +719,8 @@
                 terms: "Terms and Conditions",
                 saying: "Together we will get through even the tough times",
                 verse: "Verily we belong to Allah, and verily to Him do we return.",
-                contactUs: "Contact Us"
+                contactUs: "Contact Us",
+                languageLabel: "EN"
             },
             tr: {
                 home: "Ana Sayfa",
@@ -611,11 +732,13 @@
                 terms: "Şartlar ve Koşullar",
                 saying: "Birlikte zor zamanların üstesinden geleceğiz",
                 verse: "Muhakkak ki biz Allah'a aidiz ve muhakkak ki ona döneceğiz.",
-                contactUs: "Bizimle İletişime Geçin"
+                contactUs: "Bizimle İletişime Geçin",
+                languageLabel: "TR"
             }
         };
 
-        // Funktion zum Setzen der Sprache und Übersetzen der Inhalte
+
+
         function setLanguage(language) {
             document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
             const elements = document.querySelectorAll('[data-key]');
@@ -643,6 +766,46 @@
                 }
             }
         }
+
+
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+        console.log("DOM Content Loaded");
+
+        function toggleDropdown(event) {
+            event.stopPropagation(); // Stoppt das Event-Bubbling
+            console.log("Dropdown toggled"); // Debugging: Überprüfen, ob dieser Code erreicht wird
+            const dropdown = event.currentTarget.nextElementSibling;
+            
+            if (dropdown) {
+                dropdown.classList.toggle("show");
+                console.log("show class toggled on language-dropdown");
+                console.log("Dropdown state:", dropdown.classList.contains("show") ? "open" : "closed");
+            } else {
+                console.log("language-dropdown Element wurde nicht gefunden");
+            }
+        }
+
+        // Event-Listener für die Sprach-Auswahl für alle Dropdowns
+        document.querySelectorAll("#selected-language").forEach(element => {
+            element.addEventListener("click", toggleDropdown);
+            console.log("selected-language Element gefunden und Listener hinzugefügt");
+        });
+
+        // Schließen des Dropdowns, wenn außerhalb geklickt wird
+        window.addEventListener("click", function(event) {
+            console.log("Window Click Event");
+            
+            document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
+                if (!event.target.closest(".dropdown")) {
+                    dropdown.classList.remove("show");
+                    console.log("show class removed from language-dropdown");
+                }
+            });
+        });
+    });
+
 
 
   </script>
