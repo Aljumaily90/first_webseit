@@ -452,6 +452,7 @@
 /* Dropdown-Pfeil Styling */
 #dropdown-arrow {
     transition: transform 0.3s ease;
+    display: block;
 }
     /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
     #language-dropdown.show ~ #dropdown-arrow {
@@ -543,6 +544,8 @@
     }
     /* Links nebeneinander und ohne Außenabstand */
     .footer-contact-center p {
+        display: inline; /* Links nebeneinander anzeigen */
+
         margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */
         
     }
@@ -565,6 +568,19 @@
                 padding-top: 10px;
             }
         }
+        .footer-bottom{
+            font-size: 14px !important;
+            margin-top: -30px;
+
+        }
+        .footer-contact-center p::after {
+        content:" |"; /* Fügt das Trennzeichen ein */
+        margin-left: 10px;
+    margin-right: 2px;
+    }
+    .footer-contact-center p:last-child::after {
+        content: ""; /* Entfernt das Trennzeichen beim letzten Element */
+    }
 
   /**************************************************************************************/
     </style>
@@ -622,20 +638,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
                 </li>
-                <li class="nav-item dropdown mobile-language-dropdown">
-                    <div class="dropdown">
-                        <span style="font-weight: 600; cursor: pointer;" data-key="languageLabel" id="selected-language">
-                            DE
-                            <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
-                        </span>
-                        <div class="dropdown-content" id="language-dropdown">
-                            <a href="#" onclick="setLanguage('de')">DE</a>
-                            <a href="#" onclick="setLanguage('en')">EN</a>
-                            <a href="#" onclick="setLanguage('tr')">TR</a>
-                        </div>
-                    </div>
-                </li>
+
             </ul>
+            <div class="dropdown mobile-language-dropdown">
+                <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
+                    DE
+                    <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+                </span>
+                <div class="dropdown-content" id="language-dropdown" >
+                    <a href="#" onclick="setLanguage('de')">DE</a>
+                    <a href="#" onclick="setLanguage('en')">EN</a>
+                    <a href="#" onclick="setLanguage('tr')">TR</a>
+                </div>
+            </div>
+
         </div>
     </nav>
         <div class="p-5 bg-body-tertiary section-1 rounded-3">
@@ -679,16 +695,19 @@
             <p><a href="/AGB/AGB.html" data-key="terms">AGB</a></p>
         </div>
     </div>
-    <div class="bg-dark text-light text-center py-3  ">
-        <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+    <div class="bg-dark text-light text-center py-3 ">
+        <p class="footer-bottom">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
+<script src="/languageStorage.js"></script>
 
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+
 
     <!-- Custom JS to handle scroll event -->
     <script src="/main.js"></script>
@@ -754,6 +773,10 @@
             document.getElementById("language-dropdown").classList.toggle("show");
         }
 
+
+
+
+
         // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
         window.onclick = function(event) {
             if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
@@ -768,39 +791,26 @@
         }
 
 
-
-
-        document.addEventListener("DOMContentLoaded", function () {
-        console.log("DOM Content Loaded");
-
+        // Schaltet die Sichtbarkeit des Dropdowns um
         function toggleDropdown(event) {
-            event.stopPropagation(); // Stoppt das Event-Bubbling
-            console.log("Dropdown toggled"); // Debugging: Überprüfen, ob dieser Code erreicht wird
-            const dropdown = event.currentTarget.nextElementSibling;
-            
+            event.stopPropagation(); // Verhindert das Event-Bubbling
+            const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
             if (dropdown) {
-                dropdown.classList.toggle("show");
-                console.log("show class toggled on language-dropdown");
-                console.log("Dropdown state:", dropdown.classList.contains("show") ? "open" : "closed");
-            } else {
-                console.log("language-dropdown Element wurde nicht gefunden");
+                dropdown.classList.toggle("show"); // Wechselt die Klasse "show" ein und aus
             }
         }
 
-        // Event-Listener für die Sprach-Auswahl für alle Dropdowns
-        document.querySelectorAll("#selected-language").forEach(element => {
-            element.addEventListener("click", toggleDropdown);
-            console.log("selected-language Element gefunden und Listener hinzugefügt");
-        });
+        // Fügt den Event-Listener zum Umschalten des Dropdowns hinzu, wenn auf die Sprach-Auswahl geklickt wird
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("#selected-language").forEach(element => {
+                element.addEventListener("click", toggleDropdown); // Hinzufügen des Event-Listeners
+            });
 
         // Schließen des Dropdowns, wenn außerhalb geklickt wird
-        window.addEventListener("click", function(event) {
-            console.log("Window Click Event");
-            
+        window.addEventListener("click", function(event) {            
             document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
                 if (!event.target.closest(".dropdown")) {
                     dropdown.classList.remove("show");
-                    console.log("show class removed from language-dropdown");
                 }
             });
         });

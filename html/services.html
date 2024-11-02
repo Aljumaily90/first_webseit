@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -233,6 +233,7 @@
             padding: 10px;
             margin-bottom: 20px;
             font-size: 20px;
+            color: #405d64;
            
         }
 
@@ -443,15 +444,25 @@
 
             /* Dienstleistungen Section Anpassungen */
             #services {
-                padding: 60px 10px 0 0; /* Reduzierte Padding für mobile Ansicht */
-                text-align: center;
-                margin-top: -20px;
+                margin-top: 10px;
+            }
+            #services .intro-section h3{
+                font-size: 24px; /* Anpassung der Schriftgröße für mobile Ansicht */
+                line-height: 1.6;
+                margin-left: -70px !important;
+                padding-left: -20px !important; 
+                text-align: left;
             }
             #services .intro-section p{
-                font-size: 16px !important;
-                padding-top: 30px;
-                text-align: start;
+                font-size: 16px; /* Anpassung der Schriftgröße für mobile Ansicht */
+                line-height: 1.6;
+                margin-left: -70px !important;
+                width: 350px !important;
+                text-align: left;
+                font-weight: 400;
+                margin-bottom: -30px;
             }
+
             .titel1{
                 font-size: 24px;
                 text-align: start;
@@ -644,10 +655,9 @@
 
         <!-- Dienstleistungen Section -->
         <section id="services" class="container-fluid">
-            <div class="intro-section text-center mb-5">
-                <p class="fs-4 text-muted" data-key="services-intro">
-                   <strong> Ihr vertrauensvoller Partner in schweren Zeiten.</strong> <br><br>
-                    Eman Bestattungen bietet Ihnen umfassende und professionelle Unterstützung rund um die Uhr. Wir sind spezialisiert auf muslimische Bestattungen und internationale Rückführungen und stehen Ihnen in jeder Phase des Abschieds zur Seite.
+            <div class="intro-section text-center mb-5" >
+                  <h3 >Ihr vertrauensvoller Partner in schweren Zeiten. </h3>  
+                    <p class="fs-4 text-muted" data-key="services-intro">Eman Bestattungen bietet Ihnen umfassende und professionelle Unterstützung rund um die Uhr. Wir sind spezialisiert auf muslimische Bestattungen und internationale Rückführungen und stehen Ihnen in jeder Phase des Abschieds zur Seite.
                 </p>
             </div>
             <div class="container-fluid" style="width: 100%;">
@@ -761,6 +771,7 @@
         <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
+<script src="/languageStorage.js"></script>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

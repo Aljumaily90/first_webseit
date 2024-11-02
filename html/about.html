@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -166,12 +166,14 @@
             padding: 40px;
             position: relative;   
             transition: box-shadow 0.3s ease, transform 0.3s ease;
+            color: #405d64;
  
         }
         .about-content {
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
             font-size: 18px;
+            color: #405d64;
         }
 /***********************************footer***********************************************/
         .footer-contact {
@@ -229,6 +231,10 @@
             font-size: 14px;
             margin-top: 10px;
         }
+        /* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
+.mobile-language-dropdown {
+    display: none;
+}
 
  /***********************************media***********************************************/
 
@@ -301,9 +307,8 @@
         font-size: 24px;
         z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
     }
-
-    /* Dropdown-Menü im geöffneten Zustand */
-    .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+        /* Dropdown-Menü im geöffneten Zustand */
+        .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
         display: block;
         background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
         position: absolute;
@@ -311,6 +316,8 @@
         width: 100%;
         z-index: 998;
     }
+
+
 
     /* Standardmäßig sind die Navbar-Links versteckt */
     .navbar-collapse {
@@ -330,28 +337,112 @@
         text-align: center;
         display: block;
     }
+    /*******************************************************************************/
+
+    /* Sprachauswahl anzeigen */
+    .mobile-language-dropdown {
+        display: block;
+        width: 100%;
+        text-align: center;
+        
+        
+    }
+
+    .mobile-language-dropdown #selected-language {
+        color: white;
+        padding: 10px;
+        display: inline-flex;
+        align-items: center;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+
+/* Dropdown-Container Styling */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
+    left: -10px; /* Startet am linken Rand des übergeordneten Containers */
+    background-color: #405d64; /* Hintergrundfarbe passend zur Navbar */
+    width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
+    border-radius: 0px; /* Keine abgerundeten Ecken */
+    z-index: 1000;
+    margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
+}
+
+    /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
+    .dropdown-content.show {
+        display: block;
+
+    }
+
+
+/* Styling für Dropdown-Links */
+.dropdown-content a {
+    color: white; /* Weiße Schriftfarbe für guten Kontrast */
+    padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    margin-left: -14px;
+}
+
+/* Dropdown-Pfeil Styling */
+#dropdown-arrow {
+    transition: transform 0.3s ease;
+    display: block;
+}
+    /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
+    #language-dropdown.show ~ #dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    /* Hover-Effekt für die Links im Dropdown */
+    .dropdown-content a:hover {
+        background-color: #333;
+    }
+
+
+
+/*************************************************************************************************/
             
 
             /* About Section Anpassungen */
             #about {
-                padding: 10px;
-                margin: 10px 10px;
+                padding: 0px;
                 text-align: start;
                 box-shadow: none;
-                border-radius: 10px;
-                margin-top: 0px !important;
+                margin-top: 10px !important;
             }
             #about h3 {
                 text-align: start;
                 font-size: 20px;
+                margin-left: -30px;
+                margin-top: -100px;
             }
 
-            .about-content {
+            #about .about-content {
                 font-size: 16px; /* Anpassung der Schriftgröße für mobile Ansicht */
                 line-height: 1.6;
+                margin-left: -30px;
+                width: 350px !important;
+                
+                
+
             }
-            #aboutImage{
-                margin-left: 20px;
+            #aboutImage {
+                clip-path: inset(0 0 100px 0);
+                width: 100% !important; /* Nimmt die volle Breite des Containers ein */
+
+                margin: 0; /* Entfernt alle äußeren Abstände */
+                padding: 0; /* Entfernt alle inneren Abstände */
+                display: block;
+                object-fit: cover;
             }
 
             .noneM{
@@ -364,9 +455,7 @@
                 align-items: center; /* Zentriert den Inhalt */
                 text-align: center; /* Zentriert den Text in allen Elementen */
                 padding: 10px; /* Anpassung des Innenabstands für mobile Ansicht */
-               
-                
-                
+
             }
 
             /* Stile für die einzelnen Bereiche im Footer */
@@ -435,7 +524,7 @@
 
     </style>
 </head>
-<body class="animate__animated animate__fadeIn">
+<body >
     <span>        <a  href="/index.html">
         <img id="logo" src="/image/logo.jpg" alt="">
     </a></span>
@@ -464,36 +553,49 @@
 
 
 
-    <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-            <!-- Toggle Button für mobile Ansicht -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
-                </li>
-            </ul>
+        <!-- Toggle Button für mobile Ansicht -->
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/index.html" data-key="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+            </li>
+
+        </ul>
+        <div class="dropdown mobile-language-dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
+                DE
+                <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+            </span>
+            <div class="dropdown-content" id="language-dropdown" >
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
+            </div>
         </div>
-    </nav>
+
+    </div>
+</nav>
     
 
-    <div id="about" class=" animate__animated animate__fadeInUp" style="max-width: 80%; margin: 100px auto 40px;">
-        <div class="row no-gutters align-items-center">
+    <div id="about" style="max-width: 80%; margin: 100px auto 40px;">
+        <div   class="row no-gutters align-items-center">
             <!-- Image Column -->
-            <div class="col-md-4">
-                <img id="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image" style="border-radius: 15px; margin-right: 20px;">
+            <div class="col-md-4 animate__animated animate__fadeInUp">
+                <img id="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image" style=" margin-right: 20px;">
             </div>
             <!-- Text Column -->
             <div class="col-md-8">
@@ -542,11 +644,14 @@
         <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
+<script src="/languageStorage.js"></script>
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+
 
 
 
@@ -605,6 +710,10 @@
             document.getElementById("language-dropdown").classList.toggle("show");
         }
 
+
+
+
+
         // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
         window.onclick = function(event) {
             if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
@@ -643,6 +752,37 @@
             }
         });
 
-    </script>
+
+
+
+        // Schaltet die Sichtbarkeit des Dropdowns um
+        function toggleDropdown(event) {
+            event.stopPropagation(); // Verhindert das Event-Bubbling
+            const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
+            if (dropdown) {
+                dropdown.classList.toggle("show"); // Wechselt die Klasse "show" ein und aus
+            }
+        }
+
+        // Fügt den Event-Listener zum Umschalten des Dropdowns hinzu, wenn auf die Sprach-Auswahl geklickt wird
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("#selected-language").forEach(element => {
+                element.addEventListener("click", toggleDropdown); // Hinzufügen des Event-Listeners
+            });
+
+        // Schließen des Dropdowns, wenn außerhalb geklickt wird
+        window.addEventListener("click", function(event) {            
+            document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
+                if (!event.target.closest(".dropdown")) {
+                    dropdown.classList.remove("show");
+                }
+            });
+        });
+    });
+
+
+
+
+</script>
 </body>
 </html>
