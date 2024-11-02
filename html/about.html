@@ -306,6 +306,8 @@
         margin-left: auto;
         font-size: 24px;
         z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
+        border: none; /* Entfernt den Rand des Buttons */
+
     }
         /* Dropdown-Menü im geöffneten Zustand */
         .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
@@ -557,9 +559,10 @@
 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
         <!-- Toggle Button für mobile Ansicht -->
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
 
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
