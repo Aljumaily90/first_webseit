@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Home" content="Kurze Beschreibung deiner Webseite"> 
-    <title>Home</title>
+    <title>About Us</title>
+    
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="icon" href="/path/to/favicon.ico" type="image/x-icon"> <!-- Favicon Placeholder -->
-    <script src="languageStorage.js"></script>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="/languageStorage.js"></script>
 
     <style>
-/*************************Hauptteil**********************************************************/
+
         :root {
             --primary-color: #007bff;
             --secondary-color: #595d61;
@@ -23,7 +23,7 @@
             --dark-color: #020000;
             --accent-color: #39b9e0;
         }
-/*************************Logo**********************************************************/
+        /******************************Logo**************************************************/
         #logo {
             height: 60px;
             position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
@@ -33,10 +33,11 @@
             padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
             transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
         }
+
         #logo.large {
             height: 90px; /* Vergrößert das Logo, falls dies noch gewünscht ist */
         }
-/************************************subheader*****************************************/
+        /************************************subheader*****************************************/
         /* Subheader Styles */
         #subheader {
             background-color: #26414c;
@@ -49,20 +50,25 @@
             justify-content: center;
             align-items: center;
         }
+
         #subheader span {
             margin: 0 10px;
             font-weight: 600;
             color: #c2d4da;
             padding-left: 50px;
         }
+
         .dropdown {
-            position: relative;           
+            position: relative;            
+            
+            
         }
         #available{
             margin-right: 10px;
             color: #afc0c5;
             font-size: 18px;   
         }
+
         /* Standardmäßig ist das Dropdown-Inhaltsmenü ausgeblendet */
         .dropdown-content {
             display: none;
@@ -72,12 +78,16 @@
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
             padding: 10px;
             z-index: 1002;
-            margin-left:30px;            
+            margin-left:30px;
+            
         }
+
+
         /* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
         .dropdown-content.show {
             display: block;
         }
+
         /* Stil für die Links im Dropdown-Inhalt */
         .dropdown-content a {
             color: var(--dark-color); /* Passe die Textfarbe an */
@@ -85,15 +95,18 @@
             display: block;
             padding: 8px 16px;
         }
+
         /* Hover-Effekt für die Links im Dropdown */
         .dropdown-content a:hover {
             background-color: #f1f1f1; /* Passe die Hover-Hintergrundfarbe an */
         }
+
         #subheader a {
             color: #afc0c5;
             text-decoration: none;
             font-weight: 600;
         }
+
         #subheader a:hover {
             font-size: 18px;
         }
@@ -103,7 +116,7 @@
             display: flex;
             align-items: center; /* Zentriert den Text und das Icon vertikal */
         }
-/****************************Nav**********************************************************/
+        /****************************Nav**********************************************************/
         /* Navbar Styles */
         .navbar {
             background-color: #e6e7e7;
@@ -132,76 +145,37 @@
             transition: all 0.3s ease; /* Smooth transition for link styles */
             margin-right: 20px;
         }
+
+
         .navbar-nav .nav-link:hover {
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
+
 /**************************content*************************************************/
-        /* Um sicherzustellen, dass der Rest der Inhalte darüber liegt */
         body {
+            padding-top: 60px; /* Adjust this value to the height of your fixed navbar */
+        }
+        /* Optionale Anpassungen für bessere Bild-Text-Ausrichtung */
+        #about img {
+            max-height: 500px; /* Passt die maximale Höhe des Bildes an, falls notwendig */
+            object-fit: cover;  /* Sorgt dafür, dass das Bild die gesamte Fläche füllt */
+            width: 90%;
+        }
+        /* About Section */
+        #about {
+            padding: 40px;
+            position: relative;   
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            color: #405d64;
+ 
+        }
+        .about-content {
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
             position: relative;
-            z-index: 1;
+            font-size: 18px;
+            color: #405d64;
         }
-        /* Background Image */
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-        .section {
-            padding: 60px 0; /* Add padding to sections */
-        }
-
-        .section-1 {  
-            min-height: 950px; /* Ensure the section has enough height to display the background */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add text shadow for better readability */
-            animation: fadeIn 2s; /* Add fade-in animation */
-        }
-        .section-2{
-            background: linear-gradient(135deg, #f8f9fa, #e0e0e0);
-
-        }
-        #Allah{
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 80px;
-            color: rgb(122, 106, 14);
-        }       
-        .bg-light {
-            background-color: #f8f9fa !important; /* Light background color */
-        }                
-        .rounded-3 {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow to make sections pop */
-        }
-        p.fs-4 {
-            font-size: 1.4rem;
-            line-height: 1.8; /* Increase line height for better readability */
-            color: #333; /* Darker text color */
-            margin-bottom: 20px; /* Add margin to paragraphs */
-        }
-        /* Call-To-Action Button Stile */
-        .btn-cta {
-            background: #405d64;
-            color: #ffffff;
-            font-weight: 600;
-            padding: 15px 40px;
-            border-radius: 10px;
-            box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
-            transition: background 0.3s ease, box-shadow 0.3s ease;
-            font-size: 20px;            
-        }
-        .btn-cta:hover {
-            background: #396975;
-            box-shadow: 0px 12px 20px rgba(5, 5, 5, 0.25);
-            color: white;
-        }       
 /***********************************footer***********************************************/
         .footer-contact {
             padding: 30px;
@@ -212,22 +186,31 @@
             align-items: flex-start;
             text-align: left;
             margin-bottom: 0; /* Remove bottom margin to eliminate space */
+
         }
+
         .footer-contact-left,
         .footer-contact-center,
         .footer-contact-right {
             flex: 1;
             padding: 20px;
+            font-size: 16px;
         }
+
+
         .footer-contact p a {
             margin: 0;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
             color: white;
-        }       
+        }
+        
+
+
         .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
-        #footer-logo { width: 300px; height: auto; margin-top: 15px; 
-        }         
+        #footer-logo { width: 300px; height: auto; margin-top: 15px; }
+          
+
         /* Footer Links Styling */
         .footer-links {
             display: flex;
@@ -235,12 +218,15 @@
             gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
-            border-top: #90969c solid 1px;            
+            border-top: #90969c solid 1px;
+
         }
         .footer-links a {
             color: white;
             padding-top: 20px;
-        }    
+        }
+     
+
         /* Footer Bottom Text */
         .footer-bottom {
             font-size: 14px;
@@ -250,9 +236,11 @@
         .mobile-language-dropdown {
             display: none;
         }
+
  /***********************************media***********************************************/
-         /* Mobile Layout */
-         @media only screen and (max-width: 768px) {
+
+                    /* Mobile Layout */
+        @media only screen and (max-width: 768px) {
             #logo {
                 height: 50px;
                 transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
@@ -409,31 +397,37 @@
                 font-size: 20px;
             }
 /*************************************************************************************************/
-            /* Main Sections adjustments */
-            .section-1, .section-2 {
-                padding: 40px 20px;
-                text-align: center;
+            /* About Section Anpassungen */
+            #about {
+                padding: 0px;
+                text-align: start;
+                box-shadow: none;
+                margin-top: 10px !important;
             }
-
-            .section-1 h1, .section-2 h1 {
-                font-size: 30px;
-                line-height: 1.4;
+            #about h3 {
+                text-align: start;
+                font-size: 20px;
+                margin-left: -30px;
+                margin-top: -100px;
             }
-            #Allah{
-                font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-                font-size: 50px;
-                color: rgb(122, 106, 14);
+            #about .about-content {
+                font-size: 16px; /* Anpassung der Schriftgröße für mobile Ansicht */
+                line-height: 1.6;
+                margin-left: -30px;
+                width: 350px !important;
             }
-            .btn-cta {
-                font-size: 18px;
-                padding: 10px 30px;
-                margin-top: 20px;
+            #aboutImage {
+                clip-path: inset(0 0 100px 0);
+                width: 100% !important; /* Nimmt die volle Breite des Containers ein */
+                margin: 0px 0px; /* Entfernt alle äußeren Abstände */
+                padding: 0; /* Entfernt alle inneren Abstände */
+                display: block;
+                object-fit: cover;
             }
 /*********************************FooterMedia**********************************************/
             .noneM{
                 display: none;
             }
-
             .footer-contact {
                 flex-direction: column; /* Stellt die Sektionen untereinander dar */
                 align-items: center; /* Zentriert den Inhalt */
@@ -502,22 +496,19 @@
                 content: ""; /* Entfernt das Trennzeichen beim letzten Element */
             }
         }
+     
+/**************************************************************************************/
 
-  /**************************************************************************************/
     </style>
 </head>
-<body class="animate__animated animate__fadeIn">
-    <video muted autoplay  loop playsinline id="background-video">
-        <source src="/vieso.mp4" type="video/mp4">
-        Dein Browser unterstützt dieses Video-Format nicht.
-    </video>
-    <span>        <a  href="/index.html">
-        <img id="logo" src="/image/logo.jpg" alt="Logo">
-    </a></span>
-
+<body onload="loadLanguage()">
+    <span>
+        <a  href="/index.html"><img id="logo" src="/image/logo.jpg" alt=""></a>
+    </span>
+    <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
-        <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="height: 20px;"> +41 79 618 44 44</a></span>
+        <span ><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">
                 DE
@@ -530,10 +521,15 @@
             </div>
         </div>
     </div>
+
     <!-- Telefonnummer in der Navbar -->
-    <a href="tel:+41796184444" class="navbar-phone">
-        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
-    </a>
+    
+        <a href="tel:+41796184444" class="navbar-phone">
+            <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
+        </a>
+
+
+
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
             <!-- Toggle Button für mobile Ansicht -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -570,22 +566,76 @@
             </div>
 
         </div>
-    </nav>
-        <div class="p-5 bg-body-tertiary section-1 rounded-3">
-            <div class="container-fluid py-5 ">
-              <h1 class="display-5 fw-bold saying animate__animated animate__fadeInDown" data-key="saying">Gemeinsam meistern wir auch die schweren Zeiten</h1>
-              <div class=" mt-5">
-                <a href="/html/contract.html" class="btn btn-cta" data-key="contact-us">Kontaktieren Sie uns</a>
-            </div>
-            </div>
-        </div>
-        <div class="p-5 bg-body-tertiary section-2 rounded-3">
-            <div class="container-fluid py-5 text-center">
-                <h1 id="Allah" class="display-5 fw-bold animate__animated animate__fadeInUp" >إِنَّا لِلَِّهِ وَإِنَّا إِلَِيْهِ رَاجِعون</h1>
-                <p class="fs-4 animate__animated animate__fadeIn pt-3" data-key="verse">"Wir gehören Allāh und zu  Ihm kehren wir zurück"</p>
+    </nav>    <!-- Telefonnummer in der Navbar -->
+ 
+    <a href="tel:+41796184444" class="navbar-phone">
+        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
+    </a>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
+        <!-- Toggle Button für mobile Ansicht -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/index.html" data-key="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+            </li>
+
+        </ul>
+        <div class="dropdown mobile-language-dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
+                DE
+                <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+            </span>
+            <div class="dropdown-content" id="language-dropdown" >
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
             </div>
         </div>
 
+    </div>
+</nav>
+    
+
+    <div id="about" style="max-width: 80%; margin: 100px auto 40px;">
+        <div   class="row no-gutters align-items-center">
+            <!-- Image Column -->
+            <div class="col-md-4 animate__animated animate__fadeInUp">
+                <img id="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image" style=" margin-right: 20px;">
+            </div>
+            <!-- Text Column -->
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h3 class="card-title" data-key="about_title">Ihr Partner für islamische und kulturelle Bestattungen schweizweit</h3>
+                    <p class="about-content"  data-key="about_content_1">
+                        Eman Bestattungen ist ein Bestattungsinstitut, das sich auf islamische Bestattungen spezialisiert hat. Mit unserem tiefen Verständnis für religiöse und kulturelle Bedürfnisse und unserer langjährigen Erfahrung bieten wir Angehörigen und Interessierten professionelle und einfühlsame Unterstützung in schweren Zeiten.
+                        <br><br>
+                        Unser Team behandelt Bestattungen aller Religionen und Kulturen mit höchstem Respekt und Sorgfalt. Wir führen sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch und arbeiten dabei eng mit Schweizer und internationalen Behörden zusammen, um einen reibungslosen Ablauf zu gewährleisten.
+                        <br><br>
+                        Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung. Wir setzen alles daran, Sie bestmöglich zu entlasten und einen würdevollen Verlauf aller Prozesse zu garantieren.
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
 <!----- Footer ----->
 <footer>
     <div class="footer-contact">
@@ -622,12 +672,13 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
+  
 
 
-    <!-- Custom JS to handle scroll event -->
-    <script src="/main.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+
+
+    <!-- Custom JS to handle language switching -->
     <script>
         const translations = {
             de: {
@@ -635,26 +686,23 @@
                 about: "Über uns",
                 services: "Dienstleistungen",
                 contact: "Kontakt",
+                about_title: "Über uns",
+                about_content_1: "Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.",
                 impressum: "Impressum",
                 privacy: "Datenschutzerklärung",
                 terms: "AGB",
-                saying: "Gemeinsam meistern wir auch die schweren Zeiten",
-                verse: "Wir gehören Allāh und zu  Ihm kehren wir zurück",
-                contactUs: "Kontaktieren Sie uns",
                 languageLabel: "DE"
-
             },
             en: {
                 home: "Home",
                 about: "About Us",
                 services: "Services",
                 contact: "Contact",
+                about_title: "About Us",
+                about_content_1: "With our many years of experience and knowledge in funeral culture, we understand the religious and cultural needs and offer professional care. As Eman Funeral Services, we specialize in Islamic funerals and provide comprehensive support to relatives in difficult times with the highest level of professionalism. We treat funerals of all religions and cultures with the same respect and care. In doing so, we conduct funerals both in Switzerland and international repatriations, which we efficiently manage in close cooperation with Swiss and international authorities. Our services are available to you and your relatives around the clock to provide you with the best possible relief and to ensure a dignified process for all procedures.",
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
                 terms: "Terms and Conditions",
-                saying: "Together we will get through even the tough times",
-                verse: "Verily we belong to Allah, and verily to Him do we return.",
-                contactUs: "Contact Us",
                 languageLabel: "EN"
             },
             tr: {
@@ -662,102 +710,67 @@
                 about: "Hakkımızda",
                 services: "Hizmetler",
                 contact: "İletişim",
+                about_title: "Hakkımızda",
+                about_content_1: "Cenaze kültüründeki uzun yıllara dayanan deneyimimiz ve bilgimizle, dini ve kültürel ihtiyaçları anlıyor ve profesyonel bakım sunuyoruz. Eman Cenaze Hizmetleri olarak İslami cenazelerde uzmanız ve zorlu zamanlarda en yüksek profesyonellik ile ailelere kapsamlı destek sağlıyoruz. Tüm dinlere ve kültürlere ait cenazeleri aynı saygı ve özenle ele alıyoruz. Bu bağlamda hem İsviçre'de hem de uluslararası nakillerde cenaze işlemlerini, İsviçre ve uluslararası yetkililerle yakın işbirliği içinde verimli bir şekilde yürütüyoruz. Hizmetlerimiz, siz ve yakınlarınıza her zaman en iyi şekilde destek sunmak ve tüm süreçlerin saygın bir şekilde yürütülmesini sağlamak için 7/24 hizmetinizdedir.",
                 impressum: "Künye",
                 privacy: "Gizlilik Politikası",
                 terms: "Şartlar ve Koşullar",
-                saying: "Birlikte zor zamanların üstesinden geleceğiz",
-                verse: "Muhakkak ki biz Allah'a aidiz ve muhakkak ki ona döneceğiz.",
-                contactUs: "Bizimle İletişime Geçin",
                 languageLabel: "TR"
             }
         };
 
+ // Sprache setzen und Inhalte übersetzen
+ function setLanguage(language) {
+        document.getElementById('selected-language').textContent = language.toUpperCase();
+        document.querySelectorAll('[data-key]').forEach(element => {
+            const key = element.getAttribute('data-key');
+            element.textContent = translations[language][key] || element.textContent;
+        });
+    }
 
+    // Dropdown anzeigen/ausblenden
+    function toggleDropdown(event) {
+        event.stopPropagation();
+        document.getElementById("language-dropdown").classList.toggle("show");
+    }
 
-        function setLanguage(language) {
-            document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (translations[language][key]) {
-                    element.textContent = translations[language][key];
-                }
-            });
-        }
-        // Funktion zum Ein- und Ausblenden des Dropdowns
-        function toggleDropdown() {
-            document.getElementById("language-dropdown").classList.toggle("show");
-        }
-
-
-
-
-
-        // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
-        window.onclick = function(event) {
-            if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-
-
-        // Schaltet die Sichtbarkeit des Dropdowns um
-        function toggleDropdown(event) {
-            event.stopPropagation(); // Verhindert das Event-Bubbling
-            const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
-            if (dropdown) {
-                dropdown.classList.toggle("show"); // Wechselt die Klasse "show" ein und aus
-            }
-        }
-
-        // Fügt den Event-Listener zum Umschalten des Dropdowns hinzu, wenn auf die Sprach-Auswahl geklickt wird
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll("#selected-language").forEach(element => {
-                element.addEventListener("click", toggleDropdown); // Hinzufügen des Event-Listeners
-            });
-
-        // Schließen des Dropdowns, wenn außerhalb geklickt wird
-        window.addEventListener("click", function(event) {            
+    // Schließen des Dropdowns, wenn außerhalb geklickt wird
+    document.addEventListener("click", function(event) {
+        if (!event.target.closest('.dropdown')) {
             document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
-                if (!event.target.closest(".dropdown")) {
-                    dropdown.classList.remove("show");
-                }
+                dropdown.classList.remove("show");
             });
+        }
+    });
+
+    // Dokument-Ready Funktion
+    document.addEventListener("DOMContentLoaded", function() {
+        const languageSelector = document.getElementById("selected-language");
+        if (languageSelector) {
+            languageSelector.addEventListener("click", toggleDropdown);
+        }
+
+        // Logo-Größenänderung beim Scrollen
+        const logo = document.getElementById('logo');
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let currentScroll = window.scrollY;
+            if (currentScroll > lastScrollTop) {
+                logo.classList.remove('large');
+                navbar.classList.add('navbar-large');
+                navbar.classList.remove('navbar-small');
+            } else {
+                logo.classList.add('large');
+                navbar.classList.add('navbar-small');
+                navbar.classList.remove('navbar-large');
+            }
+            lastScrollTop = currentScroll;
         });
     });
 
-    //sprache auf alle seiten
-
-    function setLanguage(language) {
-    localStorage.setItem('selectedLanguage', language); // Speichere die Sprache im localStorage
-    document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase();
-    const elements = document.querySelectorAll('[data-key]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[language][key]) {
-            element.textContent = translations[language][key];
-        }
-    });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    const savedLanguage = localStorage.getItem('selectedLanguage');
-    if (savedLanguage) {
-        setLanguage(savedLanguage);
-    }
-});
 
 
-
-  </script>
-
-
-
+</script>
 </body>
 </html>

@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="languageStorage.js"></script>
 
     <style>
        /******** Navbar Styles ********/
@@ -371,6 +372,10 @@
             font-size: 14px;
             margin-top: 10px;
         }
+         /* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
+         .mobile-language-dropdown {
+            display: none;
+        }
 
 
 
@@ -380,101 +385,160 @@
         @media only screen and (max-width: 1345px) {
 
             #logo {
-            height: 50px;
-            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
-            position: absolute;
-            top: 30px;
-            left: 60px;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 10;
-            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+                height: 50px;
+                transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+                position: absolute;
+                top: 30px;
+                left: 60px;
+                transform: translate(-50%, -50%) scale(1);
+                z-index: 10;
+                position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             }
 
             /* Subheader ausblenden */
             #subheader {
                     display: none; /* Verbirgt den Subheader auf Mobilgeräten */
                 }
+            /* Navbar fixieren und Hintergrund beibehalten */
+            .navbar {
+                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                position: fixed;
+                top: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                z-index: 1; /* Ganz oben fixiert */
+                height: 75px ;
+                margin-top: -47px;
+                
+            }
+            /* Telefonnummer sichtbar und linksbündig */
+            .navbar-phone {
+                font-weight: bold;
+                font-size: 16px;
+                color: white;
+                display: flex;
+                align-items: center;
+                margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
+                z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
+                position: fixed;
+                top: 15px;
+                left: 130px;
+                
+            }
+            /* Hover-Effekt (optional) */
+            .navbar-phone:hover {
+                color: white; /* Keine Farbänderung beim Hover */
+                text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
 
+            }
 
+            /* Wenn die Telefonnummer angeklickt wird */
+            .navbar-phone:active {
+                font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
+                color: white; /* Farbe bleibt weiß */
+                text-decoration: none; /* Keine Unterstreichung */
+            }
 
-    /* Navbar fixieren und Hintergrund beibehalten */
-    .navbar {
-        background-color: #405d64; /* Hintergrundfarbe der Navbar */
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        z-index: 1; /* Ganz oben fixiert */
-        height: 60px;
-        margin-top: -47px;
-        
-    }
-        /* Telefonnummer sichtbar und linksbündig */
-        .navbar-phone {
-        font-weight: bold;
-        font-size: 16px;
-        color: white;
-        display: flex;
-        align-items: center;
-        margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
-        z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
-        position: fixed;
-        top: 15px;
-        left: 130px;
-        
-    }
-    /* Hover-Effekt (optional) */
-        .navbar-phone:hover {
-            color: white; /* Keine Farbänderung beim Hover */
-            text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+            /* Navbar-Toggle-Button rechts positionieren */
+            .navbar-toggler {
+                margin-left: auto;
+                font-size: 24px;
+                z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
+                border: none; /* Entfernt den Rand des Buttons */
+                outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
+                box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
 
-        }
+            }
+            /* Dropdown-Menü im geöffneten Zustand */
+            .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+                display: block;
+                background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
+                position: absolute;
+                top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
+                width: 100%;
+                z-index: 998;
+            }
+            /* Standardmäßig sind die Navbar-Links versteckt */
+            .navbar-collapse {
+                display: none;
+            }
+            /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
+            .navbar-collapse.show {
+                display: block;
+            }
+            /* Stil für die Links im Dropdown-Menü */
+            .navbar-nav .nav-link {
+                font-size: 18px;
+                color: white !important; /* Links in weiß für gute Lesbarkeit */
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
+    /*******************************************************************************/
 
-        /* Wenn die Telefonnummer angeklickt wird */
-        .navbar-phone:active {
-            font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
-            color: white; /* Farbe bleibt weiß */
-            text-decoration: none; /* Keine Unterstreichung */
-        }
+            /* Sprachauswahl anzeigen */
+            .mobile-language-dropdown {
+                display: block;
+                width: 100%;
+                text-align: center;
+                }
+              
+            .mobile-language-dropdown #selected-language {
+                color: white;
+                padding: 10px;
+                display: inline-flex;
+                align-items: center;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            /* Dropdown-Container Styling */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
+                left: -10px; /* Startet am linken Rand des übergeordneten Containers */
+                background-color: #405d64; /* Hintergrundfarbe passend zur Navbar */
+                width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
+                padding: 10px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
+                border-radius: 0px; /* Keine abgerundeten Ecken */
+                z-index: 1000;
+                margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
+            }
+            /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
+            .dropdown-content.show {
+                display: block;
 
-    /* Navbar-Toggle-Button rechts positionieren */
-    .navbar-toggler {
-        margin-left: auto;
-        font-size: 24px;
-        z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
-    }
-
-    /* Dropdown-Menü im geöffneten Zustand */
-    .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
-        display: block;
-        background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
-        position: absolute;
-        top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
-        width: 100%;
-        z-index: 998;
-    }
-
-    /* Standardmäßig sind die Navbar-Links versteckt */
-    .navbar-collapse {
-        display: none;
-    }
-
-    /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
-    .navbar-collapse.show {
-        display: block;
-    }
-
-    /* Stil für die Links im Dropdown-Menü */
-    .navbar-nav .nav-link {
-        font-size: 18px;
-        color: white !important; /* Links in weiß für gute Lesbarkeit */
-        padding: 10px;
-        text-align: center;
-        display: block;
-    }
+            }
+            /* Styling für Dropdown-Links */
+            .dropdown-content a {
+                color: white; /* Weiße Schriftfarbe für guten Kontrast */
+                padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 16px;
+                margin-left: -14px;
+            }
+            /* Dropdown-Pfeil Styling */
+            #dropdown-arrow {
+                transition: transform 0.3s ease;
+                display: block;
+            }
+            /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
+            #language-dropdown.show ~ #dropdown-arrow {
+                transform: rotate(180deg);
+            }
+            /* Hover-Effekt für die Links im Dropdown */
+            .dropdown-content a:hover {
+                background-color: transparent;
+                margin: 0;
+                font-size: 20px;
+            }
        /* Der Abschnitt mit ID "contact" soll die volle Breite des Bildschirms einnehmen */
             #contact {
                 width: 100% !important;
@@ -520,80 +584,76 @@
                 width: 100% !important;; /* Volle Breite des Buttons für Tablet-Format */
             }
 
+/*********************************FooterMedia**********************************************/
             .noneM{
                 display: none;
-
             }
-
             .footer-contact {
                 flex-direction: column; /* Stellt die Sektionen untereinander dar */
                 align-items: center; /* Zentriert den Inhalt */
                 text-align: center; /* Zentriert den Text in allen Elementen */
-                padding: 10px; /* Anpassung des Innenabstands für mobile Ansicht */
-               
-                
-                
+                padding: 10px; /* Anpassung des Innenabstands für mobile Ansicht */              
             }
-
+            #footer-mobil-number{
+                margin-top: -30px;
+            }
             /* Stile für die einzelnen Bereiche im Footer */
             .footer-contact-left,
             .footer-contact-center,
             .footer-contact-right {
-                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */
-        
-                
+                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */        
                 margin-bottom: 20px ; /* Abstand zwischen den Bereichen */
                 text-align: center ; /* Zentriert den Text in jedem Bereich */
-                font-size: 14px !important;
-                
-                
+                font-size: 14px !important;                               
             }
             .footer-contact-left{
-                margin-left: -50px;
-                
-                
+                margin-left: -50px;                
             }
             .footer-contact-left a {
                 font-size: 15px !important;
-
             }
-                        /* Links in footer-contact-right für mobile Ansicht */
+            /* Links in footer-contact-right für mobile Ansicht */
             .footer-contact-right a {
                 color: white;
                 display: block; /* Jeder Link wird in einer neuen Zeile angezeigt */
-                margin: 0px 0; /* Abstand zwischen den Links */
-                
+                margin: 0px 0; /* Abstand zwischen den Links */                
             }
-                /* Bereich für footer-contact-center anpassen */
-    .footer-contact-center {
-        display: flex;
-        justify-content: center;
-        gap: 10px; /* Platz zwischen den Links */
-        margin-top: -100px;
-        
-    }
-    /* Links nebeneinander und ohne Außenabstand */
-    .footer-contact-center p {
-        margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */
-        
-    }
-
-    .footer-contact-center a {
-        font-size: 14px !important; /* Kleinere Schriftgröße für mobile Ansicht */
-        color: white;
-        text-decoration: none; /* Entfernt Unterstreichung */
-         /* Horizontaler Abstand zwischen Links */
-        display: inline; /* Stellt sicher, dass die Links in einer Zeile angezeigt werden */
-        
-    }
-
+            /* Bereich für footer-contact-center anpassen */
+            .footer-contact-center {
+                display: flex;
+                justify-content: center;
+                gap: 10px; /* Platz zwischen den Links */
+                margin-top: -100px;                
+            }
+            /* Links nebeneinander und ohne Außenabstand */
+            .footer-contact-center p {
+                display: inline; /* Links nebeneinander anzeigen */
+                margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */                
+            }
+            .footer-contact-center a {
+                font-size: 14px !important; /* Kleinere Schriftgröße für mobile Ansicht */
+                color: white;
+                text-decoration: none; /* Entfernt Unterstreichung */
+                display: inline; /* Stellt sicher, dass die Links in einer Zeile angezeigt werden */                
+            }
             .footer-links {
                 flex-direction: column;
                 gap: 10px;
-            }
-            
+            }            
             .footer-links a {
                 padding-top: 10px;
+            }
+            .footer-bottom{
+                font-size: 14px !important;
+                margin-top: -30px;
+            }
+            .footer-contact-center p::after {
+            content:" |"; /* Fügt das Trennzeichen ein */
+            margin-left: 10px;
+            margin-right: 2px;
+            }
+            .footer-contact-center p:last-child::after {
+                content: ""; /* Entfernt das Trennzeichen beim letzten Element */
             }
         }
        
@@ -619,36 +679,51 @@
             </div>
         </div>
     </div>
-    <!-- Telefonnummer in der Navbar -->
-    <a href="tel:+41796184444" class="navbar-phone">
-        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 40px; margin-right: 5px; filter: brightness(1) invert(1);"> +41 79 618 44 44
+     <!-- Telefonnummer in der Navbar -->
+    
+     <a href="tel:+41796184444" class="navbar-phone">
+        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
     </a>
 
 
 
-    <!----- Navbar ---->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-            <!-- Toggle Button für mobile Ansicht -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
-                </li>
-            </ul>
+        <!-- Toggle Button für mobile Ansicht -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/index.html" data-key="home">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+            </li>
+
+        </ul>
+        <div class="dropdown mobile-language-dropdown">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
+                DE
+                <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+            </span>
+            <div class="dropdown-content" id="language-dropdown" >
+                <a href="#" onclick="setLanguage('de')">DE</a>
+                <a href="#" onclick="setLanguage('en')">EN</a>
+                <a href="#" onclick="setLanguage('tr')">TR</a>
+            </div>
         </div>
-    </nav>
+
+    </div>
+</nav>
 
     <!-- Contact Section -->
     <div id="contact" class="p-5 bg-body-tertiary bg-light rounded-3animate__animated animate__fadeIn ">
@@ -717,7 +792,7 @@
         <div class="footer-contact-left">
             <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
             <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
-            <p ><a href="tel:+41414403333"><img src="/image/Deskphone-icon.png" alt="telefon" style="height: 40px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
+            <p id="footer-mobil-number"><a href="tel:+41414403333"><img src="/image/phone-icon.png" alt="telefon" style="height: 30px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
 
             <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
         </div>
@@ -737,11 +812,11 @@
             <p><a href="/AGB/AGB.html" data-key="terms">AGB</a></p>
         </div>
     </div>
-    <div class="bg-dark text-light text-center py-3  ">
-        <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+    <div class="bg-dark text-light text-center py-3 ">
+        <p class="footer-bottom">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
-<script src="/languageStorage.js"></script>
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -762,7 +837,8 @@
                 about_title: "Kontaktieren Sie uns",
                 impressum: "Impressum",
                 privacy: "Datenschutzerklärung",
-                terms: "AGB"
+                terms: "AGB",
+                languageLabel: "DE"
             },
             en: {
                 home: "Home",
@@ -772,7 +848,8 @@
                 about_title: "Contact Us",
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
-                terms: "Terms and Conditions"
+                terms: "Terms and Conditions",
+                languageLabel: "EN"
             },
             tr: {
                 home: "Ana Sayfa",
@@ -782,7 +859,8 @@
                 about_title: "Bizimle İletişime Geçin",
                 impressum: "Künye",
                 privacy: "Gizlilik Politikası",
-                terms: "Şartlar ve Koşullar"
+                terms: "Şartlar ve Koşullar",
+                languageLabel: "TR"
             }
         };
 
@@ -861,6 +939,55 @@
                     document.getElementById('dropdownOptions').style.display = 'none';
                 }
             });
+
+
+
+                 // Schaltet die Sichtbarkeit des Dropdowns um
+        function toggleDropdown(event) {
+            event.stopPropagation(); // Verhindert das Event-Bubbling
+            const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
+            if (dropdown) {
+                dropdown.classList.toggle("show"); // Wechselt die Klasse "show" ein und aus
+            }
+        }
+
+        // Fügt den Event-Listener zum Umschalten des Dropdowns hinzu, wenn auf die Sprach-Auswahl geklickt wird
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("#selected-language").forEach(element => {
+                element.addEventListener("click", toggleDropdown); // Hinzufügen des Event-Listeners
+            });
+
+        // Schließen des Dropdowns, wenn außerhalb geklickt wird
+        window.addEventListener("click", function(event) {            
+            document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
+                if (!event.target.closest(".dropdown")) {
+                    dropdown.classList.remove("show");
+                }
+            });
+        });
+    });
+
+
+        //sprache auf alle seiten
+
+        function setLanguage(language) {
+    localStorage.setItem('selectedLanguage', language); // Speichere die Sprache im localStorage
+    document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase();
+    const elements = document.querySelectorAll('[data-key]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[language][key]) {
+            element.textContent = translations[language][key];
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage) {
+        setLanguage(savedLanguage);
+    }
+});
 
     </script>
 </body>

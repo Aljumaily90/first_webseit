@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
     
     <!-- Bootstrap CSS -->
@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 
     <style>
 
@@ -232,192 +233,170 @@
             margin-top: 10px;
         }
         /* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
-.mobile-language-dropdown {
-    display: none;
-}
+        .mobile-language-dropdown {
+            display: none;
+        }
 
  /***********************************media***********************************************/
 
                     /* Mobile Layout */
-         @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: 768px) {
             #logo {
-            height: 50px;
-            transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
-            position: absolute;
-            top: 30px;
-            left: 60px;
-            transform: translate(-50%, -50%) scale(1);
-            z-index: 10;
-            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+                height: 50px;
+                transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+                position: absolute;
+                top: 30px;
+                left: 60px;
+                transform: translate(-50%, -50%) scale(1);
+                z-index: 10;
+                position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             }
 
             /* Subheader ausblenden */
             #subheader {
                     display: none; /* Verbirgt den Subheader auf Mobilgeräten */
                 }
+            /* Navbar fixieren und Hintergrund beibehalten */
+            .navbar {
+                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                position: fixed;
+                top: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                z-index: 1; /* Ganz oben fixiert */
+                height: 75px ;
+                margin-top: -47px;
+                
+            }
+            /* Telefonnummer sichtbar und linksbündig */
+            .navbar-phone {
+                font-weight: bold;
+                font-size: 16px;
+                color: white;
+                display: flex;
+                align-items: center;
+                margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
+                z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
+                position: fixed;
+                top: 15px;
+                left: 130px;
+                
+            }
+            /* Hover-Effekt (optional) */
+            .navbar-phone:hover {
+                color: white; /* Keine Farbänderung beim Hover */
+                text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
 
+            }
 
+            /* Wenn die Telefonnummer angeklickt wird */
+            .navbar-phone:active {
+                font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
+                color: white; /* Farbe bleibt weiß */
+                text-decoration: none; /* Keine Unterstreichung */
+            }
 
-    /* Navbar fixieren und Hintergrund beibehalten */
-    .navbar {
-        background-color: #405d64; /* Hintergrundfarbe der Navbar */
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        z-index: 1; /* Ganz oben fixiert */
-        height: 75px ;
-        margin-top: -47px;
-        
-    }
-        /* Telefonnummer sichtbar und linksbündig */
-        .navbar-phone {
-        font-weight: bold;
-        font-size: 16px;
-        color: white;
-        display: flex;
-        align-items: center;
-        margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
-        z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
-        position: fixed;
-        top: 15px;
-        left: 130px;
-        
-    }
-    /* Hover-Effekt (optional) */
-        .navbar-phone:hover {
-            color: white; /* Keine Farbänderung beim Hover */
-            text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+            /* Navbar-Toggle-Button rechts positionieren */
+            .navbar-toggler {
+                margin-left: auto;
+                font-size: 24px;
+                z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
+                border: none; /* Entfernt den Rand des Buttons */
+                outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
+                box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
 
-        }
-
-        /* Wenn die Telefonnummer angeklickt wird */
-        .navbar-phone:active {
-            font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
-            color: white; /* Farbe bleibt weiß */
-            text-decoration: none; /* Keine Unterstreichung */
-        }
-
-    /* Navbar-Toggle-Button rechts positionieren */
-    .navbar-toggler {
-        margin-left: auto;
-        font-size: 24px;
-        z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
-        border: none; /* Entfernt den Rand des Buttons */
-        outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
-        box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
-
-    }
-        /* Dropdown-Menü im geöffneten Zustand */
-        .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
-        display: block;
-        background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
-        position: absolute;
-        top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
-        width: 100%;
-        z-index: 998;
-    }
-
-
-
-    /* Standardmäßig sind die Navbar-Links versteckt */
-    .navbar-collapse {
-        display: none;
-    }
-
-    /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
-    .navbar-collapse.show {
-        display: block;
-    }
-
-    /* Stil für die Links im Dropdown-Menü */
-    .navbar-nav .nav-link {
-        font-size: 18px;
-        color: white !important; /* Links in weiß für gute Lesbarkeit */
-        padding: 10px;
-        text-align: center;
-        display: block;
-    }
+            }
+            /* Dropdown-Menü im geöffneten Zustand */
+            .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+                display: block;
+                background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
+                position: absolute;
+                top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
+                width: 100%;
+                z-index: 998;
+            }
+            /* Standardmäßig sind die Navbar-Links versteckt */
+            .navbar-collapse {
+                display: none;
+            }
+            /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
+            .navbar-collapse.show {
+                display: block;
+            }
+            /* Stil für die Links im Dropdown-Menü */
+            .navbar-nav .nav-link {
+                font-size: 18px;
+                color: white !important; /* Links in weiß für gute Lesbarkeit */
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }
     /*******************************************************************************/
 
-    /* Sprachauswahl anzeigen */
-    .mobile-language-dropdown {
-        display: block;
-        width: 100%;
-        text-align: center;
-        
-        
-    }
+            /* Sprachauswahl anzeigen */
+            .mobile-language-dropdown {
+                display: block;
+                width: 100%;
+                text-align: center;
+                }
+              
+            .mobile-language-dropdown #selected-language {
+                color: white;
+                padding: 10px;
+                display: inline-flex;
+                align-items: center;
+                font-size: 18px;
+                cursor: pointer;
+            }
+            /* Dropdown-Container Styling */
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
+                left: -10px; /* Startet am linken Rand des übergeordneten Containers */
+                background-color: #405d64; /* Hintergrundfarbe passend zur Navbar */
+                width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
+                padding: 10px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
+                border-radius: 0px; /* Keine abgerundeten Ecken */
+                z-index: 1000;
+                margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
+            }
+            /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
+            .dropdown-content.show {
+                display: block;
 
-    .mobile-language-dropdown #selected-language {
-        color: white;
-        padding: 10px;
-        display: inline-flex;
-        align-items: center;
-        font-size: 18px;
-        cursor: pointer;
-    }
-
-
-/* Dropdown-Container Styling */
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
-    left: -10px; /* Startet am linken Rand des übergeordneten Containers */
-    background-color: #405d64; /* Hintergrundfarbe passend zur Navbar */
-    width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
-    border-radius: 0px; /* Keine abgerundeten Ecken */
-    z-index: 1000;
-    margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
-}
-
-    /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
-    .dropdown-content.show {
-        display: block;
-
-    }
-
-
-/* Styling für Dropdown-Links */
-.dropdown-content a {
-    color: white; /* Weiße Schriftfarbe für guten Kontrast */
-    padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 16px;
-    margin-left: -14px;
-}
-
-/* Dropdown-Pfeil Styling */
-#dropdown-arrow {
-    transition: transform 0.3s ease;
-    display: block;
-}
-    /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
-    #language-dropdown.show ~ #dropdown-arrow {
-        transform: rotate(180deg);
-    }
-    /* Hover-Effekt für die Links im Dropdown */
-    .dropdown-content a:hover {
-        background-color: transparent;
-        margin: 0;
-        font-size: 20px;
-    }
-
-
-
+            }
+            /* Styling für Dropdown-Links */
+            .dropdown-content a {
+                color: white; /* Weiße Schriftfarbe für guten Kontrast */
+                padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 16px;
+                margin-left: -14px;
+            }
+            /* Dropdown-Pfeil Styling */
+            #dropdown-arrow {
+                transition: transform 0.3s ease;
+                display: block;
+            }
+            /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
+            #language-dropdown.show ~ #dropdown-arrow {
+                transform: rotate(180deg);
+            }
+            /* Hover-Effekt für die Links im Dropdown */
+            .dropdown-content a:hover {
+                background-color: transparent;
+                margin: 0;
+                font-size: 20px;
+            }
 /*************************************************************************************************/
-            
-
             /* About Section Anpassungen */
             #about {
                 padding: 0px;
@@ -431,98 +410,90 @@
                 margin-left: -30px;
                 margin-top: -100px;
             }
-
             #about .about-content {
                 font-size: 16px; /* Anpassung der Schriftgröße für mobile Ansicht */
                 line-height: 1.6;
                 margin-left: -30px;
                 width: 350px !important;
-                
-                
-
             }
             #aboutImage {
                 clip-path: inset(0 0 100px 0);
                 width: 100% !important; /* Nimmt die volle Breite des Containers ein */
-
-                margin: 0; /* Entfernt alle äußeren Abstände */
+                margin: 0px 0px; /* Entfernt alle äußeren Abstände */
                 padding: 0; /* Entfernt alle inneren Abstände */
                 display: block;
                 object-fit: cover;
             }
-
+/*********************************FooterMedia**********************************************/
             .noneM{
                 display: none;
-
             }
-
             .footer-contact {
                 flex-direction: column; /* Stellt die Sektionen untereinander dar */
                 align-items: center; /* Zentriert den Inhalt */
                 text-align: center; /* Zentriert den Text in allen Elementen */
-                padding: 10px; /* Anpassung des Innenabstands für mobile Ansicht */
-
+                padding: 10px; /* Anpassung des Innenabstands für mobile Ansicht */              
             }
-
+            #footer-mobil-number{
+                margin-top: -30px;
+            }
             /* Stile für die einzelnen Bereiche im Footer */
             .footer-contact-left,
             .footer-contact-center,
             .footer-contact-right {
-                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */
-        
-                
+                width: 100%; /* Jeder Bereich nimmt die volle Breite ein */        
                 margin-bottom: 20px ; /* Abstand zwischen den Bereichen */
                 text-align: center ; /* Zentriert den Text in jedem Bereich */
-                font-size: 14px !important;
-                
-                
+                font-size: 14px !important;                               
             }
             .footer-contact-left{
-                margin-left: -50px;
-                
-                
+                margin-left: -50px;                
             }
             .footer-contact-left a {
                 font-size: 15px !important;
-
             }
-                        /* Links in footer-contact-right für mobile Ansicht */
+            /* Links in footer-contact-right für mobile Ansicht */
             .footer-contact-right a {
                 color: white;
                 display: block; /* Jeder Link wird in einer neuen Zeile angezeigt */
-                margin: 0px 0; /* Abstand zwischen den Links */
-                
+                margin: 0px 0; /* Abstand zwischen den Links */                
             }
-                /* Bereich für footer-contact-center anpassen */
-    .footer-contact-center {
-        display: flex;
-        justify-content: center;
-        gap: 10px; /* Platz zwischen den Links */
-        margin-top: -100px;
-        
-    }
-    /* Links nebeneinander und ohne Außenabstand */
-    .footer-contact-center p {
-        margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */
-        
-    }
-
-    .footer-contact-center a {
-        font-size: 14px !important; /* Kleinere Schriftgröße für mobile Ansicht */
-        color: white;
-        text-decoration: none; /* Entfernt Unterstreichung */
-         /* Horizontaler Abstand zwischen Links */
-        display: inline; /* Stellt sicher, dass die Links in einer Zeile angezeigt werden */
-        
-    }
-
+            /* Bereich für footer-contact-center anpassen */
+            .footer-contact-center {
+                display: flex;
+                justify-content: center;
+                gap: 10px; /* Platz zwischen den Links */
+                margin-top: -100px;                
+            }
+            /* Links nebeneinander und ohne Außenabstand */
+            .footer-contact-center p {
+                display: inline; /* Links nebeneinander anzeigen */
+                margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */                
+            }
+            .footer-contact-center a {
+                font-size: 14px !important; /* Kleinere Schriftgröße für mobile Ansicht */
+                color: white;
+                text-decoration: none; /* Entfernt Unterstreichung */
+                display: inline; /* Stellt sicher, dass die Links in einer Zeile angezeigt werden */                
+            }
             .footer-links {
                 flex-direction: column;
                 gap: 10px;
-            }
-            
+            }            
             .footer-links a {
                 padding-top: 10px;
+            }
+            .footer-bottom{
+                font-size: 14px !important;
+                margin-top: -30px;
+            }
+            .footer-contact-center p::after {
+            content:" |"; /* Fügt das Trennzeichen ein */
+            margin-left: 10px;
+            margin-right: 2px;
+            }
+            .footer-contact-center p:last-child::after {
+                content: ""; /* Entfernt das Trennzeichen beim letzten Element */
             }
         }
      
@@ -530,16 +501,16 @@
 
     </style>
 </head>
-<body >
-    <span>        <a  href="/index.html">
-        <img id="logo" src="/image/logo.jpg" alt="">
-    </a></span>
+<body>
+    <span>
+        <a  href="/index.html"><img id="logo" src="/image/logo.jpg" alt=""></a>
+    </span>
     <!-- Subheader -->
     <div id="subheader">
         <span id="available">24h für Sie erreichbar</span>
         <span ><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
-            <span onclick="toggleDropdown()" style="font-weight: 600; cursor: pointer;" id="selected-language">
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
                 DE
                 <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
@@ -552,9 +523,53 @@
     </div>
 
     <!-- Telefonnummer in der Navbar -->
+    
+        <a href="tel:+41796184444" class="navbar-phone">
+            <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
+        </a>
+
+
+
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
+            <!-- Toggle Button für mobile Ansicht -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+                </li>
+
+            </ul>
+            <div class="dropdown mobile-language-dropdown">
+                <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
+                    DE
+                    <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+                </span>
+                <div class="dropdown-content" id="language-dropdown" >
+                    <a href="#" onclick="setLanguage('de')">DE</a>
+                    <a href="#" onclick="setLanguage('en')">EN</a>
+                    <a href="#" onclick="setLanguage('tr')">TR</a>
+                </div>
+            </div>
+
+        </div>
+    </nav>    <!-- Telefonnummer in der Navbar -->
  
     <a href="tel:+41796184444" class="navbar-phone">
-        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px -10px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
+        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
     </a>
 
 
@@ -627,7 +642,7 @@
         <div class="footer-contact-left">
             <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
             <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
-            <p ><a href="tel:+41414403333"><img src="/image/Deskphone-icon.png" alt="telefon" style="height: 40px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
+            <p id="footer-mobil-number"><a href="tel:+41414403333"><img src="/image/phone-icon.png" alt="telefon" style="height: 30px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
 
             <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
         </div>
@@ -647,11 +662,11 @@
             <p><a href="/AGB/AGB.html" data-key="terms">AGB</a></p>
         </div>
     </div>
-    <div class="bg-dark text-light text-center py-3  ">
-        <p>&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+    <div class="bg-dark text-light text-center py-3 ">
+        <p class="footer-bottom">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
-<script src="/languageStorage.js"></script>
+
 
     <!-- Bootstrap JS and dependencies -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -704,7 +719,7 @@
             }
         };
 
-       // Funktion zum Setzen der Sprache und Übersetzen der Inhalte
+       // Sprache setzen und Inhalte übersetzen
        function setLanguage(language) {
             document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
             const elements = document.querySelectorAll('[data-key]');
@@ -715,7 +730,7 @@
                 }
             });
         }
-        // Funktion zum Ein- und Ausblenden des Dropdowns
+        // Dropdown anzeigen/ausblenden
         function toggleDropdown() {
             document.getElementById("language-dropdown").classList.toggle("show");
         }
@@ -724,7 +739,7 @@
 
 
 
-        // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
+        // Schließen des Dropdowns, wenn außerhalb geklickt wird
         window.onclick = function(event) {
             if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -736,7 +751,7 @@
                 }
             }
         }
-                // Separater Dokument-Ready-Block für die Logo-Größenänderung
+        // Separater Dokument-Ready-Block für die Logo-Größenänderung
         $(document).ready(function() {
             let logo = $('#logo');
             let navbar = $('.navbar');
@@ -762,11 +777,22 @@
             }
         });
 
-
-
+        document.addEventListener("DOMContentLoaded", function() {
+            const languageSelector = document.getElementById("language-selector");
+            if (languageSelector) {
+                languageSelector.addEventListener("click", function(event) {
+                    toggleDropdown(event);
+                });
+            }
+        });
 
         // Schaltet die Sichtbarkeit des Dropdowns um
         function toggleDropdown(event) {
+            if (event) {
+                event.stopPropagation();
+            } else {
+                console.warn("Event is undefined.");
+            }
             event.stopPropagation(); // Verhindert das Event-Bubbling
             const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
             if (dropdown) {
@@ -789,6 +815,28 @@
             });
         });
     });
+
+//sprache auf alle seiten
+
+        function setLanguage(language) {
+        localStorage.setItem('selectedLanguage', language); // Speichere die Sprache im localStorage
+        document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase();
+        const elements = document.querySelectorAll('[data-key]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-key');
+            if (translations[language][key]) {
+                element.textContent = translations[language][key];
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const savedLanguage = localStorage.getItem('selectedLanguage');
+        if (savedLanguage) {
+            setLanguage(savedLanguage);
+        }
+    });
+
 
 
 
