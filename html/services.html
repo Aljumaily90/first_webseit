@@ -223,10 +223,13 @@
             flex: 1;
             padding: 20px;
             border: 1px solid #e0e0e0;
-            border-radius: 10px;
+            border-radius: 0px;
             background-color: #ffffff;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
+        }
+        #tun h2{
+            margin-bottom: 30px;
         }
         .info-box h4 {
             font-weight: 700;
@@ -245,7 +248,7 @@
             font-size: 1.3rem;
         }
 /***********************************footer***********************************************/
-        .footer-contact {
+.footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
@@ -254,22 +257,31 @@
             align-items: flex-start;
             text-align: left;
             margin-bottom: 0; /* Remove bottom margin to eliminate space */
+
         }
+
         .footer-contact-left,
         .footer-contact-center,
         .footer-contact-right {
             flex: 1;
             padding: 20px;
+            font-size: 16px;
         }
+
+
         .footer-contact p a {
             margin: 0;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
             color: white;
-        }      
+        }
+        
+
+
         .footer-contact img { width: 30px; height: 30px; vertical-align: middle; margin-right: 15px;  padding: 5px; }
         #footer-logo { width: 300px; height: auto; margin-top: 15px; }
           
+
         /* Footer Links Styling */
         .footer-links {
             display: flex;
@@ -277,19 +289,22 @@
             gap: 30px;
             margin-top: 20px;
             margin-bottom: 10px;
-            border-top: #90969c solid 1px;           
+            border-top: #90969c solid 1px;
+
         }
         .footer-links a {
             color: white;
             padding-top: 20px;
-        }    
+        }
+     
+
         /* Footer Bottom Text */
         .footer-bottom {
             font-size: 14px;
             margin-top: 10px;
         }
-         /* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
-         .mobile-language-dropdown {
+        /* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
+        .mobile-language-dropdown {
             display: none;
         }
 /*********************************** Media *********************************/
@@ -508,13 +523,18 @@
             gap: 20px;
         }
 
+
         .info-box {
             margin-bottom: 20px;
             text-align: left;
-            padding: 15px;
             box-shadow: none;
-            border-radius: 10px;
+            margin-left: -25px;  
+            margin-right: -25px;          
         }
+        #tun h2{
+            margin-left: -25px;
+        }
+
 
         .info-box h4 {
             font-size: 18px;
@@ -608,7 +628,7 @@
         <img id="logo" src="/image/logo.jpg" alt="">
     </a></span>
     <div id="subheader">
-        <span id="available">24h für Sie erreichbar</span>
+        <span id="available" data-key="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
             <span onclick="toggleDropdown()" style="font-weight: 600; cursor: pointer;" id="selected-language">
@@ -654,8 +674,8 @@
 
         </ul>
         <div class="dropdown mobile-language-dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
-                DE
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
+                <span data-key="languageLabel">DE</span>
                 <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
             <div class="dropdown-content" id="language-dropdown" >
@@ -672,12 +692,12 @@
         <!-- Dienstleistungen Section -->
         <section id="services" class="container-fluid">
             <div class="intro-section text-center mb-5" >
-                  <h3 >Ihr vertrauensvoller Partner in schweren Zeiten. </h3>  
+                  <h3 data-key="services-heading">Ihr vertrauensvoller Partner in schweren Zeiten. </h3>  
                     <p class="fs-4 text-muted" data-key="services-intro">Eman Bestattungen bietet Ihnen umfassende und professionelle Unterstützung rund um die Uhr. Wir sind spezialisiert auf muslimische Bestattungen und internationale Rückführungen und stehen Ihnen in jeder Phase des Abschieds zur Seite.
                 </p>
             </div>
             <div class="container-fluid" style="width: 100%;">
-                <h2 class="titel1" class=" mb-5" style="font-weight: 600; color: #405d64;">
+                <h2 class="titel1" class=" mb-5" style="font-weight: 600; padding-bottom: 20px; color: #405d64;" data-key="services-overview">
                     Unsere Dienstleistungen im Überblick :
                 </h2>
                 <div class="row">
@@ -720,10 +740,10 @@
             </div>
         </section>
         <div id="tun" class="p-5 bg-body-tertiary section-3 rounded-3">
-            <h2 class="titel1" class=" mb-2 " style="font-weight: 600; color: #405d64;">
+            <h2 class="titel1" class=" mb-2 " style="font-weight: 600; color: #405d64;" data-key="death-help">
                 Was tun beim Todesfall ?
             </h2>
-            <div class="container-fluid py-5 info-container">
+            <div class="info-container">
                 
                 <div class="info-box">
                     <h4 data-key="home-death-title">Zu Hause:</h4>
@@ -736,24 +756,25 @@
                     </ul>
                 </div>
                 <div class="info-box">
-                    <h4 data-key="accident-death-title">Im Krankenhaus oder in Pflege- & Altersheim:</h4>
+                    <h4 data-key="hospital-death-title">Im Krankenhaus oder in Pflege- & Altersheim:</h4>
                     <ul>
-                        <li data-key="accident-death-step1">Spitalbehörden stellen Todeschbescheinigung aus</li>
-                        <li data-key="accident-death-step2">oder Heimbehörden stellen Todeschbescheinigung aus</li>
-                        <li data-key="accident-death-step3">Original wird ans zuständige Zivilstandsamt weitergeleitet </li>
-
+                        <li data-key="hospital-death-step1">Spitalbehörden stellen Todeschbescheinigung aus</li>
+                        <li data-key="hospital-death-step2">oder Heimbehörden stellen Todeschbescheinigung aus</li>
+                        <li data-key="hospital-death-step3">Original wird ans zuständige Zivilstandsamt weitergeleitet </li>
                     </ul>
                 </div>
+
                 <div class="info-box">
-                    <h4 data-key="hospital-death-title">Bei einem Unfall:</h4>
+                    <h4 data-key="accident-death-title">Bei einem Unfall:</h4>
                     <ul>
-                        <li data-key="hospital-death-step1">Polizei benachrichtigen 
+                        <li data-key="accident-death-step1">Polizei benachrichtigen 
                             <a href="tel:117" style="color: inherit; text-decoration: underline;">117</a>
                         </li>
-                        <li data-key="hospital-death-step2">auch bei Verkehrs-, Arbeits- und sonstigen Unfällen</li>
-                        <li data-key="hospital-death-step3">Der Arzt stellt die Todesbescheinigung aus </li>
+                        <li data-key="accident-death-step2">auch bei Verkehrs-, Arbeits- und sonstigen Unfällen</li>
+                        <li data-key="accident-death-step3">Der Arzt stellt die Todesbescheinigung aus </li>
                     </ul>
                 </div>
+
             </div>
         </div>
 
@@ -769,12 +790,16 @@
         </div>
         <div class="footer-contact-right">
             
-            <p class="noneM"><strong>Unser Telefonzeiten:</strong></p>
-            <p class="noneM">Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
+            <p class="noneM" data-key="phoneHoursLabel"><strong>Unser Telefonzeiten:</strong></p>
+            <p class="noneM" data-key="phoneHours">
+                Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:
+                <br>
+                <a href="tel:+41796184444">
+                <img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
             </p>
 
-            <p class="noneM"><strong>Unser Bürozeiten:</strong></p>
-            <p class="noneM">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
+            <p class="noneM" data-key="officeHoursLabel"><strong>Unser Bürozeiten:</strong></p>
+            <p class="noneM" data-key="officeHours">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
             
         </div>
         <div class="footer-contact-center">
@@ -784,7 +809,7 @@
         </div>
     </div>
     <div class="bg-dark text-light text-center py-3 ">
-        <p class="footer-bottom">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom" data-key="footerRights">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
 
@@ -808,6 +833,7 @@
         });
         const translations = {
             de: {
+                available: "24h für Sie erreichbar",
                 home: "Home",
                 about: "Über uns",
                 services: "Dienstleistungen",
@@ -815,8 +841,9 @@
                 impressum: "Impressum",
                 privacy: "Datenschutzerklärung",
                 terms: "AGB",
-                "services-title": "Unsere Dienstleistungen",
+                "services-heading": "Ihr vertrauensvoller Partner in schweren Zeiten.",
                 "services-intro": "Eman Bestattungen, spezialisiert auf muslimische Bestattungen und internationale Rückführungen, bietet rund um die Uhr professionelle Unterstützung an.",
+                "services-overview": "Unsere Dienstleistungen im Überblick:",
                 "service1-title": "Persönliche Beratung",
                 "service1-desc": "Wir hören Ihnen zu und beraten Sie individuell, um Ihre spezifischen Wünsche und Bedürfnisse zu verstehen.",
                 "service2-title": "Umfassende Organisation",
@@ -826,31 +853,39 @@
                 "service4-title": "Transport & Rückführung",
                 "service4-desc": "Sicherer Transport und Rückführung des Verstorbenen, sowohl national als auch international, unter Einhaltung aller Vorschriften.",
                 "contact-us": "Kontaktieren Sie uns",
+                "death-help": "Was tun beim Todesfall?",                
                 "home-death-title": "Zu Hause:",
                 "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
-                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)",
-                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein ",
+                "home-death-step2": "oder ärztlicher Notfalldienst",
+                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus",
                 "hospital-death-title": "Im Krankenhaus oder in Pflege- & Altersheim: ",
-                "hospital-death-step1": "Polizei benachrichtigen",
-                "hospital-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
-                "hospital-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
+                "hospital-death-step1": "Spitalbehörden stellen Todeschbescheinigung aus",
+                "hospital-death-step2": "oder Heimbehörden stellen Todeschbescheinigung aus",
+                "hospital-death-step3": "Original wird ans zuständige Zivilstandsamt weitergeleitet",
                 "accident-death-title": "Bei einem Unfall:",
                 "accident-death-step1": "Polizei benachrichtigen",
-                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
-                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
-                languageLabel: "DE"
+                "accident-death-step2": "auch bei Verkehrs-, Arbeits- und sonstigen Unfällen",
+                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus",
+                phoneHoursLabel: "Unsere Telefonzeiten:",
+                phoneHours: 'Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Unsere Bürozeiten:",
+                officeHours: "Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung ",
+                languageLabel: "DE",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten."
 
             },
             en: {
+                available: "Available 24 hours",
                 home: "Home",
                 about: "About Us",
                 services: "Services",
                 contact: "Contact",
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
-                terms: "Terms and Conditions",
-                "services-title": "Our Services",
+                terms: "AGB",
+                "services-heading": "Your trusted partner in difficult times.",
                 "services-intro": "We offer you comprehensive support and stand by your side during all phases of saying goodbye. We place special emphasis on respecting all Islamic guidelines and considering your individual wishes.",
+                "services-overview": "Our Services Overview:",
                 "service1-title": "1. Consultation and Support",
                 "service1-desc": "We assist you from the beginning with advice and support and help you with all questions related to the funeral. This also includes administrative procedures and the preparation of necessary documents. Together we find the best way to organize the farewell according to Islamic guidelines.",
                 "service2-title": "2. Transportation of the Deceased",
@@ -859,31 +894,39 @@
                 "service3-desc": "The ritual washing of the deceased is a central part of the Islamic funeral. Our experienced team performs this in accordance with Islamic rules, always with the utmost care and respect.",
                 "service4-title": "4. Funeral Prayer (Salat al-Janazah)",
                 "service4-desc": "We organize the funeral prayer in the mosque or at the burial site and ensure that all important steps are followed. Upon request, we also help with planning and coordination with religious leaders.",
-                "contact-us": "Contact Us",
-                "home-death-title": "Zu Hause:",
-                "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
-                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)",
-                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein ",
-                "hospital-death-title": "Im Krankenhaus oder in Pflege- & Altersheim: ",
-                "hospital-death-step1": "Polizei benachrichtigen",
-                "hospital-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
-                "hospital-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
-                "accident-death-title": "Bei einem Unfall:",
-                "accident-death-step1": "Polizei benachrichtigen",
-                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
-                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
-                languageLabel: "EN"
+                "contact-us": "Contact Us",   
+                "death-help": "What to do in case of death?",             
+                "home-death-title": "At home:",
+                "home-death-step1": "Notify the doctor (preferably the family doctor)",
+                "home-death-step2": "or emergency medical service",
+                "home-death-step3": "The doctor issues the death certificate",
+                "hospital-death-title": "In hospital or in care & nursing home:",
+                "hospital-death-step1": "Hospital authorities issue the death certificate",
+                "hospital-death-step2": "or nursing home authorities issue the death certificate",
+                "hospital-death-step3": "The original is forwarded to the responsible civil registry office",
+                "accident-death-title": "In case of an accident:",
+                "accident-death-step1": "Notify the police",
+                "accident-death-step2": "also in case of traffic, work, or other accidents",
+                "accident-death-step3": "The doctor issues the death certificate",
+                phoneHoursLabel: "Our Phone Hours:",
+                phoneHours: 'You can reach us by phone 24 hours, 7 days a week:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Our Office Hours:",
+                officeHours: "Mon - Fri: 08:00 - 17:30<br>Sat, Sun, Holidays: by appointment",
+                languageLabel: "EN",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. All rights reserved."
             },
             tr: {
+                available: "24 saat hizmetinizde",
                 home: "Ana Sayfa",
                 about: "Hakkımızda",
                 services: "Hizmetler",
                 contact: "İletişim",
                 impressum: "Künye",
                 privacy: "Gizlilik Politikasi",
-                terms: "Şartlar ve Koşullar",
-                "services-title": "Hizmetlerimiz",
+                terms: "AGB",
+                "services-heading": "Zor zamanlarda güvenilir ortağınız.",
                 "services-intro": "Size kapsamli bir destek sunuyor ve vedanin her aşamasinda yaninizda duruyoruz. İslami kurallara saygi göstermeye ve bireysel isteklerinizi dikkate almaya özellikle önem veriyoruz.",
+                "services-overview": "Hizmetlerimiz:",
                 "service1-title": "1. Danismanlik ve Destek",
                 "service1-desc": "Başlangıçtan itibaren size danişmanlik ve destek sağliyor ve cenaze ile ilgili tüm sorularda size yardımcı oluyoruz. Buna idari işlemler ve gerekli belgelerin hazırlanması da dahildir. Veda sürecini İslami kurallara uygun bir şekilde düzenlemenin en iyi yolunu birlikte buluyoruz.",
                 "service2-title": "2. Cenaze Nakliyesi",
@@ -892,20 +935,26 @@
                 "service3-desc": "Cenazenin ritüel olarak yıkanması, İslami cenazenin merkezinde yer alır. Deneyimli ekibimiz, bunu İslami kurallara uygun olarak, her zaman en büyük özen ve saygı ile gerçekleştirir.",
                 "service4-title": "4. Cenaze Namazı (Salat al-Janazah)",
                 "service4-desc": "Camiide veya defin yerinde cenaze namazı organize ediyoruz ve tüm önemli adımların atıldığından emin oluyoruz. Talep üzerine, dini liderlerle planlama ve koordinasyon konusunda da yardımcı oluyoruz.",
-                "contact-us": "Bize Ulaşın",
-                "home-death-title": "Zu Hause:",
-                "home-death-step1": "Arzt benachrichtigen (am besten Hausarzt)",
-                "home-death-step2": "Ansonsten ärztlicher Notfalldienst (0900 11 14 14) oder Rettungsdienst (144)",
-                "home-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein ",
-                "hospital-death-title": "Im Krankenhaus oder in Pflege- & Altersheim: ",
-                "hospital-death-step1": "Polizei benachrichtigen",
-                "hospital-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
-                "hospital-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
-                "accident-death-title": "Bei einem Unfall:",
-                "accident-death-step1": "Polizei benachrichtigen",
-                "accident-death-step2": "auch bei Verkehrs-, Arbeits-, Haushalts- und sonstigen Unfällen sowie Suizid",
-                "accident-death-step3": "Der Arzt stellt die Todesbescheinigung aus (Totenschein)",
-                languageLabel: "TR"
+                "contact-us": "Bize Ulaşın",     
+                "death-help": "Ölüm durumunda ne yapılmalı?",   
+                "home-death-title": "Evde:",
+                "home-death-step1": "Doktoru bilgilendirin (tercihen aile doktoru)",
+                "home-death-step2": "veya acil tıbbi hizmet",
+                "home-death-step3": "Doktor ölüm belgesini düzenler",
+                "hospital-death-title": "Hastanede veya bakım & huzurevinde:",
+                "hospital-death-step1": "Hastane yetkilileri ölüm belgesini düzenler",
+                "hospital-death-step2": "veya huzurevi yetkilileri ölüm belgesini düzenler",
+                "hospital-death-step3": "Orijinal belge ilgili nüfus müdürlüğüne iletilir",
+                "accident-death-title": "Bir kaza durumunda:",
+                "accident-death-step1": "Polisi bilgilendirin",
+                "accident-death-step2": "trafik, iş veya diğer kazalarda da",
+                "accident-death-step3": "Doktor ölüm belgesini düzenler",   
+                phoneHoursLabel: "Telefon Saatlerimiz:",
+                phoneHours: 'Bize haftanın 7 günü, 24 saat telefonla ulaşabilirsiniz:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Ofis Saatlerimiz:",
+                officeHours: "Pzt - Cum: 08:00 - 17:30 <br> Cmt, Paz, Tatil: randevu ile",
+                languageLabel: "TR",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Tüm hakları saklıdır."
             }
         };
 
@@ -915,7 +964,7 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[language][key]) {
-                    element.textContent = translations[language][key];
+                    element.innerHTML = translations[language][key];
                 }
             });
         }
@@ -997,7 +1046,7 @@
     elements.forEach(element => {
         const key = element.getAttribute('data-key');
         if (translations[language][key]) {
-            element.textContent = translations[language][key];
+            element.innerHTML = translations[language][key];
         }
     });
 }

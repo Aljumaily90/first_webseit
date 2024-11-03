@@ -168,6 +168,8 @@
             position: relative;   
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             color: #405d64;
+            max-width: 80%; 
+            margin: 100px auto 40px;
  
         }
         .about-content {
@@ -399,11 +401,13 @@
 /*************************************************************************************************/
             /* About Section Anpassungen */
             #about {
-                padding: 0px;
+                padding: 0;
                 text-align: start;
                 box-shadow: none;
                 margin-top: 10px !important;
+                width: 100% !important; /* Sicherstellen, dass der Container volle Breite einnimmt */
             }
+
             #about h3 {
                 text-align: start;
                 font-size: 20px;
@@ -416,13 +420,12 @@
                 margin-left: -30px;
                 width: 350px !important;
             }
-            #aboutImage {
+            .aboutImage {
                 clip-path: inset(0 0 100px 0);
-                width: 100% !important; /* Nimmt die volle Breite des Containers ein */
-                margin: 0px 0px; /* Entfernt alle äußeren Abstände */
-                padding: 0; /* Entfernt alle inneren Abstände */
+                width: 125% !important; /* Nimmt die volle Breite des Containers ein */             
                 display: block;
                 object-fit: cover;
+                margin-left: -40px;
             }
 /*********************************FooterMedia**********************************************/
             .noneM{
@@ -507,7 +510,7 @@
     </span>
     <!-- Subheader -->
     <div id="subheader">
-        <span id="available">24h für Sie erreichbar</span>
+        <span id="available" data-key="available">24h für Sie erreichbar</span>
         <span ><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
             <span style="font-weight: 600; cursor: pointer;" id="selected-language">
@@ -521,52 +524,6 @@
             </div>
         </div>
     </div>
-
-    <!-- Telefonnummer in der Navbar -->
-    
-        <a href="tel:+41796184444" class="navbar-phone">
-            <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
-        </a>
-
-
-
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-            <!-- Toggle Button für mobile Ansicht -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
-                </li>
-
-            </ul>
-            <div class="dropdown mobile-language-dropdown">
-                <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
-                    DE
-                    <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
-                </span>
-                <div class="dropdown-content" id="language-dropdown" >
-                    <a href="#" onclick="setLanguage('de')">DE</a>
-                    <a href="#" onclick="setLanguage('en')">EN</a>
-                    <a href="#" onclick="setLanguage('tr')">TR</a>
-                </div>
-            </div>
-
-        </div>
-    </nav>    <!-- Telefonnummer in der Navbar -->
  
     <a href="tel:+41796184444" class="navbar-phone">
         <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
@@ -598,8 +555,8 @@
 
         </ul>
         <div class="dropdown mobile-language-dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
-                DE
+            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
+                <span data-key="languageLabel">DE</span>
                 <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
             <div class="dropdown-content" id="language-dropdown" >
@@ -610,14 +567,15 @@
         </div>
 
     </div>
-</nav>
+</nav>  
+
     
 
-    <div id="about" style="max-width: 80%; margin: 100px auto 40px;">
-        <div   class="row no-gutters align-items-center">
+    <div id="about" >
+        <div class="row no-gutters align-items-center">
             <!-- Image Column -->
             <div class="col-md-4 animate__animated animate__fadeInUp">
-                <img id="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image" style=" margin-right: 20px;">
+                <img class="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image">
             </div>
             <!-- Text Column -->
             <div class="col-md-8">
@@ -648,12 +606,12 @@
         </div>
         <div class="footer-contact-right">
             
-            <p class="noneM"><strong>Unser Telefonzeiten:</strong></p>
-            <p class="noneM">Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
+            <p class="noneM" data-key="phoneHoursLabel"><strong>Unser Telefonzeiten:</strong></p>
+            <p class="noneM" data-key="phoneHours">Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
             </p>
 
-            <p class="noneM"><strong>Unser Bürozeiten:</strong></p>
-            <p class="noneM">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
+            <p class="noneM" data-key="officeHoursLabel"><strong>Unser Bürozeiten:</strong></p>
+            <p class="noneM" data-key="officeHours">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
             
         </div>
         <div class="footer-contact-center">
@@ -663,7 +621,7 @@
         </div>
     </div>
     <div class="bg-dark text-light text-center py-3 ">
-        <p class="footer-bottom">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom" data-key="footerRights">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
 
@@ -682,40 +640,76 @@
     <script>
         const translations = {
             de: {
+                available: "24h für Sie erreichbar",
                 home: "Home",
                 about: "Über uns",
                 services: "Dienstleistungen",
                 contact: "Kontakt",
-                about_title: "Über uns",
-                about_content_1: "Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.",
+                about_title: "Ihr Partner für islamische und kulturelle Bestattungen schweizweit",
+                about_content_1: `
+                                    Eman Bestattungen ist ein Bestattungsinstitut, das sich auf islamische Bestattungen spezialisiert hat. Mit unserem tiefen Verständnis für religiöse und kulturelle Bedürfnisse und unserer langjährigen Erfahrung bieten wir Angehörigen und Interessierten professionelle und einfühlsame Unterstützung in schweren Zeiten.
+                                    <br><br>
+                                    Unser Team behandelt Bestattungen aller Religionen und Kulturen mit höchstem Respekt und Sorgfalt. Wir führen sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch und arbeiten dabei eng mit Schweizer und internationalen Behörden zusammen, um einen reibungslosen Ablauf zu gewährleisten.
+                                    <br><br>
+                                    Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung. Wir setzen alles daran, Sie bestmöglich zu entlasten und einen würdevollen Verlauf aller Prozesse zu garantieren.
+                                `,
                 impressum: "Impressum",
                 privacy: "Datenschutzerklärung",
                 terms: "AGB",
-                languageLabel: "DE"
+                phoneHoursLabel: "Unsere Telefonzeiten:",
+                phoneHours: 'Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Unsere Bürozeiten:",
+                officeHours: "Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung ",
+                languageLabel: "DE",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten."
             },
             en: {
+                available: "Available 24 hours",
                 home: "Home",
                 about: "About Us",
                 services: "Services",
                 contact: "Contact",
-                about_title: "About Us",
-                about_content_1: "With our many years of experience and knowledge in funeral culture, we understand the religious and cultural needs and offer professional care. As Eman Funeral Services, we specialize in Islamic funerals and provide comprehensive support to relatives in difficult times with the highest level of professionalism. We treat funerals of all religions and cultures with the same respect and care. In doing so, we conduct funerals both in Switzerland and international repatriations, which we efficiently manage in close cooperation with Swiss and international authorities. Our services are available to you and your relatives around the clock to provide you with the best possible relief and to ensure a dignified process for all procedures.",
+                about_title: "Your partner for Islamic and cultural funerals across Switzerland",
+                about_content_1: `
+                                Eman Funeral Services is a funeral institute specialized in Islamic funerals. With our deep understanding of religious and cultural needs and our many years of experience, we offer professional and empathetic support to relatives and interested parties during difficult times.
+                                <br><br>
+                                Our team treats funerals of all religions and cultures with the utmost respect and care. We conduct funerals both in Switzerland and international repatriations, working closely with Swiss and international authorities to ensure a smooth process.
+                                <br><br>
+                                Our services are available to you and your relatives around the clock. We do everything possible to relieve you and guarantee a dignified course of all processes.
+                            `,
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
-                terms: "Terms and Conditions",
-                languageLabel: "EN"
+                terms: "AGB",
+                phoneHoursLabel: "Our Phone Hours:",
+                phoneHours: 'You can reach us by phone 24 hours, 7 days a week:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Our Office Hours:",
+                officeHours: "Mon - Fri: 08:00 - 17:30<br>Sat, Sun, Holidays: by appointment",
+                languageLabel: "EN",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. All rights reserved."
             },
             tr: {
+                available: "24 saat hizmetinizde",
                 home: "Ana Sayfa",
                 about: "Hakkımızda",
                 services: "Hizmetler",
                 contact: "İletişim",
-                about_title: "Hakkımızda",
-                about_content_1: "Cenaze kültüründeki uzun yıllara dayanan deneyimimiz ve bilgimizle, dini ve kültürel ihtiyaçları anlıyor ve profesyonel bakım sunuyoruz. Eman Cenaze Hizmetleri olarak İslami cenazelerde uzmanız ve zorlu zamanlarda en yüksek profesyonellik ile ailelere kapsamlı destek sağlıyoruz. Tüm dinlere ve kültürlere ait cenazeleri aynı saygı ve özenle ele alıyoruz. Bu bağlamda hem İsviçre'de hem de uluslararası nakillerde cenaze işlemlerini, İsviçre ve uluslararası yetkililerle yakın işbirliği içinde verimli bir şekilde yürütüyoruz. Hizmetlerimiz, siz ve yakınlarınıza her zaman en iyi şekilde destek sunmak ve tüm süreçlerin saygın bir şekilde yürütülmesini sağlamak için 7/24 hizmetinizdedir.",
+                about_title: "İsviçre genelinde İslami ve kültürel cenazeler için ortağınız",
+                about_content_1: `
+                            Eman Cenaze Hizmetleri, İslami cenazelere uzmanlaşmış bir cenaze kurumudur. Dini ve kültürel ihtiyaçlara olan derin anlayışımız ve yılların verdiği tecrübemiz ile zor zamanlarda akrabalara ve ilgililere profesyonel ve anlayışlı destek sunuyoruz.
+                            <br><br>
+                            Ekibimiz, tüm dinlerin ve kültürlerin cenazelerini en yüksek saygı ve özenle ele alır. İsviçre'de hem cenaze törenleri düzenliyor hem de uluslararası nakil hizmetleri sağlıyoruz. Bu süreçte İsviçre ve uluslararası makamlarla yakından çalışarak sorunsuz bir sürecin sağlanmasını temin ediyoruz.
+                            <br><br>
+                            Hizmetlerimiz sizlere ve yakınlarınıza günün her saati sunulmaktadır. Sizi mümkün olduğunca rahatlatmak ve tüm süreçlerin saygın bir şekilde ilerlemesini sağlamak için elimizden gelen her şeyi yapıyoruz.
+                        ` ,              
                 impressum: "Künye",
                 privacy: "Gizlilik Politikası",
-                terms: "Şartlar ve Koşullar",
-                languageLabel: "TR"
+                terms: "AGB",
+                phoneHoursLabel: "Telefon Saatlerimiz:",
+                phoneHours: 'Bize haftanın 7 günü, 24 saat telefonla ulaşabilirsiniz:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Ofis Saatlerimiz:",
+                officeHours: "Pzt - Cum: 08:00 - 17:30 <br> Cmt, Paz, Tatil: randevu ile",
+                languageLabel: "TR",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Tüm hakları saklıdır."
             }
         };
 
@@ -726,7 +720,7 @@
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[language][key]) {
-                    element.textContent = translations[language][key];
+                    element.innerHTML = translations[language][key];
                 }
             });
         }
@@ -825,7 +819,7 @@
         elements.forEach(element => {
             const key = element.getAttribute('data-key');
             if (translations[language][key]) {
-                element.textContent = translations[language][key];
+                element.innerHTML = translations[language][key];
             }
         });
     }
