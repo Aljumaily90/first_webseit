@@ -433,7 +433,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px;
+                padding: 0px;
                 z-index: 1; /* Ganz oben fixiert */
                 height: 75px ;
                 margin-top: -47px;
@@ -479,7 +479,7 @@
             /* Dropdown-Menü im geöffneten Zustand */
             .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
                 display: block;
-                background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
+                background-color: #365C63; /* Hintergrund des Dropdown-Menüs */
                 position: absolute;
                 top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
                 width: 100%;
@@ -523,14 +523,15 @@
                 display: none;
                 position: absolute;
                 top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
-                left: -10px; /* Startet am linken Rand des übergeordneten Containers */
+                left: -40px; /* Startet am linken Rand des übergeordneten Containers */
                 background-color: #365C63; /* Hintergrundfarbe passend zur Navbar */
-                width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
+                width: calc(100% + 40px); /* Breite der Navbar minus Innenabstand */
                 padding: 10px 0;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
                 border-radius: 0px; /* Keine abgerundeten Ecken */
                 z-index: 1000;
-                margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
+
+ /* Zentriert das Dropdown innerhalb der Navbar */
             }
             /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
             .dropdown-content.show {
@@ -546,7 +547,7 @@
                 text-decoration: none;
                 font-weight: 600;
                 font-size: 16px;
-                margin-left: -14px;
+                margin-left: -38px;
             }
             /* Dropdown-Pfeil Styling */
             #dropdown-arrow {
