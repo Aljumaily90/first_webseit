@@ -154,11 +154,7 @@
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
-        .nav-item.active .nav-link {
-            background-color: #365C63; /* Beispiel: Farbe ähnlich Pantone 5473 CP */
-            color: #ffffff; /* Kontrastfarbe für Text */
-            border-radius: 5px; /* Optional: Abgerundete Ecken */
-        }
+
 
 /**************************content*************************************************/
         body {
@@ -839,16 +835,6 @@
         }
     });
 
-    document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
-    item.classList.remove('active'); // Entfernt alle 'active' Klassen
-});
-
-document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
-    const link = item.querySelector('.nav-link');
-    if (currentPath.endsWith(link.getAttribute('href'))) {
-        item.classList.add('active');
-    }
-});
 
 
 

@@ -894,16 +894,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
-    item.classList.remove('active'); // Entfernt alle 'active' Klassen
-});
 
-document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
-    const link = item.querySelector('.nav-link');
-    if (currentPath.endsWith(link.getAttribute('href'))) {
-        item.classList.add('active');
-    }
-});
 
 
 
