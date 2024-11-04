@@ -30,10 +30,13 @@
             height: 60px;
             position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
-            left: 15%; /* Positioniert das Logo 10px vom rechten Rand */
+            left: 10%; /* Positioniert das Logo 10px vom rechten Rand */
             z-index: 1004;
             padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
             transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
+            background-color: #365C63;
+            padding-right: 10px;
+            padding-bottom: 2px;
         }
 
         #logo.large {
@@ -42,7 +45,7 @@
         /************************************subheader*****************************************/
         /* Subheader Styles */
         #subheader {
-            background-color: #26414c;
+            background-color: #365C63;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -316,7 +319,7 @@
 
 
 /***********************************footer***********************************************/
-.footer-contact {
+        .footer-contact {
             padding: 30px;
             background-color: #343a40;
             color: #ffffff;
@@ -381,14 +384,14 @@
 /********************************************************************************/
     
 
-        @media only screen and (max-width: 1345px) {
-
+                      
+        @media only screen and (max-width: 768px) {
             #logo {
                 height: 50px;
                 transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
                 position: absolute;
-                top: 30px;
-                left: 60px;
+                top: 35px;
+                left: 65px;
                 transform: translate(-50%, -50%) scale(1);
                 z-index: 10;
                 position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
@@ -400,7 +403,7 @@
                 }
             /* Navbar fixieren und Hintergrund beibehalten */
             .navbar {
-                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                background-color: #365C63; /* Hintergrundfarbe der Navbar */
                 position: fixed;
                 top: 0;
                 width: 100%;
@@ -416,7 +419,7 @@
             /* Telefonnummer sichtbar und linksbündig */
             .navbar-phone {
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 12px;
                 color: white;
                 display: flex;
                 align-items: center;
@@ -660,7 +663,7 @@
 </head>
 <body class="animate__animated animate__fadeIn">
     <span>        <a  href="/index.html">
-        <img id="logo" src="/image/logo.jpg" alt="">
+        <img id="logo" src="/image/Logo.png" alt="">
     </a></span>
     <!-- Subheader -->
     <div id="subheader">

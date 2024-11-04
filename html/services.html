@@ -27,10 +27,13 @@
             height: 60px;
             position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
-            left: 15%; /* Positioniert das Logo 10px vom rechten Rand */
+            left: 10%; /* Positioniert das Logo 10px vom rechten Rand */
             z-index: 1004;
             padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
             transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
+            background-color: #365C63;
+            padding-right: 10px;
+            padding-bottom: 2px;
         }
 
         #logo.large {
@@ -39,7 +42,7 @@
 /************************************subheader*****************************************/
         /* Subheader Styles */
         #subheader {
-            background-color: #26414c;
+            background-color: #365C63;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -308,6 +311,103 @@
             display: none;
         }
 /*********************************** Media *********************************/
+        @media only screen and (max-width: 1123px) {
+            #logo {
+                height: 40px;
+                transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+                position: absolute;
+                top: 50px;
+                left: 110px;
+                transform: translate(-50%, -50%) scale(1);
+                z-index: 10;
+                position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+            }     
+                        /* Subheader ausblenden */
+            #subheader {
+                display: none; /* Verbirgt den Subheader auf Mobilgeräten */
+            }
+            /* Navbar fixieren und Hintergrund beibehalten */
+            .navbar {
+                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                position: fixed;
+                top: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                z-index: 1; /* Ganz oben fixiert */
+                height: 75px ;
+                margin-top: -47px;
+                
+            }
+            /* Telefonnummer sichtbar und linksbündig */
+            .navbar-phone {
+                font-weight: bold;
+                font-size: 16px;
+                color: white;
+                display: flex;
+                align-items: center;
+                margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
+                z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
+                position: fixed;
+                top: 15px;
+                left: 300px;
+                
+            }
+            /* Hover-Effekt (optional) */
+            .navbar-phone:hover {
+                color: white; /* Keine Farbänderung beim Hover */
+                text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+
+            }
+
+            /* Wenn die Telefonnummer angeklickt wird */
+            .navbar-phone:active {
+                font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
+                color: white; /* Farbe bleibt weiß */
+                text-decoration: none; /* Keine Unterstreichung */
+            }
+
+            /* Navbar-Toggle-Button rechts positionieren */
+            .navbar-toggler {
+                margin-left: auto;
+                font-size: 24px;
+                z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
+                border: none; /* Entfernt den Rand des Buttons */
+                outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
+                box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
+
+            }
+            /* Dropdown-Menü im geöffneten Zustand */
+            .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+                display: block;
+                background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
+                position: absolute;
+                top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
+                width: 100%;
+                z-index: 998;
+            }
+            /* Standardmäßig sind die Navbar-Links versteckt */
+            .navbar-collapse {
+                display: none;
+            }
+            /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
+            .navbar-collapse.show {
+                display: block;
+            }
+            /* Stil für die Links im Dropdown-Menü */
+            .navbar-nav .nav-link {
+                font-size: 18px;
+                color: white !important; /* Links in weiß für gute Lesbarkeit */
+                padding: 10px;
+                text-align: center;
+                display: block;
+            }       
+        /* Dein CSS-Code für Bildschirme bis zu 1123px Breite */
+
+
+            }               
         @media only screen and (max-width: 768px) {
             #logo {
                 height: 50px;
@@ -326,7 +426,7 @@
                 }
             /* Navbar fixieren und Hintergrund beibehalten */
             .navbar {
-                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                background-color: #365C63; /* Hintergrundfarbe der Navbar */
                 position: fixed;
                 top: 0;
                 width: 100%;
@@ -464,6 +564,7 @@
                 margin: 0;
                 font-size: 20px;
             }
+/**********************************content**************************************************************/
             /* Dienstleistungen Section Anpassungen */
         #services {
             margin-top: 10px;
@@ -471,9 +572,11 @@
         #services .intro-section h3{
             font-size: 24px; /* Anpassung der Schriftgröße für mobile Ansicht */
             line-height: 1.6;
-            margin-left: -70px !important;
-            padding-left: -20px !important; 
-            text-align: left;
+            width: 350px;
+            margin-left: -80px;
+            margin-top: 20px;
+
+            text-align: center;
         }
         #services .intro-section p{
             font-size: 16px; /* Anpassung der Schriftgröße für mobile Ansicht */
@@ -625,9 +728,10 @@
 <body  class="animate__animated animate__fadeIn">
     <!-- Subheader -->
      <span><a  href="/index.html">
-        <img id="logo" src="/image/logo.jpg" alt="">
+        <img id="logo" src="/image/Logo.png" alt="">
     </a></span>
     <div id="subheader">
+
         <span id="available" data-key="available">24h für Sie erreichbar</span>
         <span><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">

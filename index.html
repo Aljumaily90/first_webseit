@@ -27,10 +27,14 @@
             height: 60px;
             position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
             top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
-            left: 15%; /* Positioniert das Logo 10px vom rechten Rand */
+            left: 10%; /* Positioniert das Logo 10px vom rechten Rand */
             z-index: 1004;
             padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
             transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
+            background-color: #365C63;
+            padding-right: 10px;
+            padding-bottom: 2px;
+           
         }
         #logo.large {
             height: 90px; /* Vergrößert das Logo, falls dies noch gewünscht ist */
@@ -38,7 +42,7 @@
 /************************************subheader*****************************************/
         /* Subheader Styles */
         #subheader {
-            background-color: #26414c;
+            background-color: #365C63;
             padding: 10px;
             position: fixed;
             top: 0;
@@ -134,6 +138,11 @@
         .navbar-nav .nav-link:hover {
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
+        }
+        .nav-item.active .nav-link {
+            background-color: #365C63; /* Beispiel: Farbe ähnlich Pantone 5473 CP */
+            color: #ffffff; /* Kontrastfarbe für Text */
+            border-radius: 5px; /* Optional: Abgerundete Ecken */
         }
 /**************************content*************************************************/
         /* Um sicherzustellen, dass der Rest der Inhalte darüber liegt */
@@ -262,6 +271,105 @@
             display: none;
         }
  /***********************************media***********************************************/
+ @media only screen and (max-width: 1123px) {
+            #logo {
+                height: 40px;
+                transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
+                position: absolute;
+                top: 50px;
+                left: 110px;
+                transform: translate(-50%, -50%) scale(1);
+                z-index: 10;
+                position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
+            }     
+                        /* Subheader ausblenden */
+            #subheader {
+                display: none; /* Verbirgt den Subheader auf Mobilgeräten */
+            }
+            /* Navbar fixieren und Hintergrund beibehalten */
+            .navbar {
+                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                position: fixed;
+                top: 0;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                z-index: 1; /* Ganz oben fixiert */
+                height: 75px ;
+                margin-top: -47px;
+                
+            }
+            /* Telefonnummer sichtbar und linksbündig */
+            .navbar-phone {
+                font-weight: bold;
+                font-size: 16px;
+                color: rgb(0, 0, 0);
+                display: flex;
+                align-items: center;
+                margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
+                z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
+                position: fixed;
+                top: 15px;
+                left: 300px;
+                
+            }
+            /* Hover-Effekt (optional) */
+            .navbar-phone:hover {
+                color: rgb(8, 0, 0); /* Keine Farbänderung beim Hover */
+                text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+
+            }
+
+            /* Wenn die Telefonnummer angeklickt wird */
+            .navbar-phone:active {
+                font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
+                color: rgb(10, 1, 1); /* Farbe bleibt weiß */
+                text-decoration: none; /* Keine Unterstreichung */
+            }
+
+            /* Navbar-Toggle-Button rechts positionieren */
+            .navbar-toggler {
+                margin-left: auto;
+                font-size: 24px;
+                z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
+                border: none; /* Entfernt den Rand des Buttons */
+                outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
+                box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
+
+            }
+            /* Dropdown-Menü im geöffneten Zustand */
+            .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
+                display: block;
+                background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
+                position: absolute;
+                top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
+                width: 100%;
+                z-index: 998;
+            }
+            /* Standardmäßig sind die Navbar-Links versteckt */
+            .navbar-collapse {
+                display: none;
+            }
+            /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
+            .navbar-collapse.show {
+                display: block;
+            }
+            /* Stil für die Links im Dropdown-Menü */
+            .navbar-nav .nav-link {
+                font-size: 18px;
+                color: rgb(10, 0, 0) !important; /* Links in weiß für gute Lesbarkeit */
+                padding: 10px;
+                text-align: center;
+                display: block;
+            } 
+                    /* Standardmäßig das Dropdown für die Sprachauswahl ausblenden */
+        .mobile-language-dropdown {
+            display: flex;
+            
+        }      
+ }
          /* Mobile Layout */
          @media only screen and (max-width: 768px) {
             #logo {
@@ -281,7 +389,7 @@
                 }
             /* Navbar fixieren und Hintergrund beibehalten */
             .navbar {
-                background-color: #405d64; /* Hintergrundfarbe der Navbar */
+                background-color: #365C63; /* Hintergrundfarbe der Navbar */
                 position: fixed;
                 top: 0;
                 width: 100%;
@@ -522,7 +630,7 @@
         <source src="/vieso.mp4" type="video/mp4">
     </video>
     <span>        <a  href="/index.html">
-        <img id="logo" src="/image/logo.jpg" alt="Logo">
+        <img id="logo" src="/image/Logo.png" alt="Logo">
     </a></span>
 
     <div id="subheader">
@@ -783,6 +891,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
         setLanguage(savedLanguage);
+    }
+});
+
+document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
+    item.classList.remove('active'); // Entfernt alle 'active' Klassen
+});
+
+document.querySelectorAll('.navbar-nav .nav-item').forEach(item => {
+    const link = item.querySelector('.nav-link');
+    if (currentPath.endsWith(link.getAttribute('href'))) {
+        item.classList.add('active');
     }
 });
 
