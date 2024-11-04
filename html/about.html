@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
 
 
     <style>
@@ -251,8 +251,8 @@
                 height: 50px;
                 transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
                 position: absolute;
-                top: 30px;
-                left: 60px;
+                top: 40px;
+                left: 65px;
                 transform: translate(-50%, -50%) scale(1);
                 z-index: 10;
                 position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
@@ -278,18 +278,18 @@
                 
             }
             /* Telefonnummer sichtbar und linksbündig */
+            /* Telefonnummer sichtbar und linksbündig */
             .navbar-phone {
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 14px;
                 color: white;
                 display: flex;
                 align-items: center;
                 margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
                 z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
                 position: fixed;
-                top: 15px;
-                left: 130px;
-                
+                top: 20px;
+                left: 130px;                
             }
             /* Hover-Effekt (optional) */
             .navbar-phone:hover {
@@ -426,7 +426,7 @@
             }
             .aboutImage {
                 clip-path: inset(0 0 100px 0);
-                width: 125% !important; /* Nimmt die volle Breite des Containers ein */             
+                width: 390px !important; /* Nimmt die volle Breite des Containers ein */             
                 display: block;
                 object-fit: cover;
                 margin-left: -40px;
@@ -530,7 +530,7 @@
     </div>
  
     <a href="tel:+41796184444" class="navbar-phone">
-        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
+        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 20px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
     </a>
 
 
@@ -717,7 +717,7 @@
             }
         };
 
-       // Sprache setzen und Inhalte übersetzen
+       ////////////////////////////////////////////// Sprache setzen und Inhalte übersetzen
        function setLanguage(language) {
             document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
             const elements = document.querySelectorAll('[data-key]');
@@ -728,16 +728,12 @@
                 }
             });
         }
-        // Dropdown anzeigen/ausblenden
+        // Funktion zum Ein- und Ausblenden des Dropdowns
         function toggleDropdown() {
             document.getElementById("language-dropdown").classList.toggle("show");
         }
 
-
-
-
-
-        // Schließen des Dropdowns, wenn außerhalb geklickt wird
+        // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
         window.onclick = function(event) {
             if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -749,7 +745,6 @@
                 }
             }
         }
-        // Separater Dokument-Ready-Block für die Logo-Größenänderung
         $(document).ready(function() {
             let logo = $('#logo');
             let navbar = $('.navbar');
@@ -775,22 +770,8 @@
             }
         });
 
-        document.addEventListener("DOMContentLoaded", function() {
-            const languageSelector = document.getElementById("language-selector");
-            if (languageSelector) {
-                languageSelector.addEventListener("click", function(event) {
-                    toggleDropdown(event);
-                });
-            }
-        });
-
-        // Schaltet die Sichtbarkeit des Dropdowns um
-        function toggleDropdown(event) {
-            if (event) {
-                event.stopPropagation();
-            } else {
-                console.warn("Event is undefined.");
-            }
+             // Schaltet die Sichtbarkeit des Dropdowns um
+             function toggleDropdown(event) {
             event.stopPropagation(); // Verhindert das Event-Bubbling
             const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
             if (dropdown) {
@@ -814,7 +795,9 @@
         });
     });
 
-//sprache auf alle seiten
+
+
+        //sprache auf alle seiten
 
         function setLanguage(language) {
         localStorage.setItem('selectedLanguage', language); // Speichere die Sprache im localStorage
@@ -828,12 +811,12 @@
         });
     }
 
-    document.addEventListener("DOMContentLoaded", function () {
-        const savedLanguage = localStorage.getItem('selectedLanguage');
-        if (savedLanguage) {
-            setLanguage(savedLanguage);
-        }
-    });
+        document.addEventListener("DOMContentLoaded", function () {
+            const savedLanguage = localStorage.getItem('selectedLanguage');
+            if (savedLanguage) {
+                setLanguage(savedLanguage);
+            }
+        });
 
 
 
