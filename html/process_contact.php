@@ -1,24 +1,62 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Dein Secret-Key von Google reCAPTCHA
+        $recaptcha_secret = '6Le0SnYqAAAAAJ4Zmm2R_2K7RWVZZYyzyr6XzRsA';
+
+        // Antwort-Token des reCAPTCHA vom Frontend (HTML)
+        $recaptcha_response = $_POST['g-recaptcha-response'];
+    
+        // Überprüfen, ob reCAPTCHA-Token vorhanden ist
+        if (empty($recaptcha_response)) {
+            die("Fehler: reCAPTCHA nicht ausgefüllt.");
+        }
+    
+        // Anfrage an Google zur Verifizierung der reCAPTCHA-Antwort
+        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . $recaptcha_secret . "&response=" . $recaptcha_response);
+        $response_data = json_decode($response);
+    
+        // Überprüfen, ob die reCAPTCHA-Überprüfung erfolgreich war
+        if (!$response_data->success) {
+            die("Fehler: reCAPTCHA-Überprüfung fehlgeschlagen.");
+        }
+
     $anrede = htmlspecialchars($_POST['anrede']);
-    $name = htmlspecialchars($_POST['name']);
-    $email = htmlspecialchars($_POST['email']);
-    $telefon = htmlspecialchars($_POST['telefon']);
-    $message = htmlspecialchars($_POST['message']);
+    
+    // Name: nur Buchstaben und Leerzeichen erlauben
+    $name = trim($_POST['name']);
+    if (!preg_match("/^[a-zA-ZäöüÄÖÜß\s]+$/", $name)) {
+        die("Fehler: Ungültiger Name.");
+    }
+    
+    // E-Mail-Validierung
+    $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        die("Fehler: Ungültige E-Mail-Adresse.");
+    }
+    
+    // Telefonnummer: nur Zahlen, Leerzeichen, Plus und Bindestriche erlauben
+    $telefon = trim($_POST['telefon']);
+    if (!preg_match("/^[0-9\s\-\+]+$/", $telefon)) {
+        die("Fehler: Ungültige Telefonnummer.");
+    }
+    
+    // Nachricht: HTML-Tags entfernen, Zeilenumbrüche umwandeln
+    $message = nl2br(htmlspecialchars(trim($_POST['message'])));
 
     // E-Mail-Einstellungen
     $to = "info@eman-bestattungen.ch";
     $subject = "Neue Kontaktanfrage von $name";
     
-    // HTML-Nachricht
+    // HTML-Nachricht (unverändert)
     $body = "
     <html>
     <head>
         <style>
-            body { font-family: Arial, sans-serif; color: #333; }
-            h2 { color: #1a1a1a; }
-            .content { background-color: #f9f9f9; padding: 20px; border-radius: 10px; }
-            .content p { margin: 5px 0; }
+            body { font-family: Arial, sans-serif; color: #333; line-height: 1.5; }
+            .content { background-color: #f9f9f9; padding: 20px; border-radius: 10px; max-width: 600px; margin: 0 auto; }
+            .content h2 { color: #1a1a1a; }
+            .content p { margin: 10px 0; }
+            .content strong { color: #555; }
         </style>
     </head>
     <body>
@@ -26,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Neue Kontaktanfrage</h2>
             <p><strong>Anrede:</strong> $anrede</p>
             <p><strong>Name:</strong> $name</p>
-            <p><strong>E-Mail:</strong> $email</p>
-            <p><strong>Telefon:</strong> $telefon</p>
+            <p><strong>E-Mail:</strong> <a href='mailto:$email'>$email</a></p>
+            <p><strong>Telefon:</strong> <a href='tel:$telefon'>$telefon</a></p>
             <p><strong>Nachricht:</strong></p>
             <p>$message</p>
         </div>
@@ -35,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </html>
     ";
 
-    // Zusätzliche Header für HTML-E-Mail
+    // Zusätzliche Header für HTML-E-Mail (unverändert)
     $headers = "From: info@eman-bestattungen.ch\r\n";
     $headers .= "Reply-To: $email\r\n";
     $headers .= "MIME-Version: 1.0\r\n";
@@ -48,4 +86,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Fehler: Die Nachricht konnte nicht gesendet werden.";
     }
 }
+
 ?>

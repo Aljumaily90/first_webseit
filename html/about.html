@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="About Us" content="Kurze Beschreibung deiner Webseite"> 
     <title>About Us</title>
     
     <!-- Bootstrap CSS -->
@@ -11,149 +12,121 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 
 
     <style>
 
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #595d61;
-            --light-color: #ffffff;
-            --dark-color: #020000;
-            --accent-color: #39b9e0;
-        }
-        /******************************Logo**************************************************/
-        #logo {
-            height: 60px;
-            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
-            top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
-            left: 10%; /* Positioniert das Logo 10px vom rechten Rand */
-            z-index: 1004;
-            padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
-            transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
-            background-color: #365C63;
-            padding-right: 10px;
-            padding-bottom: 2px;
-        }
+:root {
+        --primary-color: #007bff;
+        --secondary-color: #595d61;
+        --light-color: #ffffff;
+        --dark-color: #020000;
+        --accent-color: #39b9e0;
+    }
 
-        #logo.large {
-            height: 90px; /* Vergrößert das Logo, falls dies noch gewünscht ist */
-        }
-        /************************************subheader*****************************************/
-        /* Subheader Styles */
-        #subheader {
-            background-color: #365C63;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1001;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    /* Logo Styles */
+    #logo {
+        height: 60px;
+        position: fixed;
+        top: 0;
+        left: 10%;
+        z-index: 1004;
+        padding: 0 10px 2px 10px;
+        background-color: #365C63;
+        transition: transform 0.2s ease;
+    }
+    #logo.large {
+        height: 90px;
+    }
 
-        #subheader span {
-            margin: 0 10px;
-            font-weight: 600;
-            color: #c2d4da;
-            padding-left: 50px;
-        }
+    /* Subheader Styles */
+    #subheader {
+        background-color: #365C63;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #subheader span {
+        margin: 0 10px;
+        font-weight: 600;
+        color: #c2d4da;
+        padding-left: 50px;
+    }
+    #available {
+        margin-right: 10px;
+        color: #afc0c5;
+        font-size: 18px;
+    }
 
-        .dropdown {
-            position: relative;            
-            
-            
-        }
-        #available{
-            margin-right: 10px;
-            color: #afc0c5;
-            font-size: 18px;   
-        }
+    /* Dropdown Styles */
+    .dropdown {
+        position: relative;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--light-color);
+        min-width: 100px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        z-index: 1002;
+    }
+    .dropdown-content.show {
+        display: block;
+    }
+    .dropdown-content a {
+        color: var(--dark-color);
+        text-decoration: none;
+        display: block;
+        padding: 8px 16px;
+    }
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
 
-        /* Standardmäßig ist das Dropdown-Inhaltsmenü ausgeblendet */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--light-color); /* Passe die Farbe an deine Bedürfnisse an */
-            min-width: 100px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 1002;
-            margin-left:30px;
-            
-        }
+    #subheader a {
+        color: #afc0c5;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    #subheader a:hover {
+        font-size: 18px;
+    }
 
+    #selected-language {
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
 
-        /* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
-        .dropdown-content.show {
-            display: block;
-        }
-
-        /* Stil für die Links im Dropdown-Inhalt */
-        .dropdown-content a {
-            color: var(--dark-color); /* Passe die Textfarbe an */
-            text-decoration: none;
-            display: block;
-            padding: 8px 16px;
-        }
-
-        /* Hover-Effekt für die Links im Dropdown */
-        .dropdown-content a:hover {
-            background-color: #f1f1f1; /* Passe die Hover-Hintergrundfarbe an */
-        }
-
-        #subheader a {
-            color: #afc0c5;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        #subheader a:hover {
-            font-size: 18px;
-        }
-        #selected-language {
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center; /* Zentriert den Text und das Icon vertikal */
-        }
-        /****************************Nav**********************************************************/
-        /* Navbar Styles */
-        .navbar {
-            background-color: #e6e7e7;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease; /* Smooth transition for navbar styles */
-            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
-        }
-        .navbar.scrolled {
-            background-color: #007bff; /* Change background when scrolled */
-            padding: 10px; /* Reduce padding when scrolled */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .navbar-hidden {
-            top: 0;
-            transition: top 0.4s ease; /* Smooth transition for navbar position */
-        }
-
-        .navbar.transparent {
-            background-color: transparent; /* Make navbar transparent */
-        }
-        .navbar-nav .nav-link {
-            font-weight: 700;
-            font-size: 20px;
-            color: #000 !important; /* Set link color to black */
-            padding: 10px;
-            transition: all 0.3s ease; /* Smooth transition for link styles */
-            margin-right: 20px;
-        }
-
-
-        .navbar-nav .nav-link:hover {
-            font-size: 22px; /* Increase font size on hover */
-            color: #383535 !important; /* Change link color on hover */
-        }
+    /* Navbar Styles */
+    .navbar {
+        background-color: #e6e7e7;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        z-index: 999;
+    }
+    .navbar-nav .nav-link {
+        font-weight: 700;
+        font-size: 20px;
+        color: #000 !important;
+        padding: 10px;
+        margin-right: 20px;
+        transition: all 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+        font-size: 22px;
+        color: #383535 !important;
+    }
 
 
 /**************************content*************************************************/
@@ -248,159 +221,105 @@
                     /* Mobile Layout */
         @media only screen and (max-width: 768px) {
             #logo {
-                height: 50px;
-                transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
-                position: absolute;
-                top: 40px;
-                left: 65px;
-                transform: translate(-50%, -50%) scale(1);
-                z-index: 10;
-                position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
-            }
+            height: 50px;
+            position: fixed;
+            top: 40px;
+            left: 65px;
+            z-index: 10;
+            transform: translate(-50%, -50%) scale(1);
+        }
 
-            /* Subheader ausblenden */
-            #subheader {
-                    display: none; /* Verbirgt den Subheader auf Mobilgeräten */
-                }
-            /* Navbar fixieren und Hintergrund beibehalten */
-            .navbar {
-                background-color: #365C63; /* Hintergrundfarbe der Navbar */
-                position: fixed;
-                top: 0;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0px;
-                z-index: 1; /* Ganz oben fixiert */
-                height: 75px ;
-                margin-top: -47px;
-                
-            }
-            /* Telefonnummer sichtbar und linksbündig */
-            .navbar-phone {
-                font-weight: bold;
-                font-size: 14px;
-                color: white;
-                display: flex;
-                align-items: center;
-                margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
-                z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
-                position: fixed;
-                top: 20px;
-                left: 130px;                
-            }
-            /* Hover-Effekt (optional) */
-            .navbar-phone:hover {
-                color: white; /* Keine Farbänderung beim Hover */
-                text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+        /* Hide subheader on mobile */
+        #subheader {
+            display: none;
+        }
 
-            }
+        .navbar {
+            background-color: #365C63;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            z-index: 1;
+            height: 75px;
+            margin-top: -47px;
+        }
+        .navbar-phone {
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 130px;
+            z-index: 2;
+        }
 
-            /* Wenn die Telefonnummer angeklickt wird */
-            .navbar-phone:active {
-                font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
-                color: white; /* Farbe bleibt weiß */
-                text-decoration: none; /* Keine Unterstreichung */
-            }
+        /* Navbar Toggle */
+        .navbar-toggler {
+            margin-left: auto;
+            font-size: 24px;
+            z-index: 1000;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .navbar-collapse {
+            display: none;
+        }
+        .navbar-collapse.show {
+            display: block;
+            background-color: #365C63;
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            z-index: 998;
+        }
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            color: white !important;
+            padding: 10px;
+            text-align: center;
+        }
 
-            /* Navbar-Toggle-Button rechts positionieren */
-            .navbar-toggler {
-                margin-left: auto;
-                font-size: 24px;
-                z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
-                border: none; /* Entfernt den Rand des Buttons */
-                outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
-                box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
+        /* Mobile language dropdown */
+        .mobile-language-dropdown {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
 
-            }
-            /* Dropdown-Menü im geöffneten Zustand */
-            .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
-                display: block;
-                background-color: #365C63; /* Hintergrund des Dropdown-Menüs */
-                position: absolute;
-                top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
-                width: 100%;
-                z-index: 998;
-            }
-            /* Standardmäßig sind die Navbar-Links versteckt */
-            .navbar-collapse {
-                display: none;
-            }
-            /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
-            .navbar-collapse.show {
-                display: block;
-            }
-            /* Stil für die Links im Dropdown-Menü */
-            .navbar-nav .nav-link {
-                font-size: 18px;
-                color: white !important; /* Links in weiß für gute Lesbarkeit */
-                padding: 10px;
-                text-align: center;
-                display: block;
-            }
-    /*******************************************************************************/
 
-            /* Sprachauswahl anzeigen */
-            .mobile-language-dropdown {
-                display: block;
-                width: 100%;
-                text-align: center;
-                }
-              
-            .mobile-language-dropdown #selected-language {
-                color: white;
-                padding: 10px;
-                display: inline-flex;
-                align-items: center;
-                font-size: 18px;
-                cursor: pointer;
-            }
-            /* Dropdown-Container Styling */
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
-                left: -40px; /* Startet am linken Rand des übergeordneten Containers */
-                background-color: #365C63; /* Hintergrundfarbe passend zur Navbar */
-                width: calc(100% + 40px); /* Breite der Navbar minus Innenabstand */
-                padding: 10px 0;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
-                border-radius: 0px; /* Keine abgerundeten Ecken */
-                z-index: 1000;
-
-            }
-            /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
-            .dropdown-content.show {
-                display: block;
-
-            }
-            /* Styling für Dropdown-Links */
-            .dropdown-content a {
-                color: white; /* Weiße Schriftfarbe für guten Kontrast */
-                padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
-                display: block;
-                text-align: center;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                margin-left: -38px;
-            }
-            /* Dropdown-Pfeil Styling */
-            #dropdown-arrow {
-                transition: transform 0.3s ease;
-                display: block;
-            }
-            /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
-            #language-dropdown.show ~ #dropdown-arrow {
-                transform: rotate(180deg);
-            }
-            /* Hover-Effekt für die Links im Dropdown */
-            .dropdown-content a:hover {
-                background-color: transparent;
-                margin: 0;
-                font-size: 20px;
-            }
+        /* Mobile dropdown content */
+        .dropdown-content {
+            display: none;
+            position: static;
+            background-color: #365C63;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: none;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .dropdown-content a:hover {
+            font-size: 18px;
+            background-color: transparent;
+        }
 /*************************************************************************************************/
             /* About Section Anpassungen */
             #about {
@@ -508,7 +427,7 @@
 
     </style>
 </head>
-<body>
+<body class="animate__animated animate__fadeIn">
     <span>
         <a  href="/index.html"><img id="logo" src="/image/Logo.png" alt=""></a>
     </span>
@@ -517,11 +436,11 @@
         <span id="available" data-key="available">24h für Sie erreichbar</span>
         <span ><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
+            <span class="selected-language" style="font-weight: 600; cursor: pointer;">
                 DE
                 <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
-            <div class="dropdown-content" id="language-dropdown">
+            <div class="dropdown-content language-dropdown">
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
                 <a href="#" onclick="setLanguage('tr')">TR</a>
@@ -558,12 +477,13 @@
             </li>
 
         </ul>
+         <!-- Mobile Language Dropdown -->
         <div class="dropdown mobile-language-dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
-                <span data-key="languageLabel">DE</span>
-                <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+            <span class="selected-language" style="font-weight: 600; cursor: pointer;">
+                DE
+                <img src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
-            <div class="dropdown-content" id="language-dropdown" >
+            <div class="dropdown-content language-dropdown" >
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
                 <a href="#" onclick="setLanguage('tr')">TR</a>
@@ -634,6 +554,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   
 
 
@@ -717,35 +638,49 @@
             }
         };
 
-       ////////////////////////////////////////////// Sprache setzen und Inhalte übersetzen
-        function setLanguage(language) {
-            document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
-            const elements = document.querySelectorAll('[data-key]');
-            elements.forEach(element => {
-                const key = element.getAttribute('data-key');
-                if (translations[language][key]) {
-                    element.innerHTML = translations[language][key];
-                }
-            });
+    // Funktion zum Setzen der Sprache und Übersetzen des Inhalts
+    function setLanguage(language) {
+    localStorage.setItem('selectedLanguage', language); // Speichert die Sprache im localStorage
+    document.querySelectorAll('.selected-language').forEach(element => {
+        element.childNodes[0].textContent = language.toUpperCase();
+    });
+    const elements = document.querySelectorAll('[data-key]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[language][key]) {
+            element.innerHTML = translations[language][key];
         }
-        // Funktion zum Ein- und Ausblenden des Dropdowns
-        function toggleDropdown() {
-            document.getElementById("language-dropdown").classList.toggle("show");
-        }
+    });
+}
+    // Funktion zum Umschalten des Dropdowns für die Sprachwahl
+    function toggleDropdown(event) {
+        event.stopPropagation(); // Verhindert das Event-Bubbling
+        document.getElementById("language-dropdown").classList.toggle("show");
+    }
 
-        // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
-        window.onclick = function(event) {
-            if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
+
+
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Lädt die gespeicherte Sprache aus dem LocalStorage (oder setzt 'de' als Standardwert), und wendet diese Sprache an.
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'de';
+    setLanguage(savedLanguage); // Ruft die Funktion `setLanguage` auf, um die gespeicherte Sprache anzuwenden.
+
+    // Fügt einen Klick-Event-Listener für jedes Element mit der Klasse 'selected-language' hinzu.
+    document.querySelectorAll(".selected-language").forEach(element => {
+        element.addEventListener("click", function (event) {
+            event.stopPropagation(); // Stoppt das Event-Bubbling, sodass der Klick nur auf dieses Element wirkt.
+            
+            const dropdown = element.nextElementSibling; // Das nächste Geschwister-Element nach 'selected-language' (das Dropdown-Menü).
+            if (dropdown) {
+                dropdown.classList.toggle("show"); // Zeigt oder versteckt das Dropdown-Menü, indem die Klasse "show" umgeschaltet wird.
             }
-        }
-        $(document).ready(function() {
+        });
+    });
+
+
+    $(document).ready(function() {
             let logo = $('#logo');
             let navbar = $('.navbar');
             let lastScrollTop = 0;
@@ -770,56 +705,17 @@
             }
         });
 
-             // Schaltet die Sichtbarkeit des Dropdowns um
-             function toggleDropdown(event) {
-            event.stopPropagation(); // Verhindert das Event-Bubbling
-            const dropdown = event.currentTarget.nextElementSibling; // Findet das nächste Geschwisterelement (das Dropdown)
-            if (dropdown) {
-                dropdown.classList.toggle("show"); // Wechselt die Klasse "show" ein und aus
+    // Fügt einen Klick-Event-Listener für das gesamte Fenster hinzu.
+    // Schließt das Dropdown, wenn der Benutzer außerhalb des Dropdown-Bereichs klickt.
+    window.addEventListener("click", function(event) {
+        document.querySelectorAll(".language-dropdown.show").forEach(dropdown => {
+            // Überprüft, ob der Klick nicht auf das Dropdown oder ein Kindelement davon erfolgt.
+            if (!event.target.closest('.dropdown')) {
+                dropdown.classList.remove("show"); // Entfernt die "show"-Klasse, um das Dropdown zu schließen.
             }
-        }
-
-        // Fügt den Event-Listener zum Umschalten des Dropdowns hinzu, wenn auf die Sprach-Auswahl geklickt wird
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll("#selected-language").forEach(element => {
-                element.addEventListener("click", toggleDropdown); // Hinzufügen des Event-Listeners
-            });
-
-        // Schließen des Dropdowns, wenn außerhalb geklickt wird
-        window.addEventListener("click", function(event) {            
-            document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
-                if (!event.target.closest(".dropdown")) {
-                    dropdown.classList.remove("show");
-                }
-            });
         });
     });
-
-
-
-        //sprache auf alle seiten
-
-        function setLanguage(language) {
-        localStorage.setItem('selectedLanguage', language); // Speichere die Sprache im localStorage
-        document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase();
-        const elements = document.querySelectorAll('[data-key]');
-        elements.forEach(element => {
-            const key = element.getAttribute('data-key');
-            if (translations[language][key]) {
-                element.innerHTML = translations[language][key];
-            }
-        });
-    }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            const savedLanguage = localStorage.getItem('selectedLanguage');
-            if (savedLanguage) {
-                setLanguage(savedLanguage);
-            }
-        });
-
-
-
+});
 
 
 </script>
