@@ -11,146 +11,120 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <script src="/languageStorage.js"></script>
+
+
 
     <style>
 
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #595d61;
-            --light-color: #ffffff;
-            --dark-color: #020000;
-            --accent-color: #39b9e0;
-        }
-        /******************************Logo**************************************************/
-        #logo {
-            height: 60px;
-            position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
-            top: 0%; /* Positioniert das Logo 10px vom oberen Rand */
-            left: 15%; /* Positioniert das Logo 10px vom rechten Rand */
-            z-index: 1004;
-            padding-left: 10px; /* Falls zusätzlich ein Abstand von der linken Seite des Logos gewünscht ist */
-            transition: transform 0.2s ease; /* Animation bleibt für Größenänderungen */
-        }
+:root {
+        --primary-color: #007bff;
+        --secondary-color: #595d61;
+        --light-color: #ffffff;
+        --dark-color: #020000;
+        --accent-color: #39b9e0;
+    }
 
-        #logo.large {
-            height: 90px; /* Vergrößert das Logo, falls dies noch gewünscht ist */
-        }
-        /************************************subheader*****************************************/
-        /* Subheader Styles */
-        #subheader {
-            background-color: #26414c;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1001;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    /* Logo Styles */
+    #logo {
+        height: 60px;
+        position: fixed;
+        top: 0;
+        left: 10%;
+        z-index: 1004;
+        padding: 0 10px 2px 10px;
+        background-color: #365C63;
+        transition: transform 0.2s ease;
+    }
+    #logo.large {
+        height: 90px;
+    }
 
-        #subheader span {
-            margin: 0 10px;
-            font-weight: 600;
-            color: #c2d4da;
-            padding-left: 50px;
-        }
+    /* Subheader Styles */
+    #subheader {
+        background-color: #365C63;
+        padding: 10px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #subheader span {
+        margin: 0 10px;
+        font-weight: 600;
+        color: #c2d4da;
+        padding-left: 50px;
+    }
+    #available {
+        margin-right: 10px;
+        color: #afc0c5;
+        font-size: 18px;
+    }
 
-        .dropdown {
-            position: relative;            
-            
-            
-        }
-        #available{
-            margin-right: 10px;
-            color: #afc0c5;
-            font-size: 18px;   
-        }
+    /* Dropdown Styles */
+    .dropdown {
+        position: relative;
+    }
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--light-color);
+        min-width: 100px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        z-index: 1002;
+    }
+    .dropdown-content.show {
+        display: block;
+    }
+    .dropdown-content a {
+        color: var(--dark-color);
+        text-decoration: none;
+        display: block;
+        padding: 8px 16px;
+    }
+    .dropdown-content a:hover {
+        background-color: #f1f1f1;
+    }
 
-        /* Standardmäßig ist das Dropdown-Inhaltsmenü ausgeblendet */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--light-color); /* Passe die Farbe an deine Bedürfnisse an */
-            min-width: 100px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            padding: 10px;
-            z-index: 1002;
-            margin-left:30px;
-            
-        }
+    #subheader a {
+        color: #afc0c5;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    #subheader a:hover {
+        font-size: 18px;
+    }
 
+    #selected-language {
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
 
-        /* Aktiviert die Anzeige des Dropdown-Inhalts, wenn die Klasse "show" hinzugefügt wird */
-        .dropdown-content.show {
-            display: block;
-        }
+    /* Navbar Styles */
+    .navbar {
+        background-color: #e6e7e7;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s ease;
+        z-index: 999;
+    }
+    .navbar-nav .nav-link {
+        font-weight: 700;
+        font-size: 20px;
+        color: #000 !important;
+        padding: 10px;
+        margin-right: 20px;
+        transition: all 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover {
+        font-size: 22px;
+        color: #383535 !important;
+    }
 
-        /* Stil für die Links im Dropdown-Inhalt */
-        .dropdown-content a {
-            color: var(--dark-color); /* Passe die Textfarbe an */
-            text-decoration: none;
-            display: block;
-            padding: 8px 16px;
-        }
-
-        /* Hover-Effekt für die Links im Dropdown */
-        .dropdown-content a:hover {
-            background-color: #f1f1f1; /* Passe die Hover-Hintergrundfarbe an */
-        }
-
-        #subheader a {
-            color: #afc0c5;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        #subheader a:hover {
-            font-size: 18px;
-        }
-        #selected-language {
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center; /* Zentriert den Text und das Icon vertikal */
-        }
-        /****************************Nav**********************************************************/
-        /* Navbar Styles */
-        .navbar {
-            background-color: #e6e7e7;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease; /* Smooth transition for navbar styles */
-            z-index: 999; /* Lege die Navbar unterhalb des Subheaders */
-        }
-        .navbar.scrolled {
-            background-color: #007bff; /* Change background when scrolled */
-            padding: 10px; /* Reduce padding when scrolled */
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        .navbar-hidden {
-            top: 0;
-            transition: top 0.4s ease; /* Smooth transition for navbar position */
-        }
-
-        .navbar.transparent {
-            background-color: transparent; /* Make navbar transparent */
-        }
-        .navbar-nav .nav-link {
-            font-weight: 700;
-            font-size: 20px;
-            color: #000 !important; /* Set link color to black */
-            padding: 10px;
-            transition: all 0.3s ease; /* Smooth transition for link styles */
-            margin-right: 20px;
-        }
-
-
-        .navbar-nav .nav-link:hover {
-            font-size: 22px; /* Increase font size on hover */
-            color: #383535 !important; /* Change link color on hover */
-        }
 
 /**************************content*************************************************/
         body {
@@ -168,6 +142,8 @@
             position: relative;   
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             color: #405d64;
+            max-width: 80%; 
+            margin: 100px auto 40px;
  
         }
         .about-content {
@@ -242,168 +218,115 @@
                     /* Mobile Layout */
         @media only screen and (max-width: 768px) {
             #logo {
-                height: 50px;
-                transition: transform 0.4s ease, height 0.4s ease; /* Smooth transition for logo size and movement */
-                position: absolute;
-                top: 30px;
-                left: 60px;
-                transform: translate(-50%, -50%) scale(1);
-                z-index: 10;
-                position: fixed; /* Fixiert das Logo, sodass es beim Scrollen an Ort und Stelle bleibt */
-            }
+            height: 50px;
+            position: fixed;
+            top: 40px;
+            left: 65px;
+            z-index: 10;
+            transform: translate(-50%, -50%) scale(1);
+        }
 
-            /* Subheader ausblenden */
-            #subheader {
-                    display: none; /* Verbirgt den Subheader auf Mobilgeräten */
-                }
-            /* Navbar fixieren und Hintergrund beibehalten */
-            .navbar {
-                background-color: #405d64; /* Hintergrundfarbe der Navbar */
-                position: fixed;
-                top: 0;
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px;
-                z-index: 1; /* Ganz oben fixiert */
-                height: 75px ;
-                margin-top: -47px;
-                
-            }
-            /* Telefonnummer sichtbar und linksbündig */
-            .navbar-phone {
-                font-weight: bold;
-                font-size: 16px;
-                color: white;
-                display: flex;
-                align-items: center;
-                margin-left: 0px; /* Abstand links für bessere Sichtbarkeit */
-                z-index: 1000; /* Sicherstellen, dass die Telefonnummer über anderen Elementen liegt */
-                position: fixed;
-                top: 15px;
-                left: 130px;
-                
-            }
-            /* Hover-Effekt (optional) */
-            .navbar-phone:hover {
-                color: white; /* Keine Farbänderung beim Hover */
-                text-decoration: none; /* Entfernt die Unterstreichung beim Hover */
+        /* Hide subheader on mobile */
+        #subheader {
+            display: none;
+        }
 
-            }
+        .navbar {
+            background-color: #365C63;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            z-index: 1;
+            height: 75px;
+            margin-top: -47px;
+        }
+        .navbar-phone {
+            font-weight: bold;
+            font-size: 14px;
+            color: white;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 20px;
+            left: 130px;
+            z-index: 2;
+        }
 
-            /* Wenn die Telefonnummer angeklickt wird */
-            .navbar-phone:active {
-                font-size: 18px; /* Vergrößert die Schriftgröße um 2px */
-                color: white; /* Farbe bleibt weiß */
-                text-decoration: none; /* Keine Unterstreichung */
-            }
+        /* Navbar Toggle */
+        .navbar-toggler {
+            margin-left: auto;
+            font-size: 24px;
+            z-index: 1000;
+            border: none;
+            outline: none;
+            box-shadow: none;
+        }
+        .navbar-collapse {
+            display: none;
+        }
+        .navbar-collapse.show {
+            display: block;
+            background-color: #365C63;
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            z-index: 998;
+        }
+        .navbar-nav .nav-link {
+            font-size: 18px;
+            color: white !important;
+            padding: 10px;
+            text-align: center;
+        }
 
-            /* Navbar-Toggle-Button rechts positionieren */
-            .navbar-toggler {
-                margin-left: auto;
-                font-size: 24px;
-                z-index: 1000; /* Sicherstellen, dass der Toggle-Button sichtbar bleibt */
-                border: none; /* Entfernt den Rand des Buttons */
-                outline: none; /* Entfernt den Fokus-Rand beim Anklicken */
-                box-shadow: none; /* Entfernt eventuell vorhandene Schatten */
+        /* Mobile language dropdown */
+        .mobile-language-dropdown {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            color: white;
+        }
 
-            }
-            /* Dropdown-Menü im geöffneten Zustand */
-            .navbar-toggler[aria-expanded="true"] + .navbar-collapse {
-                display: block;
-                background-color: #405d64; /* Hintergrund des Dropdown-Menüs */
-                position: absolute;
-                top: 50px; /* Positioniert das Dropdown-Menü unter der Navbar */
-                width: 100%;
-                z-index: 998;
-            }
-            /* Standardmäßig sind die Navbar-Links versteckt */
-            .navbar-collapse {
-                display: none;
-            }
-            /* Wenn das Dropdown-Menü geöffnet wird, werden die Links sichtbar */
-            .navbar-collapse.show {
-                display: block;
-            }
-            /* Stil für die Links im Dropdown-Menü */
-            .navbar-nav .nav-link {
-                font-size: 18px;
-                color: white !important; /* Links in weiß für gute Lesbarkeit */
-                padding: 10px;
-                text-align: center;
-                display: block;
-            }
-    /*******************************************************************************/
 
-            /* Sprachauswahl anzeigen */
-            .mobile-language-dropdown {
-                display: block;
-                width: 100%;
-                text-align: center;
-                }
-              
-            .mobile-language-dropdown #selected-language {
-                color: white;
-                padding: 10px;
-                display: inline-flex;
-                align-items: center;
-                font-size: 18px;
-                cursor: pointer;
-            }
-            /* Dropdown-Container Styling */
-            .dropdown-content {
-                display: none;
-                position: absolute;
-                top: 100%; /* Positioniert das Dropdown direkt unter dem Trigger-Element */
-                left: -10px; /* Startet am linken Rand des übergeordneten Containers */
-                background-color: #405d64; /* Hintergrundfarbe passend zur Navbar */
-                width: calc(100% - 10px); /* Breite der Navbar minus Innenabstand */
-                padding: 10px 0;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Leichter Schatten für Tiefe */
-                border-radius: 0px; /* Keine abgerundeten Ecken */
-                z-index: 1000;
-                margin-left: 10px; /* Zentriert das Dropdown innerhalb der Navbar */
-            }
-            /* Dropdown anzeigen, wenn die Klasse "show" hinzugefügt ist */
-            .dropdown-content.show {
-                display: block;
-
-            }
-            /* Styling für Dropdown-Links */
-            .dropdown-content a {
-                color: white; /* Weiße Schriftfarbe für guten Kontrast */
-                padding: 10px 0; /* Zentrierte Links, ohne Seitenpadding */
-                display: block;
-                text-align: center;
-                text-decoration: none;
-                font-weight: 600;
-                font-size: 16px;
-                margin-left: -14px;
-            }
-            /* Dropdown-Pfeil Styling */
-            #dropdown-arrow {
-                transition: transform 0.3s ease;
-                display: block;
-            }
-            /* Pfeil dreht sich, wenn das Dropdown geöffnet ist */
-            #language-dropdown.show ~ #dropdown-arrow {
-                transform: rotate(180deg);
-            }
-            /* Hover-Effekt für die Links im Dropdown */
-            .dropdown-content a:hover {
-                background-color: transparent;
-                margin: 0;
-                font-size: 20px;
-            }
+        /* Mobile dropdown content */
+        .dropdown-content {
+            display: none;
+            position: static;
+            background-color: #365C63;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: none;
+        }
+        .dropdown-content.show {
+            display: block;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px 0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+        }
+        .dropdown-content a:hover {
+            font-size: 18px;
+            background-color: transparent;
+        }
 /*************************************************************************************************/
             /* About Section Anpassungen */
             #about {
-                padding: 0px;
+                padding: 0;
                 text-align: start;
                 box-shadow: none;
                 margin-top: 10px !important;
+                width: 100% !important; /* Sicherstellen, dass der Container volle Breite einnimmt */
             }
+
             #about h3 {
                 text-align: start;
                 font-size: 20px;
@@ -416,13 +339,13 @@
                 margin-left: -30px;
                 width: 350px !important;
             }
-            #aboutImage {
+            .aboutImage {
                 clip-path: inset(0 0 100px 0);
-                width: 100% !important; /* Nimmt die volle Breite des Containers ein */
-                margin: 0px 0px; /* Entfernt alle äußeren Abstände */
-                padding: 0; /* Entfernt alle inneren Abstände */
+                width: calc(100% + 78px) !important; /* Nimmt die volle Breite des Containers ein */             
                 display: block;
                 object-fit: cover;
+                margin-left: -40px!important;
+
             }
 /*********************************FooterMedia**********************************************/
             .noneM{
@@ -501,75 +424,29 @@
 
     </style>
 </head>
-<body onload="loadLanguage()">
+<body>
     <span>
-        <a  href="/index.html"><img id="logo" src="/image/logo.jpg" alt=""></a>
+        <a  href="/index.html"><img id="logo" src="/image/Logo.png" alt=""></a>
     </span>
     <!-- Subheader -->
     <div id="subheader">
-        <span id="available">24h für Sie erreichbar</span>
+        <span id="available" data-key="available">24h für Sie erreichbar</span>
         <span ><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style=" height: 20px;"> +41 79 618 44 44</a></span>
         <div class="dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language">
+            <span class="selected-language" style="font-weight: 600; cursor: pointer;">
                 DE
                 <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
-            <div class="dropdown-content" id="language-dropdown">
+            <div class="dropdown-content language-dropdown">
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
                 <a href="#" onclick="setLanguage('tr')">TR</a>
             </div>
         </div>
     </div>
-
-    <!-- Telefonnummer in der Navbar -->
-    
-        <a href="tel:+41796184444" class="navbar-phone">
-            <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
-        </a>
-
-
-
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="top: 47px;">
-            <!-- Toggle Button für mobile Ansicht -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/index.html" data-key="home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
-                </li>
-
-            </ul>
-            <div class="dropdown mobile-language-dropdown">
-                <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
-                    DE
-                    <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
-                </span>
-                <div class="dropdown-content" id="language-dropdown" >
-                    <a href="#" onclick="setLanguage('de')">DE</a>
-                    <a href="#" onclick="setLanguage('en')">EN</a>
-                    <a href="#" onclick="setLanguage('tr')">TR</a>
-                </div>
-            </div>
-
-        </div>
-    </nav>    <!-- Telefonnummer in der Navbar -->
  
     <a href="tel:+41796184444" class="navbar-phone">
-        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 0px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
+        <img src="/image/header-icons.png" alt="Mobile Icon" style="height: 35px; margin: 0px 0px 0px 20px;  filter: brightness(1) invert(1);"> +41 79 618 44 44
     </a>
 
 
@@ -597,12 +474,13 @@
             </li>
 
         </ul>
+         <!-- Mobile Language Dropdown -->
         <div class="dropdown mobile-language-dropdown">
-            <span style="font-weight: 600; cursor: pointer;" id="selected-language" data-key="languageLabel">
+            <span class="selected-language" style="font-weight: 600; cursor: pointer;">
                 DE
-                <img id="dropdown-arrow" src="/image/arrow_down.png" alt="Dropdown Icon"  style="height: 20px; margin-left: 5px; vertical-align: middle;">
+                <img src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle;">
             </span>
-            <div class="dropdown-content" id="language-dropdown" >
+            <div class="dropdown-content language-dropdown" >
                 <a href="#" onclick="setLanguage('de')">DE</a>
                 <a href="#" onclick="setLanguage('en')">EN</a>
                 <a href="#" onclick="setLanguage('tr')">TR</a>
@@ -610,14 +488,15 @@
         </div>
 
     </div>
-</nav>
+</nav>  
+
     
 
-    <div id="about" style="max-width: 80%; margin: 100px auto 40px;">
-        <div   class="row no-gutters align-items-center">
+    <div id="about" >
+        <div class="row no-gutters align-items-center">
             <!-- Image Column -->
             <div class="col-md-4 animate__animated animate__fadeInUp">
-                <img id="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image" style=" margin-right: 20px;">
+                <img class="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image">
             </div>
             <!-- Text Column -->
             <div class="col-md-8">
@@ -648,12 +527,12 @@
         </div>
         <div class="footer-contact-right">
             
-            <p class="noneM"><strong>Unser Telefonzeiten:</strong></p>
-            <p class="noneM">Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
+            <p class="noneM" data-key="phoneHoursLabel"><strong>Unser Telefonzeiten:</strong></p>
+            <p class="noneM" data-key="phoneHours">Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;" > +41 79 618 44 44</a>
             </p>
 
-            <p class="noneM"><strong>Unser Bürozeiten:</strong></p>
-            <p class="noneM">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
+            <p class="noneM" data-key="officeHoursLabel"><strong>Unser Bürozeiten:</strong></p>
+            <p class="noneM" data-key="officeHours">Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung</p>
             
         </div>
         <div class="footer-contact-center">
@@ -663,7 +542,7 @@
         </div>
     </div>
     <div class="bg-dark text-light text-center py-3 ">
-        <p class="footer-bottom">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
+        <p class="footer-bottom" data-key="footerRights">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
 
@@ -682,93 +561,131 @@
     <script>
         const translations = {
             de: {
+                available: "24h für Sie erreichbar",
                 home: "Home",
                 about: "Über uns",
                 services: "Dienstleistungen",
                 contact: "Kontakt",
-                about_title: "Über uns",
-                about_content_1: "Mit unserer langjährigen Erfahrung und unserem Wissen in der Bestattungskultur verstehen wir die religiösen und kulturellen Bedürfnisse und bieten professionelle Betreuung. Als Eman Bestattungen sind wir auf islamische Bestattungen spezialisiert und bieten den Angehörigen in schweren Zeiten umfassende Unterstützung mit höchster Professionalität. Wir behandeln Bestattungen aller Religionen und Kulturen mit demselben Respekt und der gleichen Sorgfalt. Dabei führen wir sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch, die wir in enger Zusammenarbeit mit Schweizer und internationalen Behörden effizient abwickeln. Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung, um Sie bestmöglich zu entlasten und einen würdevollen Ablauf aller Prozesse zu garantieren.",
+                about_title: "Ihr Partner für islamische und kulturelle Bestattungen schweizweit",
+                about_content_1: `
+                                    Eman Bestattungen ist ein Bestattungsinstitut, das sich auf islamische Bestattungen spezialisiert hat. Mit unserem tiefen Verständnis für religiöse und kulturelle Bedürfnisse und unserer langjährigen Erfahrung bieten wir Angehörigen und Interessierten professionelle und einfühlsame Unterstützung in schweren Zeiten.
+                                    <br><br>
+                                    Unser Team behandelt Bestattungen aller Religionen und Kulturen mit höchstem Respekt und Sorgfalt. Wir führen sowohl Bestattungen in der Schweiz als auch internationale Rückführungen durch und arbeiten dabei eng mit Schweizer und internationalen Behörden zusammen, um einen reibungslosen Ablauf zu gewährleisten.
+                                    <br><br>
+                                    Unsere Dienstleistungen stehen Ihnen und Ihren Angehörigen rund um die Uhr zur Verfügung. Wir setzen alles daran, Sie bestmöglich zu entlasten und einen würdevollen Verlauf aller Prozesse zu garantieren.
+                                `,
                 impressum: "Impressum",
                 privacy: "Datenschutzerklärung",
                 terms: "AGB",
-                languageLabel: "DE"
+                phoneHoursLabel: "Unsere Telefonzeiten:",
+                phoneHours: 'Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Unsere Bürozeiten:",
+                officeHours: "Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung ",
+                languageLabel: "DE",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten."
             },
             en: {
+                available: "Available 24 hours",
                 home: "Home",
                 about: "About Us",
                 services: "Services",
                 contact: "Contact",
-                about_title: "About Us",
-                about_content_1: "With our many years of experience and knowledge in funeral culture, we understand the religious and cultural needs and offer professional care. As Eman Funeral Services, we specialize in Islamic funerals and provide comprehensive support to relatives in difficult times with the highest level of professionalism. We treat funerals of all religions and cultures with the same respect and care. In doing so, we conduct funerals both in Switzerland and international repatriations, which we efficiently manage in close cooperation with Swiss and international authorities. Our services are available to you and your relatives around the clock to provide you with the best possible relief and to ensure a dignified process for all procedures.",
+                about_title: "Your partner for Islamic and cultural funerals across Switzerland",
+                about_content_1: `
+                                Eman Funeral Services is a funeral institute specialized in Islamic funerals. With our deep understanding of religious and cultural needs and our many years of experience, we offer professional and empathetic support to relatives and interested parties during difficult times.
+                                <br><br>
+                                Our team treats funerals of all religions and cultures with the utmost respect and care. We conduct funerals both in Switzerland and international repatriations, working closely with Swiss and international authorities to ensure a smooth process.
+                                <br><br>
+                                Our services are available to you and your relatives around the clock. We do everything possible to relieve you and guarantee a dignified course of all processes.
+                            `,
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
-                terms: "Terms and Conditions",
-                languageLabel: "EN"
+                terms: "AGB",
+                phoneHoursLabel: "Our Phone Hours:",
+                phoneHours: 'You can reach us by phone 24 hours, 7 days a week:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Our Office Hours:",
+                officeHours: "Mon - Fri: 08:00 - 17:30<br>Sat, Sun, Holidays: by appointment",
+                languageLabel: "EN",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. All rights reserved."
             },
             tr: {
+                available: "24 saat hizmetinizde",
                 home: "Ana Sayfa",
                 about: "Hakkımızda",
                 services: "Hizmetler",
                 contact: "İletişim",
-                about_title: "Hakkımızda",
-                about_content_1: "Cenaze kültüründeki uzun yıllara dayanan deneyimimiz ve bilgimizle, dini ve kültürel ihtiyaçları anlıyor ve profesyonel bakım sunuyoruz. Eman Cenaze Hizmetleri olarak İslami cenazelerde uzmanız ve zorlu zamanlarda en yüksek profesyonellik ile ailelere kapsamlı destek sağlıyoruz. Tüm dinlere ve kültürlere ait cenazeleri aynı saygı ve özenle ele alıyoruz. Bu bağlamda hem İsviçre'de hem de uluslararası nakillerde cenaze işlemlerini, İsviçre ve uluslararası yetkililerle yakın işbirliği içinde verimli bir şekilde yürütüyoruz. Hizmetlerimiz, siz ve yakınlarınıza her zaman en iyi şekilde destek sunmak ve tüm süreçlerin saygın bir şekilde yürütülmesini sağlamak için 7/24 hizmetinizdedir.",
+                about_title: "İsviçre genelinde İslami ve kültürel cenazeler için ortağınız",
+                about_content_1: `
+                            Eman Cenaze Hizmetleri, İslami cenazelere uzmanlaşmış bir cenaze kurumudur. Dini ve kültürel ihtiyaçlara olan derin anlayışımız ve yılların verdiği tecrübemiz ile zor zamanlarda akrabalara ve ilgililere profesyonel ve anlayışlı destek sunuyoruz.
+                            <br><br>
+                            Ekibimiz, tüm dinlerin ve kültürlerin cenazelerini en yüksek saygı ve özenle ele alır. İsviçre'de hem cenaze törenleri düzenliyor hem de uluslararası nakil hizmetleri sağlıyoruz. Bu süreçte İsviçre ve uluslararası makamlarla yakından çalışarak sorunsuz bir sürecin sağlanmasını temin ediyoruz.
+                            <br><br>
+                            Hizmetlerimiz sizlere ve yakınlarınıza günün her saati sunulmaktadır. Sizi mümkün olduğunca rahatlatmak ve tüm süreçlerin saygın bir şekilde ilerlemesini sağlamak için elimizden gelen her şeyi yapıyoruz.
+                        ` ,              
                 impressum: "Künye",
                 privacy: "Gizlilik Politikası",
-                terms: "Şartlar ve Koşullar",
-                languageLabel: "TR"
+                terms: "AGB",
+                phoneHoursLabel: "Telefon Saatlerimiz:",
+                phoneHours: 'Bize haftanın 7 günü, 24 saat telefonla ulaşabilirsiniz:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Ofis Saatlerimiz:",
+                officeHours: "Pzt - Cum: 08:00 - 17:30 <br> Cmt, Paz, Tatil: randevu ile",
+                languageLabel: "TR",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Tüm hakları saklıdır."
             }
         };
 
- // Sprache setzen und Inhalte übersetzen
- function setLanguage(language) {
-        document.getElementById('selected-language').textContent = language.toUpperCase();
-        document.querySelectorAll('[data-key]').forEach(element => {
-            const key = element.getAttribute('data-key');
-            element.textContent = translations[language][key] || element.textContent;
-        });
-    }
-
-    // Dropdown anzeigen/ausblenden
+    // Funktion zum Setzen der Sprache und Übersetzen des Inhalts
+    function setLanguage(language) {
+    localStorage.setItem('selectedLanguage', language); // Speichert die Sprache im localStorage
+    document.querySelectorAll('.selected-language').forEach(element => {
+        element.childNodes[0].textContent = language.toUpperCase();
+    });
+    const elements = document.querySelectorAll('[data-key]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-key');
+        if (translations[language][key]) {
+            element.innerHTML = translations[language][key];
+        }
+    });
+}
+    // Funktion zum Umschalten des Dropdowns für die Sprachwahl
     function toggleDropdown(event) {
-        event.stopPropagation();
+        event.stopPropagation(); // Verhindert das Event-Bubbling
         document.getElementById("language-dropdown").classList.toggle("show");
     }
 
-    // Schließen des Dropdowns, wenn außerhalb geklickt wird
-    document.addEventListener("click", function(event) {
-        if (!event.target.closest('.dropdown')) {
-            document.querySelectorAll(".dropdown-content.show").forEach(dropdown => {
-                dropdown.classList.remove("show");
-            });
-        }
-    });
 
-    // Dokument-Ready Funktion
-    document.addEventListener("DOMContentLoaded", function() {
-        const languageSelector = document.getElementById("selected-language");
-        if (languageSelector) {
-            languageSelector.addEventListener("click", toggleDropdown);
-        }
 
-        // Logo-Größenänderung beim Scrollen
-        const logo = document.getElementById('logo');
-        const navbar = document.querySelector('.navbar');
-        let lastScrollTop = 0;
-        window.addEventListener("scroll", function() {
-            let currentScroll = window.scrollY;
-            if (currentScroll > lastScrollTop) {
-                logo.classList.remove('large');
-                navbar.classList.add('navbar-large');
-                navbar.classList.remove('navbar-small');
-            } else {
-                logo.classList.add('large');
-                navbar.classList.add('navbar-small');
-                navbar.classList.remove('navbar-large');
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Lädt die gespeicherte Sprache aus dem LocalStorage (oder setzt 'de' als Standardwert), und wendet diese Sprache an.
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'de';
+    setLanguage(savedLanguage); // Ruft die Funktion `setLanguage` auf, um die gespeicherte Sprache anzuwenden.
+
+    // Fügt einen Klick-Event-Listener für jedes Element mit der Klasse 'selected-language' hinzu.
+    document.querySelectorAll(".selected-language").forEach(element => {
+        element.addEventListener("click", function (event) {
+            event.stopPropagation(); // Stoppt das Event-Bubbling, sodass der Klick nur auf dieses Element wirkt.
+            
+            const dropdown = element.nextElementSibling; // Das nächste Geschwister-Element nach 'selected-language' (das Dropdown-Menü).
+            if (dropdown) {
+                dropdown.classList.toggle("show"); // Zeigt oder versteckt das Dropdown-Menü, indem die Klasse "show" umgeschaltet wird.
             }
-            lastScrollTop = currentScroll;
         });
     });
 
+    // Fügt einen Klick-Event-Listener für das gesamte Fenster hinzu.
+    // Schließt das Dropdown, wenn der Benutzer außerhalb des Dropdown-Bereichs klickt.
+    window.addEventListener("click", function(event) {
+        document.querySelectorAll(".language-dropdown.show").forEach(dropdown => {
+            // Überprüft, ob der Klick nicht auf das Dropdown oder ein Kindelement davon erfolgt.
+            if (!event.target.closest('.dropdown')) {
+                dropdown.classList.remove("show"); // Entfernt die "show"-Klasse, um das Dropdown zu schließen.
+            }
+        });
+    });
+});
 
 
 </script>

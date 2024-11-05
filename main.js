@@ -30,24 +30,6 @@ $(document).ready(function() {
         });
     }
 });
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    // Verhindert das automatische Absenden, wenn Felder fehlen
-    event.preventDefault();
-    
-    // Führe Validierung durch
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let telefon = document.getElementById('telefon').value;
-    let nachricht = document.getElementById('nachricht').value;
-    
-    if (name === "" || email === "" || telefon === "" || nachricht === "") {
-        alert("Bitte füllen Sie alle Felder aus!");
-        return;
-    }
-    
-    // Wenn die Validierung erfolgreich ist, sende das Formular
-    this.submit();
-});
 
 $(document).ready(function() {
     // Holt den Pfad der aktuellen URL
@@ -62,12 +44,5 @@ $(document).ready(function() {
     });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('background-video');
-    video.addEventListener('canplay', () => {
-        video.play().catch(() => {
-            console.log('Autoplay wurde blockiert');
-        });
-    });
-});
+
 

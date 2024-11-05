@@ -718,7 +718,7 @@
         };
 
        ////////////////////////////////////////////// Sprache setzen und Inhalte übersetzen
-       function setLanguage(language) {
+        function setLanguage(language) {
             document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
             const elements = document.querySelectorAll('[data-key]');
             elements.forEach(element => {

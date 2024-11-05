@@ -139,11 +139,7 @@
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
         }
-        .nav-item.active .nav-link {
-            background-color: #365C63; /* Beispiel: Farbe ähnlich Pantone 5473 CP */
-            color: #ffffff; /* Kontrastfarbe für Text */
-            border-radius: 5px; /* Optional: Abgerundete Ecken */
-        }
+
 /**************************content*************************************************/
         /* Um sicherzustellen, dass der Rest der Inhalte darüber liegt */
         body {
@@ -668,7 +664,7 @@
                 <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+                <a class="nav-link" href="/html/test.html" data-key="services">Dienstleistungen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
@@ -892,6 +888,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('background-video');
+    video.addEventListener('canplay', () => {
+        video.play().catch(() => {
+            console.log('Autoplay wurde blockiert');
+        });
+    });
+});
 
 
 
