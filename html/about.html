@@ -218,8 +218,7 @@
 
  /***********************************media***********************************************/
 
-                    /* Mobile Layout */
-        @media only screen and (max-width: 768px) {
+ @media only screen and (max-width: 768px) {
             #logo {
             height: 50px;
             position: fixed;
@@ -305,6 +304,7 @@
             padding: 10px 0;
             text-align: center;
             box-shadow: none;
+            margin-left: 0px !important;
         }
         .dropdown-content.show {
             display: block;
@@ -315,6 +315,7 @@
             text-decoration: none;
             font-weight: 600;
             font-size: 16px;
+            
         }
         .dropdown-content a:hover {
             font-size: 18px;
@@ -421,7 +422,7 @@
             .footer-contact-center p:last-child::after {
                 content: ""; /* Entfernt das Trennzeichen beim letzten Element */
             }
-        }
+         }
      
 /**************************************************************************************/
 
@@ -489,8 +490,6 @@
                 <a href="#" onclick="setLanguage('tr')">TR</a>
             </div>
         </div>
-
-    </div>
 </nav>  
 
     
@@ -640,26 +639,24 @@
 
     // Funktion zum Setzen der Sprache und Übersetzen des Inhalts
     function setLanguage(language) {
-    localStorage.setItem('selectedLanguage', language); // Speichert die Sprache im localStorage
-    document.querySelectorAll('.selected-language').forEach(element => {
-        element.childNodes[0].textContent = language.toUpperCase();
-    });
-    const elements = document.querySelectorAll('[data-key]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-key');
-        if (translations[language][key]) {
-            element.innerHTML = translations[language][key];
-        }
+        localStorage.setItem('selectedLanguage', language); // Speichert die Sprache im localStorage
+
+        document.querySelectorAll('.selected-language').forEach(element => {
+            element.childNodes[0].textContent = language.toUpperCase();
+        });
+        const elements = document.querySelectorAll('[data-key]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-key');
+            if (translations[language][key]) {
+                element.innerHTML = translations[language][key];
+            }
+        });
+            // Schließt das Dropdown-Menü nach Auswahl
+    document.querySelectorAll(".language-dropdown.show").forEach(dropdown => {
+        dropdown.classList.remove("show");
     });
 }
-    // Funktion zum Umschalten des Dropdowns für die Sprachwahl
-    function toggleDropdown(event) {
-        event.stopPropagation(); // Verhindert das Event-Bubbling
-        document.getElementById("language-dropdown").classList.toggle("show");
-    }
-
-
-
+   
 
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -678,6 +675,17 @@
             }
         });
     });
+        // Fügt einen Klick-Event-Listener für das gesamte Fenster hinzu.
+    // Schließt das Dropdown, wenn der Benutzer außerhalb des Dropdown-Bereichs klickt.
+    window.addEventListener("click", function(event) {
+        document.querySelectorAll(".language-dropdown.show").forEach(dropdown => {
+            // Überprüft, ob der Klick nicht auf das Dropdown oder ein Kindelement davon erfolgt.
+            if (!event.target.closest('.dropdown')) {
+                dropdown.classList.remove("show"); // Entfernt die "show"-Klasse, um das Dropdown zu schließen.
+            }
+        });
+    });
+});
 
 
     $(document).ready(function() {
@@ -705,17 +713,7 @@
             }
         });
 
-    // Fügt einen Klick-Event-Listener für das gesamte Fenster hinzu.
-    // Schließt das Dropdown, wenn der Benutzer außerhalb des Dropdown-Bereichs klickt.
-    window.addEventListener("click", function(event) {
-        document.querySelectorAll(".language-dropdown.show").forEach(dropdown => {
-            // Überprüft, ob der Klick nicht auf das Dropdown oder ein Kindelement davon erfolgt.
-            if (!event.target.closest('.dropdown')) {
-                dropdown.classList.remove("show"); // Entfernt die "show"-Klasse, um das Dropdown zu schließen.
-            }
-        });
-    });
-});
+
 
 
 </script>

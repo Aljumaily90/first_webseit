@@ -20,7 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             die("Fehler: reCAPTCHA-Überprüfung fehlgeschlagen.");
         }
 
-    $anrede = htmlspecialchars($_POST['anrede']);
+    // Anrede, die im DOM als sichtbarer Wert hinterlegt wurde
+    $anrede = htmlspecialchars(trim($_POST['anrede']));
     
     // Name: nur Buchstaben und Leerzeichen erlauben
     $name = trim($_POST['name']);
@@ -79,9 +80,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
-    // E-Mail senden
+    // E-Mail senden und zur Bestätigungsseite weiterleiten
     if (mail($to, $subject, $body, $headers)) {
-        echo "Danke, Ihre Nachricht wurde gesendet!";
+        header("Location: confirmation.html");
+        exit();
     } else {
         echo "Fehler: Die Nachricht konnte nicht gesendet werden.";
     }
