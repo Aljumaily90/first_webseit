@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="About Us" content="Kurze Beschreibung deiner Webseite"> 
     <title>About Us</title>
-    
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <style>
+  <style>
 
 :root {
         --primary-color: #007bff;
@@ -508,12 +501,16 @@
         <div class="row no-gutters align-items-center">
             <!-- Image Column -->
             <div class="col-md-4 animate__animated animate__fadeInUp">
-                <img class="aboutImage" src="/image/about-icon.jpg"  alt="About Us Image">
+                <picture>
+                    <source srcset="/image/about-icon.jpg" type="image/webp">
+                    <img class="aboutImage" src="/image/about-icon.jpg"  alt="About Us Image">
+                  </picture>
             </div>
+
             <!-- Text Column -->
             <div class="col-md-8">
                 <div class="card-body">
-                    <h3 class="card-title" data-key="about_title">Ihr Partner für islamische und kulturelle Bestattungen schweizweit</h3>
+                    <h3 class="card-title" data-key="about_title">Ihr vertrauensvoller Partner für Bestattungen und Rückführungen</h3>
                     <p class="about-content"  data-key="about_content_1">
                         Eman Bestattungen ist ein Bestattungsinstitut, das sich auf islamische Bestattungen spezialisiert hat. Mit unserem tiefen Verständnis für religiöse und kulturelle Bedürfnisse und unserer langjährigen Erfahrung bieten wir Angehörigen und Interessierten professionelle und einfühlsame Unterstützung in schweren Zeiten.
                         <br><br>
@@ -532,7 +529,7 @@
     <div class="footer-contact">
         <div class="footer-contact-left">
             <p style="margin-bottom: -8px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank"><img src="/image/map-icon.png" alt="Address Icon"> Eman Bestattungen GmbH</a></p>
-            <p style="margin-left: 50px;">Oberfeld 2<br>CH-6037 Root</p> <br>
+            <p style="margin-left: 50px;"><a href="https://www.google.com/maps?q=Oberfeld+2,+6037+Root+LU" target="_blank">Oberfeld 2<br>CH-6037 Root</a></p> <br>
             <p id="footer-mobil-number"><a href="tel:+41414403333"><img src="/image/phone-icon.png" alt="telefon" style="height: 30px; width: auto; margin-left: -5px;">+41 41 440 33 33</a></p>
 
             <p><a href="mailto:info@eman-bestattungen.ch"><img src="/image/email-icon.png" alt="Email Icon"> info@eman-bestattungen.ch</a></p>
@@ -580,7 +577,7 @@
                 about: "Über uns",
                 services: "Dienstleistungen",
                 contact: "Kontakt",
-                about_title: "Ihr Partner für islamische und kulturelle Bestattungen schweizweit",
+                about_title: "Ihr vertrauensvoller Partner für Bestattungen und Rückführungen",
                 about_content_1: `
                                     Eman Bestattungen ist ein Bestattungsinstitut, das sich auf islamische Bestattungen spezialisiert hat. Mit unserem tiefen Verständnis für religiöse und kulturelle Bedürfnisse und unserer langjährigen Erfahrung bieten wir Angehörigen und Interessierten professionelle und einfühlsame Unterstützung in schweren Zeiten.
                                     <br><br>
@@ -604,13 +601,13 @@
                 about: "About Us",
                 services: "Services",
                 contact: "Contact",
-                about_title: "Your partner for Islamic and cultural funerals across Switzerland",
+                about_title: "Your trusted partner for funerals and repatriations",
                 about_content_1: `
-                                Eman Funeral Services is a funeral institute specialized in Islamic funerals. With our deep understanding of religious and cultural needs and our many years of experience, we offer professional and empathetic support to relatives and interested parties during difficult times.
+                                Eman Funerals is a funeral home that specialises in Islamic funerals. With our deep understanding of religious and cultural needs and our many years of experience, we offer relatives and interested parties professional and sensitive support in difficult times.
                                 <br><br>
-                                Our team treats funerals of all religions and cultures with the utmost respect and care. We conduct funerals both in Switzerland and international repatriations, working closely with Swiss and international authorities to ensure a smooth process.
+                                Our team treats funerals of all religions and cultures with the utmost respect and care. We organise funerals in Switzerland as well as international repatriations and work closely with Swiss and international authorities to ensure that everything runs smoothly.
                                 <br><br>
-                                Our services are available to you and your relatives around the clock. We do everything possible to relieve you and guarantee a dignified course of all processes.
+                                Our services are available to you and your loved ones around the clock. We do everything we can to relieve you as much as possible and guarantee that all processes run with dignity.
                             `,
                 impressum: "Imprint",
                 privacy: "Privacy Policy",
@@ -628,13 +625,13 @@
                 about: "Hakkımızda",
                 services: "Hizmetler",
                 contact: "İletişim",
-                about_title: "İsviçre genelinde İslami ve kültürel cenazeler için ortağınız",
+                about_title: "Cenaze nakil  ve defin işlemlerinde güvenilir adresiniz",
                 about_content_1: `
-                            Eman Cenaze Hizmetleri, İslami cenazelere uzmanlaşmış bir cenaze kurumudur. Dini ve kültürel ihtiyaçlara olan derin anlayışımız ve yılların verdiği tecrübemiz ile zor zamanlarda akrabalara ve ilgililere profesyonel ve anlayışlı destek sunuyoruz.
+                            Eman Cenaze Hizmetleri olarak işinin ehli ve güvenilir ekibimiz ile İsviçre’de gerçekleşen cenaze işlemlerinin başlangıcından sonuna kadar ilgili tüm süreçlerde destek veriyoruz. Aynı hassasiyetle Türkiye başta olmak üzere tüm ülkelere cenaze nakli gerçekleştiren uluslararası cenaze nakil işletmesi olarak hizmet vermekteyiz.                            
                             <br><br>
-                            Ekibimiz, tüm dinlerin ve kültürlerin cenazelerini en yüksek saygı ve özenle ele alır. İsviçre'de hem cenaze törenleri düzenliyor hem de uluslararası nakil hizmetleri sağlıyoruz. Bu süreçte İsviçre ve uluslararası makamlarla yakından çalışarak sorunsuz bir sürecin sağlanmasını temin ediyoruz.
+                            Dini ve kültürel inançlara olan saygımız ve uzun yıllara dayanan tecrübemiz ile hüzünlü zamanlarınızda, yakınlarınızın son yolculuğunda sizlere profesyonel ve donanımlı bir hizmet sunuyoruz. Deneyimli ekibimiz ile, dini ve kültürel farklılık gözetmeksizin, bizlere emanet edilen her cenaze sürecini özenle ve hassasiyetle yönetiyoruz. 
                             <br><br>
-                            Hizmetlerimiz sizlere ve yakınlarınıza günün her saati sunulmaktadır. Sizi mümkün olduğunca rahatlatmak ve tüm süreçlerin saygın bir şekilde ilerlemesini sağlamak için elimizden gelen her şeyi yapıyoruz.
+                            İsviçre genelinde ve İsviçre dışındaki resmi kurum ve özel kuruluşlar ile güvenilir işbirliğimiz ve geniş iletişim ağımız ile haftanın 7 günü 24 saat hizmetinizdeyiz.
                         ` ,              
                 impressum: "Künye",
                 privacy: "Gizlilik Politikası",
