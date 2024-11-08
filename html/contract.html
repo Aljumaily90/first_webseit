@@ -289,33 +289,53 @@
             }
             .custom-dropdown {
                 position: relative;
-                width: 200px;
-            }
-            .dropdown-selected {
-                padding: 10px;
-                border: 1px solid black;
-                cursor: pointer;
-                text-align: left; /* Text linksbündig ausrichten */
-            }
-            .dropdown-options {
-                display: none; /* Versteckt Optionen standardmäßig */
-                position: absolute;
-                top: 100%;
-                left: 0;
+                display: inline-block;
                 width: 100%;
-                border: 1px solid #ccc;
-                background-color: #fff;
-                z-index: 1000;
-                text-align: left; /* Text linksbündig ausrichten */
+                text-align: left;
             }
+
+            .dropdown-selected {
+                background-color: #fff; /* Dunkler Hintergrund */
+                color: black; /* Helle Schriftfarbe */
+                padding: 10px;
+                border: 1px solid #555; /* Kontrastreicher Rand */
+                cursor: pointer;
+                border-radius: 5px; /* Abgerundete Ecken */
+                font-size: 14px;
+            }
+
+            .dropdown-options {
+                display: none;
+                position: absolute;
+                background-color: #fff; /* Dunkler Hintergrund für Optionen */
+                border: 1px solid #555; /* Kontrastreicher Rand */
+                border-radius: 5px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Leichter Schatten */
+                z-index: 1000;
+                width: 100%;
+                max-height: 200px;
+                overflow-y: auto; /* Scrollen, wenn viele Optionen */
+            }
+
             .dropdown-option {
                 padding: 10px;
+                color: black; /* Helle Schriftfarbe */
                 cursor: pointer;
-                text-align: left; /* Text linksbündig ausrichten */
             }
+
             .dropdown-option:hover {
-                background-color: #f0f0f0;
+                background-color: #555; /* Hover-Effekt */
+                color: #fff;
             }
+            #dropdown-arrow-anrede {
+                height: 20px;
+                margin-left: 5px;
+                vertical-align: middle;
+                filter: brightness(0) invert(0);
+                
+            }
+
+
 
 
 
@@ -708,11 +728,10 @@
                 </section>
                 <section id="notice">
                     <div class="custom-dropdown">
-                        <div class="dropdown-selected" id="selected-anrede" data-key="dropdownOptionAndere" onclick="toggleAnredeDropdown()">
-                            Andere
-                            <img id="dropdown-arrow-anrede" src="/image/arrow_down.png" alt="Dropdown Icon" style="height: 20px; margin-left: 5px; vertical-align: middle; filter: brightness(0) invert(0);">
+                        <div class="dropdown-selected" id="selected-anrede" onclick="toggleAnredeDropdown()">
+                            <span id="selected-anrede-text" data-key="dropdownOptionAndere">Andere</span>
+                            <img id="dropdown-arrow-anrede" src="/image/arrow_down.png" alt="Dropdown Icon">
                         </div>
-                    
                         <div class="dropdown-options" id="dropdownOptions">
                             <div class="dropdown-option" data-key="dropdownOptionAndere" onclick="selectOption('Andere')"></div>
                             <div class="dropdown-option" data-key="dropdownOptionFrau" onclick="selectOption('Frau')"></div>
@@ -939,7 +958,7 @@ function toggleAnredeDropdown() {
 }
 
 function selectOption(optionKey) {
-    const selectedAnrede = document.querySelector('.dropdown-selected');
+    const selectedAnrede = document.getElementById('selected-anrede-text'); // Korrektur hier
     const language = localStorage.getItem('selectedLanguage') || 'de'; // Hole die aktuelle Sprache aus localStorage
     const translationKey = `dropdownOption${optionKey}`;
 
