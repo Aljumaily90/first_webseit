@@ -10,13 +10,10 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;700&family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-
-
     <style>
 
 :root {
@@ -122,12 +119,17 @@
         padding: 10px;
         margin-right: 20px;
         transition: all 0.3s ease;
+        position: relative;
     }
     .navbar-nav .nav-link:hover {
         font-size: 22px;
         color: #383535 !important;
     }
-
+    .nav-link.active {
+            text-decoration: underline;
+           
+            
+        }
 
 /**************************content*************************************************/
         body {
@@ -137,7 +139,7 @@
         #about img {
             max-height: 500px; /* Passt die maximale Höhe des Bildes an, falls notwendig */
             object-fit: cover;  /* Sorgt dafür, dass das Bild die gesamte Fläche füllt */
-            width: 90%;
+            width: 100%;
         }
         /* About Section */
         #about {
@@ -219,6 +221,7 @@
  /***********************************media***********************************************/
 
  @media only screen and (max-width: 768px) {
+
             #logo {
             height: 50px;
             position: fixed;
@@ -283,7 +286,11 @@
             color: white !important;
             padding: 10px;
             text-align: center;
+            position: relative;
         }
+
+
+
 
         /* Mobile language dropdown */
         .mobile-language-dropdown {
@@ -341,14 +348,17 @@
                 font-size: 16px; /* Anpassung der Schriftgröße für mobile Ansicht */
                 line-height: 1.6;
                 margin-left: -30px;
-                width: 350px !important;
+                width: 125% !important; /* Nimmt die volle Breite des Containers ein */ 
             }
-            .aboutImage {
+            #about .aboutImage {
                 clip-path: inset(0 0 100px 0);
-                width: calc(100% + 78px) !important; /* Nimmt die volle Breite des Containers ein */             
-                display: block;
-                object-fit: cover;
-                margin-left: -40px!important;
+                width: 126% !important; /* Nimmt die volle Breite des Containers ein */             
+                display: flex;
+                
+                
+                margin-left: -40px;
+                
+
 
             }
 /*********************************FooterMedia**********************************************/
@@ -398,7 +408,7 @@
                 margin: 0; /* Entfernt Außenabstand um Links nebeneinander anzuzeigen */                
             }
             .footer-contact-center a {
-                font-size: 14px !important; /* Kleinere Schriftgröße für mobile Ansicht */
+                font-size: 12px !important; /* Kleinere Schriftgröße für mobile Ansicht */
                 color: white;
                 text-decoration: none; /* Entfernt Unterstreichung */
                 display: inline; /* Stellt sicher, dass die Links in einer Zeile angezeigt werden */                
@@ -411,7 +421,7 @@
                 padding-top: 10px;
             }
             .footer-bottom{
-                font-size: 14px !important;
+                font-size: 12px !important;
                 margin-top: -30px;
             }
             .footer-contact-center p::after {
@@ -465,16 +475,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/index.html" data-key="home">Home</a>
+                <a class="nav-link" href="/index.html" data-key="home" data-page="home" id="nav-home">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+                <a class="nav-link" href="/html/about.html" data-key="about" data-page="about" id="nav-about">Über uns</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/services.html" data-key="services">Dienstleistungen</a>
+                <a class="nav-link" href="/html/services.html" data-key="services" data-page="services" id="nav-services">Dienstleistungen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+                <a class="nav-link" href="/html/contract.html" data-key="contact" data-page="contact" id="nav-contact">Kontakt</a>
             </li>
 
         </ul>
@@ -498,7 +508,7 @@
         <div class="row no-gutters align-items-center">
             <!-- Image Column -->
             <div class="col-md-4 animate__animated animate__fadeInUp">
-                <img class="aboutImage" src="/image/about-icon.jpg" class="img-fluid" alt="About Us Image">
+                <img class="aboutImage" src="/image/about-icon.jpg"  alt="About Us Image">
             </div>
             <!-- Text Column -->
             <div class="col-md-8">
@@ -547,6 +557,7 @@
         <p class="footer-bottom" data-key="footerRights">&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.</p>
     </div>
 </footer>
+<script src="/js/highlight-current-page.js"></script>
 
 
     <!-- Bootstrap JS and dependencies -->

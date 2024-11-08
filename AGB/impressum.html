@@ -587,34 +587,106 @@
 
     <!-- Custom JS to handle language switching -->
     <script>
-        // Funktion zum Setzen der Sprache und Übersetzen der Inhalte
-       function setLanguage(language) {
-            document.getElementById('selected-language').childNodes[0].textContent = language.toUpperCase(); // Ändert nur den Text, ohne das Bild zu beeinflussen
+        // Funktion zum Setzen der Sprache und Übersetzen der Inhalte                
+        const translations = {
+            de: {
+                home: "Home",
+                about: "Über uns",
+                services: "Dienstleistungen",
+                contact: "Kontakt",
+                about_title: "Kontaktieren Sie uns",
+                impressum: "Impressum",
+                privacy: "Datenschutzerklärung",
+                terms: "AGB",
+                phoneHoursLabel: "Unsere Telefonzeiten:",
+                phoneHours: 'Sie erreichen uns telefonisch 24 Stunden 7 Tage die Woche:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Unsere Bürozeiten:",
+                officeHours: "Mo - Fr: 08:00 - 17:30 Uhr <br> Sa, So, Feiertag: nach Vereinbarung ",
+                languageLabel: "DE",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Alle Rechte vorbehalten.",
+
+        
+            },
+            en: {
+                home: "Home",
+                about: "About Us",
+                services: "Services",
+                contact: "Contact",
+                about_title: "Contact Us",
+                impressum: "Imprint",
+                privacy: "Privacy Policy",
+                terms: "AGB",
+                phoneHoursLabel: "Our Phone Hours:",
+                phoneHours: 'You can reach us by phone 24 hours, 7 days a week:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Our Office Hours:",
+                officeHours: "Mon - Fri: 08:00 - 17:30<br>Sat, Sun, Holidays: by appointment",
+                languageLabel: "EN",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. All rights reserved.",
+
+            },
+            tr: {
+                home: "Ana Sayfa",
+                about: "Hakkımızda",
+                services: "Hizmetler",
+                contact: "İletişim",
+                about_title: "Bizimle İletişime Geçin",
+                impressum: "Künye",
+                privacy: "Gizlilik Politikası",
+                terms: "AGB",
+                phoneHoursLabel: "Telefon Saatlerimiz:",
+                phoneHours: 'Bize haftanın 7 günü, 24 saat telefonla ulaşabilirsiniz:<br><a href="tel:+41796184444"><img src="/image/phone-icon.png" alt="Mobile Icon" style="margin-right: -2px; vertical-align: middle;"> +41 79 618 44 44</a>',
+                officeHoursLabel: "Ofis Saatlerimiz:",
+                officeHours: "Pzt - Cum: 08:00 - 17:30 <br> Cmt, Paz, Tatil: randevu ile",
+                languageLabel: "TR",
+                footerRights: "&copy; 2024 Eman Bestattungen GmbH. Tüm hakları saklıdır.",
+
+            }
+        };
+
+        function setLanguage(language) {
+            localStorage.setItem('selectedLanguage', language); // Speichert die Sprache im localStorage
+
+            document.querySelectorAll('.selected-language').forEach(element => {
+                element.childNodes[0].textContent = language.toUpperCase();
+            });
+            
             const elements = document.querySelectorAll('[data-key]');
             elements.forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[language][key]) {
-                    element.textContent = translations[language][key];
-                }
-            });
-        }
-        // Funktion zum Ein- und Ausblenden des Dropdowns
-        function toggleDropdown() {
-            document.getElementById("language-dropdown").classList.toggle("show");
-        }
-
-        // Schließen des Dropdowns, wenn außerhalb des Dropdowns geklickt wird
-        window.onclick = function(event) {
-            if (!event.target.matches('#selected-language') && !event.target.closest('.dropdown')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
+                    if (element.tagName === "INPUT" || element.tagName === "TEXTAREA") {
+                        element.placeholder = translations[language][key];
+                    } else {
+                        element.innerHTML = translations[language][key];
                     }
                 }
+            });
+
+        // Schließt das Dropdown-Menü nach Auswahl
+        document.querySelectorAll(".language-dropdown.show").forEach(dropdown => {
+            dropdown.classList.remove("show");
+        });
+    }
+   
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Lädt die gespeicherte Sprache aus dem LocalStorage (oder setzt 'de' als Standardwert), und wendet diese Sprache an.
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'de';
+    setLanguage(savedLanguage); // Ruft die Funktion `setLanguage` auf, um die gespeicherte Sprache anzuwenden.
+
+    // Fügt einen Klick-Event-Listener für jedes Element mit der Klasse 'selected-language' hinzu.
+    document.querySelectorAll(".selected-language").forEach(element => {
+        element.addEventListener("click", function (event) {
+            event.stopPropagation(); // Stoppt das Event-Bubbling, sodass der Klick nur auf dieses Element wirkt.
+            
+            const dropdown = element.nextElementSibling; // Das nächste Geschwister-Element nach 'selected-language' (das Dropdown-Menü).
+            if (dropdown) {
+                dropdown.classList.toggle("show"); // Zeigt oder versteckt das Dropdown-Menü, indem die Klasse "show" umgeschaltet wird.
             }
-        }
+        });
+    });
+});
                 // Separater Dokument-Ready-Block für die Logo-Größenänderung
         $(document).ready(function() {
             let logo = $('#logo');

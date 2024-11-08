@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -128,16 +129,25 @@
             background-color: transparent; /* Make navbar transparent */
         }
         .navbar-nav .nav-link {
-            font-weight: 700;
-            font-size: 20px;
-            color: #000 !important; /* Set link color to black */
-            padding: 10px;
-            transition: all 0.3s ease; /* Smooth transition for link styles */
-            margin-right: 20px;
+
+        font-weight: 700;
+        font-size: 20px;
+        color: #000 !important;
+        padding: 10px;
+        margin-right: 20px;
+        transition: all 0.3s ease;
         }
         .navbar-nav .nav-link:hover {
             font-size: 22px; /* Increase font size on hover */
             color: #383535 !important; /* Change link color on hover */
+        }
+
+
+
+        .nav-link.active {
+            text-decoration: underline;
+            
+
         }
 
 /**************************content*************************************************/
@@ -552,7 +562,7 @@
                 padding-top: 10px;
             }
             .footer-bottom{
-                font-size: 14px !important;
+                font-size: 12px !important;
                 margin-top: -30px;
             }
             .footer-contact-center p::after {
@@ -607,16 +617,16 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/index.html" data-key="home">Home</a>
+                <a class="nav-link" href="/index.html" data-key="home" data-page="home" id="nav-home">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/about.html" data-key="about">Über uns</a>
+                <a class="nav-link" href="/html/about.html" data-key="about" data-page="about" id="nav-about">Über uns</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/test.html" data-key="services">Dienstleistungen</a>
+                <a class="nav-link" href="/html/services.html" data-key="services" data-page="services" id="nav-services">Dienstleistungen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/html/contract.html" data-key="contact">Kontakt</a>
+                <a class="nav-link" href="/html/contract.html" data-key="contact" data-page="contact" id="nav-contact">Kontakt</a>
             </li>
 
         </ul>
