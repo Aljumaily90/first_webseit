@@ -629,6 +629,27 @@
                 content: ""; /* Entfernt das Trennzeichen beim letzten Element */
             }
         }
+        /* Automatischer Dark- und Hellmodus */
+@media (prefers-color-scheme: dark) {
+    #dropdown-arrow-anrede {
+        filter: brightness(0) invert(1); /* Weiß im Dark Mode */
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    #dropdown-arrow-anrede {
+        filter: brightness(0) invert(0); /* Schwarz im Hellmodus */
+    }
+}
+
+/* Manueller Moduswechsel */
+body.dark-mode #dropdown-arrow-anrede {
+    filter: brightness(0) invert(1); /* Weiß im Dark Mode */
+}
+
+body.light-mode #dropdown-arrow-anrede {
+    filter: brightness(0) invert(0); /* Schwarz im Hellmodus */
+}
        
     </style>
 </head>
